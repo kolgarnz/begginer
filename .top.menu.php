@@ -41,6 +41,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Информация", 
+		"/company/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>
