@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"PATH_TO_BASKET" => "/personal/cart/",
 		"PATH_TO_PERSONAL" => "/personal/",
 		"PATH_TO_PAYMENT" => "payment.php",
-		"PATH_TO_AUTH" => "/auth/",
+		"PATH_TO_AUTH" => "/auth/index.php",
 		"PAY_FROM_ACCOUNT" => "Y",
 		"COUNT_DELIVERY_TAX" => "N",
 		"COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",

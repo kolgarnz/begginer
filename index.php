@@ -2,13 +2,13 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Главная");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
-?>
+?> 
 <div>Новинки</div>
-
-<div>
+ 
+<div> 
   <br />
-</div>
-
+ </div>
+ 
 <div><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog",
 	"",
@@ -36,7 +36,7 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 		"DETAIL_META_KEYWORDS" => "-",
 		"DETAIL_META_DESCRIPTION" => "-",
 		"DETAIL_BROWSER_TITLE" => "-",
-		"BASKET_URL" => "/personal/basket.php",
+		"BASKET_URL" => "/personal/cart/",
 		"ACTION_VARIABLE" => "action",
 		"PRODUCT_ID_VARIABLE" => "id",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
@@ -83,7 +83,6 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"AJAX_OPTION_HISTORY" => "N"
-	),
-false
+	)
 );?></div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

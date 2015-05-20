@@ -1,22 +1,10 @@
 <?
 $arUrlRewrite = array(
 	array(
-		"CONDITION"	=>	"#^/personal/order/make/#",
-		"RULE"	=>	"",
-		"ID"	=>	"bitrix:sale.order.ajax",
-		"PATH"	=>	"/personal/makeorder.php",
-	),
-	array(
 		"CONDITION"	=>	"#^/company/department/#",
 		"RULE"	=>	"",
 		"ID"	=>	"",
 		"PATH"	=>	"/company/department.php",
-	),
-	array(
-		"CONDITION"	=>	"#^/company/finances/#",
-		"RULE"	=>	"",
-		"ID"	=>	"",
-		"PATH"	=>	"/company/finances.php",
 	),
 	array(
 		"CONDITION"	=>	"#^/company/contacts/#",
@@ -29,6 +17,12 @@ $arUrlRewrite = array(
 		"RULE"	=>	"",
 		"ID"	=>	"bitrix:main.profile",
 		"PATH"	=>	"/personal/profile.php",
+	),
+	array(
+		"CONDITION"	=>	"#^/company/finances/#",
+		"RULE"	=>	"",
+		"ID"	=>	"",
+		"PATH"	=>	"/company/finances.php",
 	),
 	array(
 		"CONDITION"	=>	"#^/company/clients/#",
@@ -57,7 +51,7 @@ $arUrlRewrite = array(
 	array(
 		"CONDITION"	=>	"#^/personal/cart/#",
 		"RULE"	=>	"",
-		"ID"	=>	"bitrix:eshop.sale.basket.basket",
+		"ID"	=>	"",
 		"PATH"	=>	"/personal/cart.php",
 	),
 	array(
@@ -67,10 +61,10 @@ $arUrlRewrite = array(
 		"PATH"	=>	"/company/news.php",
 	),
 	array(
-		"CONDITION"	=>	"#^auth.php#",
+		"CONDITION"	=>	"#auth.php#",
 		"RULE"	=>	"",
 		"ID"	=>	"",
-		"PATH"	=>	"/auth/",
+		"PATH"	=>	"/auth/index.php",
 	),
 );
 
