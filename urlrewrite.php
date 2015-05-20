@@ -7,12 +7,6 @@ $arUrlRewrite = array(
 		"PATH"	=>	"/company/department.php",
 	),
 	array(
-		"CONDITION"	=>	"#^/company/contacts/#",
-		"RULE"	=>	"",
-		"ID"	=>	"bitrix:main.feedback",
-		"PATH"	=>	"/company/contacts.php",
-	),
-	array(
 		"CONDITION"	=>	"#^/personal/profile/#",
 		"RULE"	=>	"",
 		"ID"	=>	"bitrix:main.profile",
@@ -25,16 +19,16 @@ $arUrlRewrite = array(
 		"PATH"	=>	"/company/finances.php",
 	),
 	array(
+		"CONDITION"	=>	"#^/company/contacts/#",
+		"RULE"	=>	"",
+		"ID"	=>	"bitrix:main.feedback",
+		"PATH"	=>	"/company/contacts.php",
+	),
+	array(
 		"CONDITION"	=>	"#^/company/clients/#",
 		"RULE"	=>	"",
 		"ID"	=>	"",
 		"PATH"	=>	"/company/clients.php",
-	),
-	array(
-		"CONDITION"	=>	"#^/personal/order/#",
-		"RULE"	=>	"",
-		"ID"	=>	"bitrix:sale.personal.order",
-		"PATH"	=>	"/personal/order.php",
 	),
 	array(
 		"CONDITION"	=>	"#^/company/stores/#",
