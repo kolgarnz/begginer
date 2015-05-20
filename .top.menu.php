@@ -29,22 +29,15 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
+		"Новости", 
+		"/news.php", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Общение", 
 		"/communication/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Социальная сеть", 
-		"/club/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Типовые примеры", 
-		"/examples/", 
 		Array(), 
 		Array(), 
 		"" 
