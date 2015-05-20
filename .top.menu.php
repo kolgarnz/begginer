@@ -12,35 +12,7 @@ $aMenuLinks = Array(
 		"/personal/", 
 		Array(), 
 		Array(), 
-		"" 
-	),
-	Array(
-		"Контент", 
-		"/content/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Магазин", 
-		"/e-store/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Новости", 
-		"/news.php", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Общение", 
-		"/communication/", 
-		Array(), 
-		Array(), 
-		"" 
+		"\$USER->IsAuthorized()" 
 	),
 	Array(
 		"Информация", 
