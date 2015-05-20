@@ -33,7 +33,7 @@ $APPLICATION->SetTitle("Новости");
 		"DISPLAY_NAME" => "Y",
 		"META_KEYWORDS" => "-",
 		"META_DESCRIPTION" => "-",
-		"BROWSER_TITLE" => "-",
+		"BROWSER_TITLE" => "NAME",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"DETAIL_FIELD_CODE" => array(),
 		"DETAIL_PROPERTY_CODE" => array(),
@@ -66,6 +66,5 @@ $APPLICATION->SetTitle("Новости");
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"AJAX_OPTION_HISTORY" => "N"
-	),
-false
+	)
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
