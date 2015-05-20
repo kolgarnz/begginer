@@ -8,17 +8,17 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Профиль", 
+		"Личный кабинет", 
 		"/personal/", 
 		Array(), 
 		Array(), 
-		"\$USER->IsAuthorized()" 
+		"" 
 	),
 	Array(
 		"Информация", 
 		"/company/", 
 		Array(), 
-		Array(), 
+		Array("NOTSHOW"=>"Y"), 
 		"" 
 	),
 	Array(
@@ -31,13 +31,6 @@ $aMenuLinks = Array(
 	Array(
 		"Поиск", 
 		"/search/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Личный кабинет", 
-		"/personal/", 
 		Array(), 
 		Array(), 
 		"" 

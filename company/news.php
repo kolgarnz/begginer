@@ -1,7 +1,5 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("keywords_inner", "Новости");
-$APPLICATION->SetPageProperty("title", "Новости");
 $APPLICATION->SetTitle("Новости");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news",
@@ -12,9 +10,9 @@ $APPLICATION->SetTitle("Новости");
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"USE_SHARE" => "N",
 		"SEF_MODE" => "N",
-		"AJAX_MODE" => "Y",
+		"AJAX_MODE" => "N",
 		"IBLOCK_TYPE" => "news",
-		"IBLOCK_ID" => "22",
+		"IBLOCK_ID" => "24",
 		"NEWS_COUNT" => "20",
 		"USE_SEARCH" => "N",
 		"USE_RSS" => "N",
@@ -26,7 +24,7 @@ $APPLICATION->SetTitle("Новости");
 		"SORT_ORDER1" => "DESC",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER2" => "ASC",
-		"CHECK_DATES" => "N",
+		"CHECK_DATES" => "Y",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => array(),
@@ -68,5 +66,6 @@ $APPLICATION->SetTitle("Новости");
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"AJAX_OPTION_HISTORY" => "N"
-	)
+	),
+false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

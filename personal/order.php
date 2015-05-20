@@ -8,12 +8,11 @@ $APPLICATION->SetTitle("История заказов");
 		"SEF_MODE" => "N",
 		"ORDERS_PER_PAGE" => "20",
 		"PATH_TO_PAYMENT" => "payment.php",
-		"PATH_TO_BASKET" => "basket.php",
+		"PATH_TO_BASKET" => "/personal/basket/",
 		"SET_TITLE" => "Y",
 		"SAVE_IN_SESSION" => "Y",
 		"NAV_TEMPLATE" => "",
-		"PROP_1" => "",
-		"PROP_2" => ""
-	),
-false
+		"PROP_1" => array(),
+		"PROP_2" => array()
+	)
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

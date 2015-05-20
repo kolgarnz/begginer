@@ -24,19 +24,17 @@
 		);?> </div>
 
 </div>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:menu",
-	"horizontal_multilevel",
-	Array(
-		"ROOT_MENU_TYPE" => "top", 
-		"MAX_LEVEL" => "3", 
-		"CHILD_MENU_TYPE" => "left", 
-		"USE_EXT" => "Y", 
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_CACHE_GET_VARS" => Array()
-	)
+<?$APPLICATION->IncludeComponent("bitrix:menu", "qsoft_horizontal_multilevel", Array(
+	"ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+	"MAX_LEVEL" => "3",	// Уровень вложенности меню
+	"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+	"USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+	"MENU_CACHE_TYPE" => "A",	// Тип кеширования
+	"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+	"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+	"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+	),
+	false
 );?> 
 <div id="zebra"></div>
 
