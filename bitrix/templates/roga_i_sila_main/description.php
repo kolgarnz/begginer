@@ -1,0 +1,1 @@
+<?$arTemplate = array("NAME"=>"roga_i_sila_main", "DESCRIPTION"=>"qsoft Igor Pinchuk");?>
