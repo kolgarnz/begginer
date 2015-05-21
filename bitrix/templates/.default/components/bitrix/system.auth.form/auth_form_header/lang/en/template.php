@@ -17,4 +17,9 @@ $MESS["AUTH_REMEMBER_SHORT"] = "Remember Me";
 $MESS["socserv_as_user_form"] = "Login As:";
 $MESS["AUTH_SECURE_NOTE"] = "The password will be encrypted before it is sent. This will prevent the password from appearing in open form over data transmission channels.";
 $MESS["AUTH_NONSECURE_NOTE"] = "The password will be sent in open form. Enable JavaScript in your web browser to enable password encryption.";
+
+//Customized
+$MESS['AUTH_AUTHORIZATION'] = "Authorization";
+$MESS['AUTH_PERSONAL_AREA'] = "Personal Area";
+$MESS['AUTH_HELLO'] = "Hello";
 ?>
