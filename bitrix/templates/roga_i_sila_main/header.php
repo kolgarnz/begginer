@@ -43,10 +43,14 @@
 	"SHOW_ERRORS" => "Y"
 	),
 	false
-);?>					<div class="basket_block inline-block">
-						<a href="#" class="basket_product_count inline-block">0</a>
-						<a href="#" class="order_button pie">Оформить заказ</a>
-					</div>
+);?>
+<?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "basket_line_header", Array(
+	"PATH_TO_BASKET" => "/personal/cart/",
+	"PATH_TO_PERSONAL" => "/personal/",
+	"SHOW_PERSONAL_LINK" => "N",
+	),
+	false
+);?>
 				</div>
 			</header>
 			<section class="fixed_block">
