@@ -1,1 +1,1 @@
-<?$arTemplate = array("NAME"=>"roga_i_sila_main", "DESCRIPTION"=>"qsoft Igor Pinchuk");?>
+<?$arTemplate = array("NAME"=>"roga_i_sila_main", "DESCRIPTION"=>"Шаблон главной страницы Roga I Sila");?>

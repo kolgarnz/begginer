@@ -8,7 +8,7 @@ slider*/
 /*news*/
 .news_block
 {
-	background: url("/images/dark_bg.png") 0 0 repeat;
+	background: url("/bitrix/templates/.default/images/dark_bg.png") 0 0 repeat;
 	overflow: hidden;
 	padding: 14px 22px;
 }
@@ -83,7 +83,7 @@ slider*/
 }
 .page_nav .prev, .page_nav .next
 {
-	background: url("/images/sprite.png") no-repeat;
+	background: url("/bitrix/templates/.default/images/sprite.png") no-repeat;
 	height: 15px;
 	padding: 0;
 	width: 9px;
@@ -225,7 +225,7 @@ slider*/
 			margin-left: -5px;
 			width: 10px;
 			height: 5px;
-			background: url("/images/sprite.png") 0 -130px no-repeat;
+			background: url("/bitrix/templates/.default/images/sprite.png") 0 -130px no-repeat;
 			content: "";
 		}
 			.b-product-photo__thumbnail-item__content {
@@ -270,7 +270,7 @@ slider*/
 }
 .slide_button
 {
-	background: url("/images/controls.png") 2px -229px;
+	background: url("/bitrix/templates/.default/images/controls.png") 2px -229px;
 	cursor: pointer;
 	height: 10px;
 	position: absolute;
@@ -299,7 +299,7 @@ slider*/
 }
 .other_view .button
 {
-	background: url("/images/controls.png") 100px 100px no-repeat;
+	background: url("/bitrix/templates/.default/images/controls.png") 100px 100px no-repeat;
 	cursor: pointer;
 	height: 31px;
 	width: 31px;
@@ -352,7 +352,7 @@ slider*/
 }
 .other_items div.current:before, .other_item_current_corner
 {
-	background: url("/images/sprite.png") 0 -130px no-repeat;
+	background: url("/bitrix/templates/.default/images/sprite.png") 0 -130px no-repeat;
 	bottom: 100%;
 	content: "";
 	height: 5px;
