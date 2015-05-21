@@ -28,6 +28,7 @@
 		<![endif]-->
 	</head>
 	<body>
+		<?$APPLICATION->ShowPanel();?>
 		<div class="wrapper">
 			<div class="base_layer"></div>
 			<header class="header">
