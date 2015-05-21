@@ -55,11 +55,12 @@
 			</header>
 			<section class="fixed_block">
 				<div class="width_960">
-					<form name="search_form" class="search_form pie">
-							<div class="search_form_wrapper">
-								<input type="text" placeholder="Поиск по сайту"/>
-								<input type="submit" value=""/>
-							</div>
+<?$APPLICATION->IncludeComponent("bitrix:search.form", "search_form_header", array(
+	"PAGE" => "/search/",
+	"USE_SUGGEST" => "N"
+	),
+	false
+);?>
 					</form>
 					<nav class="main_menu">
 						<ul>
