@@ -64,10 +64,14 @@
 					<div class="inline-block">
 						<a href="/" class="logo inline-block"></a>
 					</div>
-					<nav class="top_menu grey inline-block">
-						<a href="#" class="register">Регистрация</a>
-						<a href="#" class="auth">Авторизация</a>
-					</nav>
+<?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "auth_form_header", array(
+	"REGISTER_URL" => "/auth/",
+	"FORGOT_PASSWORD_URL" => "",
+	"PROFILE_URL" => "/personal/",
+	"SHOW_ERRORS" => "Y"
+	),
+	false
+);?>
 					<div class="basket_block inline-block">
 						<a href="#"class="basket_product_count inline-block">7</a>
 						<a href="#" class="order_button pie active">Оформить заказ</a>

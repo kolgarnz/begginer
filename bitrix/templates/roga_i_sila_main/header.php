@@ -36,11 +36,14 @@
 					<div class="inline-block">
 						<span class="logo inline-block"></span>
 					</div>
-					<nav class="top_menu grey inline-block">
-						<a href="#" class="register">Регистрация</a>
-						<a href="#" class="auth">Авторизация</a>
-					</nav>
-					<div class="basket_block inline-block">
+<?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "auth_form_header", array(
+	"REGISTER_URL" => "/auth/",
+	"FORGOT_PASSWORD_URL" => "",
+	"PROFILE_URL" => "/personal/",
+	"SHOW_ERRORS" => "Y"
+	),
+	false
+);?>					<div class="basket_block inline-block">
 						<a href="#" class="basket_product_count inline-block">0</a>
 						<a href="#" class="order_button pie">Оформить заказ</a>
 					</div>
