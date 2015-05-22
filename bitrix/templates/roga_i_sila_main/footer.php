@@ -43,7 +43,15 @@
 			</section>
 			<div class="footer_inner">
 				<a href="http://www.qsoft.ru" target="_blank" class="qsoft grey inline-block"><?=GetMessage('CREATED_IN_QSOFT')?></a>
-				<div class="copy">&copy; 2013 Рога &amp; Сила. Продажа автомобилей.</div>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"PATH" => "/bitrix/templates/.default/include_areas/copyright.php",
+		"EDIT_TEMPLATE" => "copyright.php"
+	)
+);?>
 			</div>
 		</footer>
 	</body>
