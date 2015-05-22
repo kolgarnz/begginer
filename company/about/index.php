@@ -87,29 +87,6 @@ $APPLICATION->SetTitle("О компании");
 									<figcaption>
 							</figure>
 						</section>
-						<section class="shops_block">
-							<h2>Наши салоны</h2>
-							<div>
-								<figure class="shops_block_item">
-									<a href=""><img src="/bitrix/templates/.default/images/test_shop_1.png" alt="" title="" /></a>
-									<figcaption class="shops_block_item_description">
-										<h3 class="shops_block_item_name"><a href="#">Салон на братиславской</a></h3>
-										<p class="dark_grey">Москва, ул. Братиславская, дом 23</p>
-										<p class="black">+7 495 987 65 43</p>
-										<p>Часы работы:<br/> c 9.00 до 21.00</p>
-									</figcaption>
-								</figure>
-								<figure class="shops_block_item">
-									<a href=""><img src="/bitrix/templates/.default/images/test_shop_2.png" alt="" title="" /></a>
-									<figcaption class="shops_block_item_description">
-										<h3 class="shops_block_item_name"><a href="#">Салон на братиславской</a></h3>
-										<p class="dark_grey">Москва, ул. Братиславская, дом 23</p>
-										<p class="black">+7 495 987 65 43</p>
-										<p>Часы работы:<br/> c 9.00 до 21.00</p>
-									</figcaption>
-								</figure>
-							</div>
-						</section>
 						<h2>Форма</h2>
 						<form>
 							<div class="field_row">
