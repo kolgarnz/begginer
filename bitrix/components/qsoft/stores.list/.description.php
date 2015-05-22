@@ -8,9 +8,9 @@ $arComponentDescription = array(
 	"CACHE_PATH" => "Y",
 	"SORT" => 40,
 	"PATH" => array(
-		"ID" => "my_components",
+		"ID" => "QSoft",
 		"CHILD" => array(
-			"ID" => "catalog_ext",
+			"ID" => "stores.list",
 			"NAME" => GetMessage("T_IBLOCK_DESC_STORE"),
 			"SORT" => 20,
 		)
