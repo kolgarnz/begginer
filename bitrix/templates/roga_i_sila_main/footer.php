@@ -9,30 +9,21 @@
 		</div>
 		<footer class="footer width_960">
 			<section class="float_inner bottom_block">
-				<section class="shops_block">
-					<h2 class="inline-block">Наши салоны</h2>
-					<span class="dark_grey all_list">&nbsp;/&nbsp;<a href="#" class="text_decor_none"><b>Все</b></a></span>
-					<div>
-						<figure class="shops_block_item">
-							<a href=""><img src="/bitrix/templates/.default/images/test_shop_1.png" alt="" title="" /></a>
-							<figcaption class="shops_block_item_description">
-								<h3 class="shops_block_item_name">Салон на братиславской</h3>
-								<p class="dark_grey">Москва, ул. Братиславская, дом 23</p>
-								<p class="black">+7 495 987 65 43</p>
-								<p>Часы работы:<br/> c 9.00 до 21.00</p>
-							</figcaption>
-						</figure>
-						<figure class="shops_block_item">
-							<a href=""><img src="/bitrix/templates/.default/images/test_shop_2.png" alt="" title="" /></a>
-							<figcaption class="shops_block_item_description">
-								<h3 class="shops_block_item_name">Салон на братиславской</h3>
-								<p class="dark_grey">Москва, ул. Братиславская, дом 23</p>
-								<p class="black">+7 495 987 65 43</p>
-								<p>Часы работы:<br/> c 9.00 до 21.00</p>
-							</figcaption>
-						</figure>
-					</div>
-				</section>
+<?$APPLICATION->IncludeComponent(
+	"qsoft:stores.list",
+	"",
+	Array(
+		"IBLOCK_TYPE" => "news",
+		"IBLOCK_ID" => "23",
+		"PARENT_SECTION" => "",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"CACHE_GROUPS" => "Y",
+		"IBLOCK_ELEMENT_COUNT" => "2",
+		"IBLOCK_SHOW_MAP" => "N",
+		"IBLOCK_ALL_URL" => "/company/stores/"
+	)
+);?>
 				<section class="info_block left_block_shadow">
 					<h2>Информация</h2>
 					<nav class="grey">
