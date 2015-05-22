@@ -24,18 +24,22 @@
 		"IBLOCK_ALL_URL" => "/company/stores/"
 	)
 );?>
-				<section class="info_block left_block_shadow">
-					<h2>Информация</h2>
-					<nav class="grey">
-						<ul>
-							<li><a href="#">О компании</a></li>
-							<li><a href="#">Контактная информация</a></li>
-							<li><a href="#">Условия продаж</a></li>
-							<li><a href="#">Финансовый отдел</a></li>
-							<li><a href="#">Для клиентов</a></li>
-						</ul>
-					</nav>
-				</section>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:menu",
+	"menu_footer",
+	Array(
+		"ROOT_MENU_TYPE" => "bottom",
+		"MAX_LEVEL" => "1",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "N",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => ""
+	)
+);?>
 			</section>
 			<div class="footer_inner">
 				<a href="http://www.qsoft.ru" target="_blank" class="qsoft grey inline-block"><?=GetMessage('CREATED_IN_QSOFT')?></a>

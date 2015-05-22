@@ -100,19 +100,21 @@
 					</nav>
 					<section class="content_area">
 						<aside class="left_block">
-						<nav>
-							<ul class="left_menu">
-								<li>
-									<span>Информация</span>
-									<ul>
-										<li><a href="#">О компнаии</a></li>
-										<li><a href="#">Контактная информация</a></li>
-										<li><a href="#">Условия продаж</a></li>
-										<li><a href="#">Финансовый отдел</a></li>
-										<li><a href="#">Для клиентов</a></li>
-									</ul>
-								</li>
-							</ul>
-						</nav>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:menu",
+	"menu_left",
+	Array(
+		"ROOT_MENU_TYPE" => "bottom",
+		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => array(),
+		"MAX_LEVEL" => "1",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "N",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N"
+	)
+);?>
 					</aside>
 						<h1><?$APPLICATION->ShowTitle()?></h1>
