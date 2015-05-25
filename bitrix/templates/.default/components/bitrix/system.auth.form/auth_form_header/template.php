@@ -17,7 +17,7 @@ else:
 <nav class="top_menu grey inline-block authorize">
 	<span><?=GetMessage("AUTH_HELLO")?>,</span>
 	<a href="/personal/profile/"><b class="user_name"><?=$arResult["USER_NAME"]?></b></a>
-	<a href="<?=$arResult["PROFILE_URL"]?>"><?=GetMessage("AUTH_PERSONAL_AREA")?></a>
+	<a href="<?=$arParams["PROFILE_URL"]?>"><?=GetMessage("AUTH_PERSONAL_AREA")?></a>
 	<a class="logout" href="<?echo $APPLICATION->GetCurPageParam("logout=yes", array(
      "login",
      "logout",
