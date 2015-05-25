@@ -1,6 +1,6 @@
 <?
-$PERM["news"]["G6"]="W";
-$PERM["news"]["G8"]="W";
-$PERM["stores"]["G6"]="W";
-$PERM["stores"]["G8"]="W";
+$PERM["stores"]["6"]="W";
+$PERM["stores"]["8"]="W";
+$PERM["news"]["6"]="W";
+$PERM["news"]["8"]="W";
 ?>
