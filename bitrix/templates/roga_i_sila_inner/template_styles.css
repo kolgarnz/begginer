@@ -9,6 +9,7 @@
 	padding: 0 20px 30px 18px;
 	border-left: 2px solid #efefef;
 	position: relative;
+	min-height: 400px;
 }
 hr.bottom_line{
 	border: 1px solid #efefef;
