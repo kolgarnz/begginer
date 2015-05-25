@@ -6,15 +6,11 @@ CHTTP::SetStatus("404 Not Found");
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
-$APPLICATION->SetTitle("404 Not Found");
-
-$APPLICATION->IncludeComponent("bitrix:main.map", ".default", Array(
-	"LEVEL"	=>	"3",
-	"COL_NUM"	=>	"2",
-	"SHOW_DESCRIPTION"	=>	"Y",
-	"SET_TITLE"	=>	"Y",
-	"CACHE_TIME"	=>	"3600"
-	)
-);
-
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+$APPLICATION->SetTitle("404 ошибка: Страница не найдена");?>
+<p>
+	К сожалению, такая страница не найдена.</br> 
+	Данная страница была удалена с сайта, либо ее никогда не существовало.</br> 
+	Вы можете вернуться на <a href="/" class="grey text_decor_none">Главную страницу</a> или воспользоваться <a href="/search/" class="grey text_decor_none">поиском</a>.</br>
+	Если Вы хотите что-то сообщить, напишите нам с помощью формы <a href="/company/contacts/" class="grey text_decor_none">Обратная связь</a>.</br>
+</p>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
