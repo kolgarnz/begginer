@@ -39,13 +39,13 @@ $(document).ready(function(){
               $(this).parents(".product_item").find("h3 a").removeClass("active");
           }
       );
-  /*x_catalog*/
+  /*x_catalog
 
   $('.content_area table').each(function(){
       if (!$(this).hasClass('without_color')) {
           $("tbody tr:odd").css('background-color', '#f8f8f8');
       }
-  })
+  })*/
 
   /*dynamic_pie*/
     function setPie(selectors){

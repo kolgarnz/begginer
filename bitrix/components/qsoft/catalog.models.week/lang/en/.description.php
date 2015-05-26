@@ -1,5 +1,5 @@
 <?
-$MESS ['T_IBLOCK_DESC_STORE_LIST'] = "Random elements";
-$MESS ['T_IBLOCK_DESC_STORE_DESC'] = "Show random elements";
-$MESS ['T_IBLOCK_DESC_STORE'] = "Stores Extension";
+$MESS ['T_IBLOCK_DESC_CATALOG'] = "Catalog";
+$MESS ['IBLOCK_SECTION_TEMPLATE_NAME'] = "Catalog elements";
+$MESS ['IBLOCK_SECTION_TEMPLATE_DESCRIPTION'] = "Displays the section elements with a set of properties, prices etc.";
 ?>

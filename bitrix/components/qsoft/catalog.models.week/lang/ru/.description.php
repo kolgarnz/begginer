@@ -1,5 +1,5 @@
 <?
-$MESS ['T_IBLOCK_DESC_STORE_LIST'] = "Случайные элементы";
-$MESS ['T_IBLOCK_DESC_STORE_DESC'] = "Показывает один или более произвольный элемент";
-$MESS ['T_IBLOCK_DESC_STORE'] = "Расширения Салонов";
+$MESS ['T_IBLOCK_DESC_CATALOG'] = "Каталог";
+$MESS ['IBLOCK_SECTION_TEMPLATE_NAME'] = "Элементы каталога";
+$MESS ['IBLOCK_SECTION_TEMPLATE_DESCRIPTION'] = "Выводит элементы раздела с указанным набором свойств, цен и т.д.";
 ?>

@@ -2,18 +2,18 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arComponentDescription = array(
-	"NAME" => GetMessage("T_IBLOCK_DESC_STORE_LIST"),
-	"DESCRIPTION" => GetMessage("T_IBLOCK_DESC_STORE_DESC"),
-	"ICON" => "/images/photo_view.gif",
+	"NAME" => GetMessage("IBLOCK_SECTION_TEMPLATE_NAME"),
+	"DESCRIPTION" => GetMessage("IBLOCK_SECTION_TEMPLATE_DESCRIPTION"),
+	"ICON" => "/images/cat_list.gif",
 	"CACHE_PATH" => "Y",
-	"SORT" => 40,
+	"SORT" => 30,
 	"PATH" => array(
 		"ID" => "QSoft",
 		"CHILD" => array(
-			"ID" => "stores.list",
-			"NAME" => GetMessage("T_IBLOCK_DESC_STORE"),
-			"SORT" => 20,
-		)
+			"ID" => "QSoft",
+			"NAME" => GetMessage("T_IBLOCK_DESC_CATALOG"),
+			"SORT" => 30,
+		),
 	),
 );
 
