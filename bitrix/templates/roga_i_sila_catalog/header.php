@@ -6,7 +6,7 @@
 <!--[if IE 9]>    <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html> <!--<![endif]-->
 	<head>
-		<?$APPLICATION->ShowHead()?>
+		
 		<title><?$APPLICATION->ShowTitle()?></title>
 		<link href="/bitrix/templates/.default/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="/bitrix/templates/.default/css/base.css"/>
@@ -27,6 +27,7 @@
 		<!--[if lt IE 9]>
 			<script src="/bitrix/templates/.default/js/html5shiv.js"></script>
 		<![endif]-->
+		<?$APPLICATION->ShowHead()?>
 		<script>
 		/*перенести  в скрипт компонента*/
 		  window.onload = function() {

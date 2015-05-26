@@ -9,11 +9,6 @@ $(window).load(function(){
 });
 
 $(document).ready(function(){
-	if ( $(".bxslider").length>0){
-		$(".bxslider").bxSlider({
-			auto:true
-		});
-	}
 
 	$("select").selectmenu({handleWidth: 26});
   $('input[placeholder], textarea[placeholder]').placeholder();

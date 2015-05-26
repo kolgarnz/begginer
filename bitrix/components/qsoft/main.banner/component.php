@@ -13,11 +13,6 @@ if ($arParams["CACHE_TYPE"] == "Y" || ($arParams["CACHE_TYPE"] == "A" && COption
 else
 	$arParams["CACHE_TIME"] = 0;
 
-//Result
-$arResult = Array(
-	"BANNER" => "",
-	"BANNER_PROPERTIES" => Array(),
-);
 
 $obCache = new CPHPCache;
 $cache_id = SITE_ID."|advertising.banner|".serialize($arParams)."|".$USER->GetGroups();
@@ -28,23 +23,20 @@ if ($obCache->StartDataCache($arParams["CACHE_TIME"], $cache_id, $cache_path))
 	if(!CModule::IncludeModule("advertising"))
 		return;
 
-//	$arBanners = CAdvBanner::GetList('s_id','asc',array(
-//		'ACTIVE' => 'Y',
-//		'TYPE_SID' => $arParams["TYPE"]
-//	));		
-	
-//	echo '<pre>';
-//	var_dump($arBanners);
-//	echo '</pre>';
+	$rs = CAdvBanner::GetList($by="s_id", $order="desc", array("TYPE_SID" => $arParams["TYPE"], "TYPE_SID_EXACT_MATCH" => "Y", "ACTIVE" => "Y"), $if_filtered, "N");
+	while($ar = $rs->Fetch())
+	{
+		$imgUrl = CFile::GetPath(intval($ar['IMAGE_ID']));
 		
-	$arBanner = CAdvBanner::GetRandom($arParams["TYPE"]);
-	$strReturn = CAdvBanner::GetHTML($arBanner, ($arParams["NOINDEX"] == "Y"));
-
-	$arResult["BANNER"] = $strReturn;
-	$arResult["BANNER_PROPERTIES"] = $arBanner;
-
-	if (strlen($arResult["BANNER"])>0)
-		CAdvBanner::FixShow($arBanner);
+		if(strlen($ar['URL']) > 0 && $imgUrl)
+		$arResult[] = array(
+			'URL' => $ar['URL'],
+			'IMG_URL' => $imgUrl
+			);
+		unset($ar);
+		unset($imgUrl);
+	}
+	unset($rs);
 
 	$this->IncludeComponentTemplate();
 
@@ -62,11 +54,5 @@ else
 	$arVars = $obCache->GetVars();
 	$arResult = $arVars["arResult"];
 	$this->SetTemplateCachedData($arVars["templateCachedData"]);
-}
-
-if ($USER->IsAuthorized() && $APPLICATION->GetShowIncludeAreas())
-{
-	if(($arIcons = CAdvBanner::GetEditIcons($arResult["BANNER_PROPERTIES"], $arParams["TYPE"])) !== false)
-		$this->AddIncludeAreaIcons($arIcons);
 }
 ?>

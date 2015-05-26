@@ -2,37 +2,16 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Главная");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
-?>					<div class="slider">
-						<ul class="bxslider">
-							<li>
-								<div class="banner">
-									<img src="/bitrix/templates/.default/images/test_slider_1.png" alt="" title="" />
-									<div class="banner_content">
-										<h1>Купи Роллс Ройс, получи Отчество к&nbsp;своему имени</h1>
-										<h2>Аподейктика индуктивно подчеркивает катарсис, однако Зигварт считал критерием истинности необходимость и&nbsp;общезначимость, для&nbsp;которых нет никакой опоры в&nbsp;объективном мире <a href="#1" class="detail_link">подробнее</a></h2>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="banner">
-									<img src="/bitrix/templates/.default/images/test_slider_2.png" alt="" title="" />
-									<div class="banner_content">
-										<h1>Купи Астон Мартин, получи секретное Задание</h1>
-										<h2>Аподейктика индуктивно подчеркивает катарсис, однако Зигварт считал критерием истинности необходимость и общезначимость, для которых нет никакой опоры в объективном мире <a href="#2" class="detail_link">подробнее</a></h2>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="banner">
-									<img src="/bitrix/templates/.default/images/test_slider_3.png" alt="" title="" />
-									<div class="banner_content">
-										<h1>Купи Бентли, получи бейсболку</h1>
-										<h2>Аподейктика индуктивно подчеркивает катарсис, однако Зигварт считал критерием истинности необходимость и общезначимость, для которых нет никакой опоры в объективном мире <a href="#3" class="detail_link">подробнее</a></h2>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
+?><?$APPLICATION->IncludeComponent(
+	"qsoft:main.banner",
+	"",
+	Array(
+		"TYPE" => "MAIN_PAGE",
+		"NOINDEX" => "N",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "0"
+	)
+);?>
 					<h2 class="push_right">Модели недели</h2>
 					<section class="product_line">
 						<figure class="product_item">
