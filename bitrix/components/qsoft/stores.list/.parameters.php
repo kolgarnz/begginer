@@ -15,6 +15,15 @@ while($arr=$rsIBlock->Fetch())
 {
 	$arIBlock[$arr["ID"]] = "[".$arr["ID"]."] ".$arr["NAME"];
 }
+
+
+$arAscDesc = array(
+	"asc" => GetMessage("IBLOCK_SORT_ASC"),
+	"desc" => GetMessage("IBLOCK_SORT_DESC"),
+);
+
+
+
 /////////////////////
 
 $arComponentParameters = array(
@@ -49,6 +58,25 @@ $arComponentParameters = array(
 			"TYPE" => "CHECKBOX",
 			"DEFAULT" => "Y",
 		),
+		"ELEMENT_SORT_FIELD" => array(
+			"PARENT" => "DATA_SOURCE",
+			"NAME" => GetMessage("IBLOCK_ELEMENT_SORT_FIELD"),
+			"TYPE" => "LIST",
+			"VALUES" => array(
+				"name" => GetMessage("IBLOCK_SORT_NAME"),
+				"id" => GetMessage("IBLOCK_SORT_ID"),
+			),
+			"ADDITIONAL_VALUES" => "Y",
+			"DEFAULT" => "sort",
+		),
+		"ELEMENT_SORT_ORDER" => array(
+			"PARENT" => "DATA_SOURCE",
+			"NAME" => GetMessage("IBLOCK_ELEMENT_SORT_ORDER"),
+			"TYPE" => "LIST",
+			"VALUES" => $arAscDesc,
+			"DEFAULT" => "asc",
+			"ADDITIONAL_VALUES" => "Y",
+		),	
 		//custom component fields
 		"IBLOCK_ELEMENT_COUNT" => array(
 			"PARENT" => "VISUAL",

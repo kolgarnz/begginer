@@ -124,13 +124,8 @@ $arComponentParameters = array(
 			"NAME" => GetMessage("IBLOCK_ELEMENT_SORT_FIELD"),
 			"TYPE" => "LIST",
 			"VALUES" => array(
-				"shows" => GetMessage("IBLOCK_SORT_SHOWS"),
-				"sort" => GetMessage("IBLOCK_SORT_SORT"),
-				"timestamp_x" => GetMessage("IBLOCK_SORT_TIMESTAMP"),
 				"name" => GetMessage("IBLOCK_SORT_NAME"),
 				"id" => GetMessage("IBLOCK_SORT_ID"),
-				"active_from" => GetMessage("IBLOCK_SORT_ACTIVE_FROM"),
-				"active_to" => GetMessage("IBLOCK_SORT_ACTIVE_TO"),
 			),
 			"ADDITIONAL_VALUES" => "Y",
 			"DEFAULT" => "sort",

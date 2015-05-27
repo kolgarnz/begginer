@@ -488,7 +488,8 @@ if($resultBBBB = $this->StartResultCache(false, array($arrFilter, ($arParams["CA
 		if (isset($value))
 			unset($value);
 	}
-
+	
+	
 	$arSort = array(
 		$arParams["ELEMENT_SORT_FIELD"] => $arParams["ELEMENT_SORT_ORDER"],
 		"ID" => "ASC",

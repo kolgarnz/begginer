@@ -8,4 +8,12 @@ $MESS["CP_BPR_CACHE_GROUPS"] = "Respect Access Permissions";
 $MESS["IBLOCK_ELEMENT_COUNT"] = "Elements count on page";
 $MESS["IBLOCK_ALL_URL"] = "URL of 'All'";
 $MESS["IBLOCK_SHOW_MAP"] = "Show map";
+
+$MESS["IBLOCK_SORT_ASC"] = "ascending";
+$MESS["IBLOCK_SORT_DESC"] = "descending";
+$MESS["IBLOCK_ELEMENT_SORT_ORDER"] = "Elements sort order";
+$MESS["IBLOCK_ELEMENT_SORT_FIELD"] = "Field to sort elements";
+$MESS["IBLOCK_SORT_SORT"] = "sorting index";
+$MESS["IBLOCK_SORT_NAME"] = "name";
+$MESS["IBLOCK_SORT_ID"] = "ID";
 ?>
