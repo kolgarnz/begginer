@@ -1,14 +1,18 @@
 <section class="shops_block">
-	<div id="<?=$this->GetEditAreaId($store['IBLOCK_ID']);?>">
+	<div>
 	
-	<?foreach($arResult as $store):?>
+	<?foreach($arResult['ITEMS'] as $store):?>
 		
 		<?
 		$this->AddEditAction($store['ID'], $store['EDIT_LINK'], CIBlock::GetArrayByID($store["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($store['ID'], $store['DELETE_LINK'], CIBlock::GetArrayByID($store["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 		?>
 		<figure class="shops_block_item" id="<?=$this->GetEditAreaId($store['ID']);?>">
-			<a href="<?=$arParams['IBLOCK_ALL_URL']?><?=$store['ID']?>"><img src="<?=$store["PICTURE"]["SRC"]?>" alt="<?=$store['NAME']?>" title="<?=$store['NAME']?>"></a>
+			<?if(is_array($store["PICTURE"])):?>
+				<a href="<?=$arParams['IBLOCK_ALL_URL']?><?=$store['ID']?>"><img src="<?=$store["PICTURE"]["SRC"]?>" alt="<?=$store['NAME']?>" title="<?=$store['NAME']?>"></a>
+			<?else:?>
+				<a href="<?=$arParams['IBLOCK_ALL_URL']?><?=$store['ID']?>"><img src="/bitrix/templates/.default/images/no-image.jpg" alt="<?=$store['NAME']?>" title="<?=$store['NAME']?>"></a>
+			<?endif?>
 			<figcaption class="shops_block_item_description">
 				<h3 class="shops_block_item_name"><?=$store['NAME']?></h3>
 				<p class="dark_grey" id="shops_block_item_adress"><?=$store['PROPERTY_ADDRESS_VALUE']?></p>

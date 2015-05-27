@@ -25,7 +25,9 @@ $arParams["IBLOCK_ID"] = intval($arParams["IBLOCK_ID"]);
 if($arParams["IBLOCK_ELEMENT_COUNT"] < 0)
 	$arParams["IBLOCK_ELEMENT_COUNT"] = 0;
 	
-if(!isset($arParams["IBLOCK_SHOW_MAP"]))
+if("Y"===$arParams["IBLOCK_SHOW_MAP"])
+	$arParams["IBLOCK_SHOW_MAP"] = true;
+else
 	$arParams["IBLOCK_SHOW_MAP"] = false;
 
 
@@ -52,8 +54,10 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
 		"PROPERTY_WORK_HOURS",
 		"PROPERTY_PHONE",
 		"PROPERTY_ADDRESS",
-		"PROPERTY_MAP"
 	);
+
+	if($arParams["IBLOCK_SHOW_MAP"]) $arSelect[] = "PROPERTY_MAP";
+	
 	//WHERE
 	$arFilter = array(
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -82,8 +86,7 @@ if($arParams["PARENT_SECTION"]>0)
 	$rsIBlockElement->SetUrlTemplates($arParams["IBLOCK_ALL_URL"]);
 
 	
-	
-	
+	$arResult = array();
 	$i = 0;
 	do
 	{
@@ -93,23 +96,42 @@ if($arParams["PARENT_SECTION"]>0)
 		if($temp = $rsIBlockElement->GetNext())
 		{
 			$temp["PICTURE"] = CFile::GetFileArray($temp["PREVIEW_PICTURE"]);
+			
+			
+			$arResult['ITEMS'][$temp['ID']] = $temp;	
+			
+			
+			if($arParams["IBLOCK_SHOW_MAP"])
+				{
+				$yaTmp = explode(',', $temp['PROPERTY_MAP_VALUE']);
+				$arResult['POSITION']['yandex_lat'] = $yaTmp[0];
+				$arResult['POSITION']['yandex_lon'] = $yaTmp[1];
+				$arResult['POSITION']['PLACEMARKS'][] = array(
+					'LAT' => $yaTmp[0],
+					'LON' => $yaTmp[1],
+					'TEXT' => 	'<address>'.
+								'<strong>'.$temp['NAME'].'</strong>'.
+								'<br/><hr>'.
+								'Адрес: '.$temp['PROPERTY_ADDRESS_VALUE'].
+								'<br/>'.
+								'</address>'
+					
+					);
+				}
 			$arButtons = CIBlock::GetPanelButtons(
 				$temp["IBLOCK_ID"],
 				$temp["ID"],
 				0,
 				array("SECTION_BUTTONS"=>false, "SESSID"=>false)
-			);
-			$arResult[$temp['ID']] = $temp;			
-			$arResult[$temp['ID']]["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
-			$arResult[$temp['ID']]["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+			);	
+				
+			$arResult['ITEMS'][$temp['ID']]["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+			$arResult['ITEMS'][$temp['ID']]["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
 			
 			
 			$this->SetResultCacheKeys(array(
-			"NAME",
-			"PATH",
-			"IBLOCK_SECTION_ID",
 			"ITEMS",
-			"PRICES"
+			"POSITION"
 			));
 			unset($temp);
 			unset($arButtons);
@@ -120,9 +142,10 @@ if($arParams["PARENT_SECTION"]>0)
 		}
 	}
 	while($i);
-	
+	$this->IncludeComponentTemplate();
 }
-//echo "\r\n\r\n\r\n\r\n".json_encode($arParams)."\r\n\r\n\r\n";
+
+
 if($USER->IsAuthorized())
 	{
 		if(
@@ -134,7 +157,7 @@ if($USER->IsAuthorized())
 		{
 		if(CModule::IncludeModule("iblock"))
 			{
-				//echo "О55555555555555";
+
 				$arButtons = CIBlock::GetPanelButtons(
 					$arParams["IBLOCK_ID"],
 					0,
@@ -151,6 +174,6 @@ if($USER->IsAuthorized())
 			}
 		}
 	}
-$this->IncludeComponentTemplate();
+
 
 ?>
