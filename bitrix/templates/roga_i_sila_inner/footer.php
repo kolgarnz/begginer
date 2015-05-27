@@ -24,7 +24,7 @@
 		"ELEMENT_SORT_ORDER" => "asc",
 		"IBLOCK_ELEMENT_COUNT" => "2",
 		"IBLOCK_SHOW_MAP" => "N",
-		"IBLOCK_ALL_URL" => ""
+		"IBLOCK_ALL_URL" => "/company/stores/"
 	),
 false
 );?>

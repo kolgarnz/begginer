@@ -121,7 +121,7 @@ if($arParams["PARENT_SECTION"]>0)
 	}
 	while($i);
 	
-
+}
 //echo "\r\n\r\n\r\n\r\n".json_encode($arParams)."\r\n\r\n\r\n";
 if($USER->IsAuthorized())
 	{
@@ -134,6 +134,7 @@ if($USER->IsAuthorized())
 		{
 		if(CModule::IncludeModule("iblock"))
 			{
+				//echo "О55555555555555";
 				$arButtons = CIBlock::GetPanelButtons(
 					$arParams["IBLOCK_ID"],
 					0,
@@ -151,5 +152,5 @@ if($USER->IsAuthorized())
 		}
 	}
 $this->IncludeComponentTemplate();
-}
+
 ?>
