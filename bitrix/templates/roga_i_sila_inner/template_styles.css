@@ -111,6 +111,25 @@ hr.bottom_line{
 	padding-left: 0;
 	width: 100%;
 }
+
+.content_area .shops_block .shops_block_item{
+margin-right: 5px;
+margin-top: 10px;
+margin-bottom: 5px;
+margin-left: 5px;
+width: 47%;
+}
+
+.content_area .shops_block .shops_block_item .shops_block_item_name{
+width: 100%;
+}
+/*.content_area .shops_block .shops_block_item #shops_block_item_adress{
+font-size: 12px;
+}*/
+.content_area .shops_block .shops_block_item_description{
+height: 150px;
+}
+
 /*left_menu*/
 	.left_menu, .left_menu li{
 		margin: 0;
