@@ -24,7 +24,7 @@ $APPLICATION->SetTitle("Новости");
 	"AJAX_OPTION_HISTORY" => "N",
 	"CACHE_TYPE" => "A",
 	"CACHE_TIME" => "3600",
-	"CACHE_FILTER" => "N",
+	"CACHE_FILTER" => "Y",
 	"CACHE_GROUPS" => "Y",
 	"SET_TITLE" => "Y",
 	"SET_STATUS_404" => "N",
