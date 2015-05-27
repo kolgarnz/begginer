@@ -16,7 +16,7 @@ $APPLICATION->SetTitle("Новости");
 	"SORT_BY2" => "SORT",
 	"SORT_ORDER2" => "ASC",
 	"CHECK_DATES" => "Y",
-	"SEF_MODE" => "N",
+	"SEF_MODE" => "Y",
 	"SEF_FOLDER" => "/company/news/",
 	"AJAX_MODE" => "N",
 	"AJAX_OPTION_JUMP" => "N",
@@ -73,9 +73,10 @@ $APPLICATION->SetTitle("Новости");
 	"DISPLAY_PREVIEW_TEXT" => "Y",
 	"USE_SHARE" => "N",
 	"AJAX_OPTION_ADDITIONAL" => "",
-	"VARIABLE_ALIASES" => array(
-		"SECTION_ID" => "SECTION_ID",
-		"ELEMENT_ID" => "ELEMENT_ID",
+	"SEF_URL_TEMPLATES" => array(
+		"news" => "",
+		"section" => "",
+		"detail" => "#ELEMENT_CODE#/",
 	)
 	),
 	false
