@@ -21,6 +21,12 @@
 					<img src="<?=$arElement["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>"/>
 				</a>
 			</div>
+			<?else:?>
+			<div class="product_item_pict">
+				<a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
+					<img src="/bitrix/templates/.default/images/no-image.jpg" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>"/>
+				</a>
+			</div>	
 			<?endif?>
 		<!-- Item Price -->	
 		

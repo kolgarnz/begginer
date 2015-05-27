@@ -81,44 +81,56 @@ $APPLICATION->IncludeComponent("qsoft:catalog.models.week", "models_main", array
 	),
 	false
 );?>
-					<section class="news_block inverse">
-						<h2 class="inline-block">Новости</h2><span class="all_list">&nbsp;/&nbsp;<a href="#" class="text_decor_none"><b>Все</b></a></span>
-						<div>
-							<figure class="news_item">
-								<a href="#"><img src="/bitrix/templates/.default/images/test_news_1.png" alt="" title="" /></a>
-								<figcaption class="news_item_description">
-									<h3><a href="#">Парадигма просветляет архетип</a></h3>
-									<div class="news_item_anons">
-										<a href="#" class="text_decor_none">
-											Парадигма просветляет архетип, таким образом, стратегия поведения, выгодная отдельному человеку
-										</a>
-									</div>
-									<div class="news_item_date grey">01 Янв 2013</div>
-								</figcaption>
-							</figure>
-							<figure class="news_item">
-								<a href="#"><img src="/bitrix/templates/.default/images/test_news_2.png" alt="" title="" /></a>
-								<figcaption class="news_item_description">
-									<h3><a href="#">Парадигма просветляет архетип</a></h3>
-									<div class="news_item_anons">
-										<a href="#" class="text_decor_none">
-											Парадигма просветляет архетип, таким образом, стратегия поведения, выгодная отдельному человеку
-										</a>
-									</div>
-									<div class="news_item_date grey">01 Янв 2013</div>
-								</figcaption>
-							</figure>
-							<figure class="news_item">
-								<a href="#"><img src="/bitrix/templates/.default/images/test_news_3.png" alt="" title="" /></a>
-								<figcaption class="news_item_description">
-									<h3><a href="#">Парадигма просветляет архетип</a></h3>
-									<div class="news_item_anons">
-										<a href="#" class="text_decor_none">
-											Парадигма просветляет архетип, таким образом, стратегия поведения, выгодная отдельному человеку
-										</a>
-									</div>
-									<div class="news_item_date grey">01 Янв 2013</div>
-								</figcaption>
-							</figure>
-						</div>
-					</section><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?$APPLICATION->IncludeComponent("bitrix:news.list", "news_list_main", array(
+	"IBLOCK_TYPE" => "news",
+	"IBLOCK_ID" => "24",
+	"NEWS_COUNT" => "3",
+	"SORT_BY1" => "ACTIVE_FROM",
+	"SORT_ORDER1" => "DESC",
+	"SORT_BY2" => "SORT",
+	"SORT_ORDER2" => "ASC",
+	"FILTER_NAME" => "",
+	"FIELD_CODE" => array(
+		0 => "",
+		1 => "",
+	),
+	"PROPERTY_CODE" => array(
+		0 => "",
+		1 => "",
+	),
+	"CHECK_DATES" => "Y",
+	"DETAIL_URL" => "",
+	"AJAX_MODE" => "N",
+	"AJAX_OPTION_JUMP" => "N",
+	"AJAX_OPTION_STYLE" => "Y",
+	"AJAX_OPTION_HISTORY" => "N",
+	"CACHE_TYPE" => "A",
+	"CACHE_TIME" => "36000000",
+	"CACHE_FILTER" => "Y",
+	"CACHE_GROUPS" => "Y",
+	"PREVIEW_TRUNCATE_LEN" => "150",
+	"ACTIVE_DATE_FORMAT" => "j M Y",
+	"SET_TITLE" => "N",
+	"SET_STATUS_404" => "N",
+	"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+	"ADD_SECTIONS_CHAIN" => "N",
+	"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+	"PARENT_SECTION" => "",
+	"PARENT_SECTION_CODE" => "",
+	"DISPLAY_TOP_PAGER" => "N",
+	"DISPLAY_BOTTOM_PAGER" => "N",
+	"PAGER_TITLE" => "Новости",
+	"PAGER_SHOW_ALWAYS" => "N",
+	"PAGER_TEMPLATE" => "forum",
+	"PAGER_DESC_NUMBERING" => "N",
+	"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+	"PAGER_SHOW_ALL" => "Y",
+	"DISPLAY_DATE" => "Y",
+	"DISPLAY_NAME" => "Y",
+	"DISPLAY_PICTURE" => "Y",
+	"DISPLAY_PREVIEW_TEXT" => "Y",
+	"AJAX_OPTION_ADDITIONAL" => ""
+	),
+	false
+);?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
