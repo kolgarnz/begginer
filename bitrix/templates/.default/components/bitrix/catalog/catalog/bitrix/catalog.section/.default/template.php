@@ -3,6 +3,7 @@
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
 <?endif;?>
+
 <section>
 <?$added=0;?>
 	<?foreach($arResult["ITEMS"] as $arElement):?>
@@ -63,7 +64,9 @@
 		<?endfor?>
 	<?endif?>
 	
-</section>
+<div class="clear"></div>
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<br /><?=$arResult["NAV_STRING"]?>
-<?endif;?>
+<?endif;?>	
+</section>
+
