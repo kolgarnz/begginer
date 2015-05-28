@@ -1,15 +1,18 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Контактная информация");
-?><?$APPLICATION->IncludeComponent(
-	"bitrix:main.feedback",
-	"",
-	Array(
-		"USE_CAPTCHA" => "Y",
-		"OK_TEXT" => "Спасибо, ваше сообщение принято.",
-		"EMAIL_TO" => "admin@p1.ipinchuk.grade.crt",
-		"REQUIRED_FIELDS" => array(),
-		"EVENT_MESSAGE_ID" => array()
+?><?$APPLICATION->IncludeComponent("bitrix:main.feedback", "feedback", array(
+	"USE_CAPTCHA" => "Y",
+	"OK_TEXT" => "Ваше сообщение отправлено",
+	"EMAIL_TO" => "kolgarn@yandex.ru",
+	"REQUIRED_FIELDS" => array(
+		0 => "NAME",
+		1 => "EMAIL",
+		2 => "MESSAGE",
 	),
-false
+	"EVENT_MESSAGE_ID" => array(
+		0 => "70",
+	)
+	),
+	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

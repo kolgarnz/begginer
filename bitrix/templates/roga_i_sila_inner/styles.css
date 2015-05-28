@@ -168,7 +168,7 @@ ul{
 	float: none;
 	margin: 0 0 23px 0;
 }
-/*table*/
+/*table
 	table{
 		color: #000;
 		font-size: 1em;
@@ -196,5 +196,5 @@ ul{
 	table td.action a{
 		display: block;
 		margin-bottom: 6px; 
-	}
+	}*/
 /*x_table*/
