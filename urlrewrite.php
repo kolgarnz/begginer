@@ -22,13 +22,13 @@ $arUrlRewrite = array(
 		"CONDITION"	=>	"#^/catalog/#",
 		"RULE"	=>	"",
 		"ID"	=>	"bitrix:catalog",
-		"PATH"	=>	"/catalog/index.php",
+		"PATH"	=>	"/catalog/test.php",
 	),
 	array(
 		"CONDITION"	=>	"#^/catalog/#",
 		"RULE"	=>	"",
 		"ID"	=>	"bitrix:catalog",
-		"PATH"	=>	"/catalog/test.php",
+		"PATH"	=>	"/catalog/index.php",
 	),
 	array(
 		"CONDITION"	=>	"#auth.php#",

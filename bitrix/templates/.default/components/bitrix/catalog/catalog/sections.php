@@ -80,7 +80,9 @@
 $component
 );?>
 <?endif?>
-<?$APPLICATION->IncludeComponent(
+<?
+$GLOBALS["arrFilterZ"] = array('>CATALOG_PRICE_1' => 0);
+$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"",
 	Array(

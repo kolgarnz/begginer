@@ -3,7 +3,6 @@
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
 <?endif;?>
-
 <section>
 <?$added=0;?>
 	<?foreach($arResult["ITEMS"] as $arElement):?>

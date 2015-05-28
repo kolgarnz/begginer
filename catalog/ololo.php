@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("Каталог");
 ?>
 
 	<?
-	$GLOBALS["arrFilterZ"] = array('>CATALOG_PRICE_1' => 0);
+	$arrFilter = array('!=CATALOG_PRICE_1' => '0');
 	$APPLICATION->IncludeComponent("bitrix:catalog", "catalog", array(
 	"IBLOCK_TYPE" => "catalog",
 	"IBLOCK_ID" => "25",
@@ -28,7 +28,7 @@ $APPLICATION->SetTitle("Каталог");
 	"SET_STATUS_404" => "Y",
 	"USE_ELEMENT_COUNTER" => "Y",
 	"USE_FILTER" => "Y",
-	"FILTER_NAME" => "arrFilterZ",
+	"FILTER_NAME" => "arrFilter",
 	"FILTER_FIELD_CODE" => array(
 		0 => "",
 		1 => "",
@@ -58,7 +58,7 @@ $APPLICATION->SetTitle("Каталог");
 	"SHOW_TOP_ELEMENTS" => "N",
 	"SECTION_COUNT_ELEMENTS" => "N",
 	"SECTION_TOP_DEPTH" => "2",
-	"PAGE_ELEMENT_COUNT" => "20",
+	"PAGE_ELEMENT_COUNT" => "4",
 	"LINE_ELEMENT_COUNT" => "4",
 	"ELEMENT_SORT_FIELD" => "name",
 	"ELEMENT_SORT_ORDER" => "asc",
