@@ -3,13 +3,12 @@
 
 <section class="product_line">
 		<?foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-		<?//var_dump($arResult)?>
 		<?
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
 		?>
 
-		<figure class="product_item">
+		<figure class="product_item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
 			<?if($arElement['PROPERTIES']['SALE']['VALUE'] == 'TRUE'):?>
 				<div class="product_item_label sale"></div>
 			<?elseif($arElement['PROPERTIES']['NEW']['VALUE'] == 'TRUE'):?>
