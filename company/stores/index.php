@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Наши салоны");
 	"IBLOCK_ID" => "23",
 	"ELEMENT_SORT_FIELD" => "name",
 	"ELEMENT_SORT_ORDER" => "desc",
-	"IBLOCK_ELEMENT_COUNT" => "0",
+	"IBLOCK_ELEMENT_COUNT" => "2",
 	"IBLOCK_SHOW_MAP" => "Y",
 	"IBLOCK_ALL_URL" => "",
 	"CACHE_TYPE" => "A",

@@ -54,7 +54,6 @@ body
 .work_area
 {
 	background: none white;
-	min-height: 250px;
 	position: relative;
 	z-index: 1;
 }
@@ -709,6 +708,7 @@ input[type="checkbox"] + label.filter-type-label {
 	margin-left: 0;
 	margin-right: 10px;
 }
+
 .b-trans-type,
 .b-color,
 .b-trans-type .wrap,
@@ -839,3 +839,8 @@ nav a
 	zoom: 1;
 }
 /*x_banners*/
+
+
+#discount_price {
+    color:red;
+}

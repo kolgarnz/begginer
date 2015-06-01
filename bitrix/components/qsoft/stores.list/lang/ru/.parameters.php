@@ -1,4 +1,4 @@
-<?
+<?php
 $MESS["IBLOCK_TYPE"] = "Тип инфоблока";
 $MESS["IBLOCK_IBLOCK"] = "Инфоблок";
 $MESS["IBLOCK_ANY"] = "(любой)";
@@ -16,4 +16,5 @@ $MESS["IBLOCK_SORT_SHOWS"] = "количество просмотров в ср�
 $MESS["IBLOCK_SORT_SORT"] = "индекс сортировки";
 $MESS["IBLOCK_SORT_NAME"] = "название";
 $MESS["IBLOCK_SORT_ID"] = "ID";
+$MESS["ROGA_I_SILA"] = "Рога и Сила";
 ?>

@@ -1,3 +1,4 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <section class="shops_block">
 	<div>
 	
@@ -9,9 +10,9 @@
 		?>
 		<figure class="shops_block_item" id="<?=$this->GetEditAreaId($store['ID']);?>">
 			<?if(is_array($store["PICTURE"])):?>
-				<a href="<?=$arParams['IBLOCK_ALL_URL']?><?=$store['ID']?>"><img src="<?=$store["PICTURE"]["SRC"]?>" alt="<?=$store['NAME']?>" title="<?=$store['NAME']?>"></a>
+				<img src="<?=$store["PICTURE"]["SRC"]?>" alt="<?=$store['NAME']?>" title="<?=$store['NAME']?>">
 			<?else:?>
-				<a href="<?=$arParams['IBLOCK_ALL_URL']?><?=$store['ID']?>"><img src="/bitrix/templates/.default/images/no-image.jpg" alt="<?=$store['NAME']?>" title="<?=$store['NAME']?>"></a>
+				<img src="/bitrix/templates/.default/images/no-image.jpg" alt="<?=$store['NAME']?>" title="<?=$store['NAME']?>">
 			<?endif?>
 			<figcaption class="shops_block_item_description">
 				<h3 class="shops_block_item_name"><?=$store['NAME']?></h3>

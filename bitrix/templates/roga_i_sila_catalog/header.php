@@ -5,125 +5,102 @@
 <!--[if IE 8]>    <html class="ie8> <![endif]-->
 <!--[if IE 9]>    <html class="ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html> <!--<![endif]-->
-	<head>
-		
-		<title><?$APPLICATION->ShowTitle()?></title>
-		<link href="/bitrix/templates/.default/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-		<link rel="stylesheet" type="text/css" href="/bitrix/templates/.default/css/base.css"/>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/jquery.placeholder.js"></script>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/default_script.js"></script>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/masonry.min.js"></script>
+    <head>
 
-		<link type="text/css" href="/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.css" rel="stylesheet" />
-		<link type="text/css" href="/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.theme.css" rel="stylesheet" />
-		<link type="text/css" href="/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.selectmenu.css" rel="stylesheet" />
-		<script type="text/javascript" src="/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.js"></script>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.widget.js"></script>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.position.js"></script>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.selectmenu.js"></script>
-		<script type="text/javascript" src="/bitrix/templates/.default/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <title><?$APPLICATION->ShowTitle()?></title>
+        <link href="/bitrix/templates/.default/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js"></script>
 
-		<!--[if lt IE 9]>
-			<script src="/bitrix/templates/.default/js/html5shiv.js"></script>
-		<![endif]-->
-		<?$APPLICATION->ShowHead()?>
-		<script>
-		/*перенести  в скрипт компонента*/
-		  window.onload = function() {
-		    var wall = new Masonry( document.getElementById('catalog'), {
-		      isFitWidth: true,
-		      isResizable: false,
-		      gutterWidth: 0
-		    });
-		  };
-		</script>
-		<script>
-		// перенести в компонент
-		window.onload = function() {
-		  $("#slider-range").slider({
-		          animate: "slow",
-		          range: true,
-		          min: 0,
-		          max: 10000000,
-		          step: 50000,
-		          values: [ 0, 10000000 ],
-		          slide: function( event, ui ) {
-		            $( "#price-start" ).val(ui.values[ 0 ]);
-		            $( "#price-end" ).val(ui.values[ 1 ]);
-		          }
-		  });
-		}
-		</script>
-	</head>
-	<body>
-	<?$APPLICATION->ShowPanel();?>
-		<div class="wrapper">
-			<div class="base_layer"></div>
-			<header class="header">
-				<div class="width_960">
-					<div class="inline-block">
-						<a href="/" class="logo inline-block"></a>
-					</div>
-<?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "auth_form_header", array(
-	"REGISTER_URL" => "/auth/",
-	"FORGOT_PASSWORD_URL" => "",
-	"PROFILE_URL" => "/personal/",
-	"SHOW_ERRORS" => "Y"
-	),
-	false
-);?>
-<?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "basket_line_header", Array(
-	"PATH_TO_BASKET" => "/personal/cart/",
-	"PATH_TO_PERSONAL" => "/personal/",
-	"SHOW_PERSONAL_LINK" => "N",
-	),
-	false
-);?>
-				</div>
-			</header>
-			<section class="fixed_block">
-				<div class="width_960">
-<?$APPLICATION->IncludeComponent("bitrix:search.form", "search_form_header", array(
-	"PAGE" => "/search/",
-	"USE_SUGGEST" => "N"
-	),
-	false
-);?>
-					<nav class="main_menu">
-						<ul>
-							<li class="submenu current">
-								<span>Легковые</span>
-								<div class="submenu_border"></div>
-								<ul>
-									<li><a href="#">Седаны</a></li>
-									<li><a href="#">Хетчбеки</a></li>
-									<li class="current"><span>Универсалы</span></li>
-									<li><a href="#">Купе</a></li>
-									<li><a href="#">Родстеры</a></li>
-								</ul>
-							<li class="submenu">
-								<span>Внедорожники</span>
-								<div class="submenu_border"></div>
-								<ul>
-									<li><a href="#">Рамные</a></li>
-									<li><a href="#">Пикапы</a></li>
-									<li><a href="#">Кроссоверы</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Раритетные</a></li>
-							<li><a href="#">Распродажа</a></li>
-							<li class="current"><a href="#">Новинки</a></li>
-					</ul>
-					</nav>
-				</div>
-			</section>
-			<div class="clear"></div>
-			<section class="content">
-				<div class="work_area width_960">
-					<nav class="nav_chain">
-							<a href="/">Главная</a>
-							<span class="nav_arrow inline-block"></span>
-							<span>Легковые</span>
-					</nav>
-					<h1 class="push_right"><?$APPLICATION->ShowTitle()?></h1>
+        <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/css/base.css')?>
+        <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/default_script.js")?>
+
+        <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/masonry.min.js")?>
+
+        <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.css')?>
+        <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.theme.css')?>
+        <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.selectmenu.css')?>
+        <?$APPLICATION->AddHeadScript('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.js')?>
+        <?$APPLICATION->AddHeadScript('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.widget.js')?>
+        <?$APPLICATION->AddHeadScript('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.position.js')?>
+        <?$APPLICATION->AddHeadScript('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.selectmenu.js')?>
+
+        <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/jquery-ui-1.10.3.custom.min.js")?>
+
+        <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+        <![endif]-->
+        <?$APPLICATION->ShowHead()?>
+    </head>
+    <body>
+    <?$APPLICATION->ShowPanel();?>
+        <div class="wrapper">
+            <div class="base_layer"></div>
+            <header class="header">
+                <div class="width_960">
+                    <div class="inline-block">
+                        <a href="/" class="logo inline-block"></a>
+                    </div>
+                    <?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "auth_form_header", array(
+                            "REGISTER_URL" => "/auth/",
+                            "FORGOT_PASSWORD_URL" => "",
+                            "PROFILE_URL" => "/personal/",
+                            "SHOW_ERRORS" => "Y"
+                        ),
+                        false
+                    );?>
+                    <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "basket_line_header", Array(
+                            "PATH_TO_BASKET" => "/personal/cart/",
+                            "PATH_TO_PERSONAL" => "/personal/",
+                            "SHOW_PERSONAL_LINK" => "N",
+                        ),
+                        false
+                    );?>
+                </div>
+            </header>
+            <section class="fixed_block">
+                <div class="width_960">
+                    <?$APPLICATION->IncludeComponent("bitrix:search.form", "search_form_header", array(
+                            "PAGE" => "/search/",
+                            "USE_SUGGEST" => "N"
+                        ),
+                        false
+                    );?>
+                    <nav class="main_menu">
+                        <ul>
+                            <li class="submenu current">
+                                <span>Легковые</span>
+                                <div class="submenu_border"></div>
+                                <ul>
+                                    <li><a href="#">Седаны</a></li>
+                                    <li><a href="#">Хетчбеки</a></li>
+                                    <li class="current"><span>Универсалы</span></li>
+                                    <li><a href="#">Купе</a></li>
+                                    <li><a href="#">Родстеры</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <span>Внедорожники</span>
+                                <div class="submenu_border"></div>
+                                <ul>
+                                    <li><a href="#">Рамные</a></li>
+                                    <li><a href="#">Пикапы</a></li>
+                                    <li><a href="#">Кроссоверы</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Раритетные</a></li>
+                            <li><a href="#">Распродажа</a></li>
+                            <li class="current"><a href="#">Новинки</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+            <div class="clear"></div>
+            <section class="content">
+                <div class="work_area width_960">
+                    <nav class="nav_chain">
+                        <a href="/">Главная</a>
+                        <span class="nav_arrow inline-block"></span>
+                        <span>Легковые</span>
+                    </nav>
+                    <h1 class="push_right"><?$APPLICATION->ShowTitle()?></h1>

@@ -29,10 +29,13 @@
 					<td valign="top"><a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><?=$arElement["NAME"]?></a><br />
 						<?foreach($arElement["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 							<?=$arProperty["NAME"]?>:&nbsp;<?
-								if(is_array($arProperty["DISPLAY_VALUE"]))
-									echo implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
-								else
-									echo $arProperty["DISPLAY_VALUE"];?><br />
+								if(is_array($arProperty["DISPLAY_VALUE"])) {
+                                    echo implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
+                                } else {
+                                    echo $arProperty["DISPLAY_VALUE"];
+                                }
+                                ?><br />
+
 						<?endforeach?>
 						<br />
 						<?=$arElement["PREVIEW_TEXT"]?>
@@ -42,8 +45,9 @@
 			<?if(is_array($arElement["OFFERS"]) && !empty($arElement["OFFERS"])):?>
 				<?foreach($arElement["OFFERS"] as $arOffer):?>
 					<?foreach($arParams["OFFERS_FIELD_CODE"] as $field_code):?>
-						<small><?echo GetMessage("IBLOCK_FIELD_".$field_code)?>:&nbsp;<?
-								echo $arOffer[$field_code];?></small><br />
+						<small>
+                            <?=GetMessage("IBLOCK_FIELD_".$field_code)?>:&nbsp;<?=$arOffer[$field_code];?>
+                        </small><br />
 					<?endforeach;?>
 					<?foreach($arOffer["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 						<small><?=$arProperty["NAME"]?>:&nbsp;<?
@@ -72,18 +76,18 @@
 					<?if($arOffer["CAN_BUY"]):?>
 						<?if($arParams["USE_PRODUCT_QUANTITY"]):?>
 							<form action="<?=POST_FORM_ACTION_URI?>" method="post" enctype="multipart/form-data">
-							<table border="0" cellspacing="0" cellpadding="2">
-								<tr valign="top">
-									<td><?echo GetMessage("CT_BCS_QUANTITY")?>:</td>
-									<td>
-										<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" size="5">
-									</td>
-								</tr>
-							</table>
-							<input type="hidden" name="<?echo $arParams["ACTION_VARIABLE"]?>" value="BUY">
-							<input type="hidden" name="<?echo $arParams["PRODUCT_ID_VARIABLE"]?>" value="<?echo $arOffer["ID"]?>">
-							<input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."BUY"?>" value="<?echo GetMessage("CATALOG_BUY")?>">
-							<input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>" value="<?echo GetMessage("CATALOG_ADD")?>">
+                                <table border="0" cellspacing="0" cellpadding="2">
+                                    <tr valign="top">
+                                        <td><?echo GetMessage("CT_BCS_QUANTITY")?>:</td>
+                                        <td>
+                                            <input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" size="5">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <input type="hidden" name="<?echo $arParams["ACTION_VARIABLE"]?>" value="BUY">
+                                <input type="hidden" name="<?echo $arParams["PRODUCT_ID_VARIABLE"]?>" value="<?echo $arOffer["ID"]?>">
+                                <input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."BUY"?>" value="<?echo GetMessage("CATALOG_BUY")?>">
+                                <input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>" value="<?echo GetMessage("CATALOG_ADD")?>">
 							</form>
 						<?else:?>
 							<noindex>
@@ -99,7 +103,8 @@
 							"NOTIFY_USE_CAPTHA" => "N"
 							),
 							$component
-						);?>
+						);
+                        ?>
 					<?endif?>
 					</p>
 				<?endforeach;?>

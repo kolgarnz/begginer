@@ -1,4 +1,4 @@
-<?
+<?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 
@@ -18,10 +18,9 @@ if(!preg_match('/^(asc|desc|nulls)(,asc|,desc|,nulls){0,1}$/i', $arParams["ELEME
 $arParams["PARENT_SECTION"] = intval($arParams["PARENT_SECTION"]);
 
 //custom component fields
-$arParams["IBLOCK_ELEMENT_COUNT"] = intval($arParams["IBLOCK_ELEMENT_COUNT"]);
 $arParams["IBLOCK_ID"] = intval($arParams["IBLOCK_ID"]);
 
-
+$arParams["IBLOCK_ELEMENT_COUNT"] = intval($arParams["IBLOCK_ELEMENT_COUNT"]);
 if($arParams["IBLOCK_ELEMENT_COUNT"] < 0)
 	$arParams["IBLOCK_ELEMENT_COUNT"] = 0;
 	
@@ -88,21 +87,21 @@ if($arParams["PARENT_SECTION"]>0)
 	
 	$arResult = array();
 	$i = 0;
-	do
-	{
-		if($i < $arParams["IBLOCK_ELEMENT_COUNT"] || $arParams["IBLOCK_ELEMENT_COUNT"] === 0) $i++;
-		else break;
+	do	{
+		if($i < $arParams["IBLOCK_ELEMENT_COUNT"] || $arParams["IBLOCK_ELEMENT_COUNT"] === 0) {
+            $i++;
+        } else {
+            break;
+        }
 		
-		if($temp = $rsIBlockElement->GetNext())
-		{
+		if($temp = $rsIBlockElement->GetNext())	{
 			$temp["PICTURE"] = CFile::GetFileArray($temp["PREVIEW_PICTURE"]);
-			
-			
-			$arResult['ITEMS'][$temp['ID']] = $temp;	
-			
-			
-			if($arParams["IBLOCK_SHOW_MAP"])
-				{
+
+
+			$arResult['ITEMS'][$temp['ID']] = $temp;
+
+
+			if($arParams["IBLOCK_SHOW_MAP"]) {
 				$yaTmp = explode(',', $temp['PROPERTY_MAP_VALUE']);
 				$arResult['POSITION']['yandex_lat'] = $yaTmp[0];
 				$arResult['POSITION']['yandex_lon'] = $yaTmp[1];
@@ -115,15 +114,14 @@ if($arParams["PARENT_SECTION"]>0)
 								'Адрес: '.$temp['PROPERTY_ADDRESS_VALUE'].
 								'<br/>'.
 								'</address>'
-					
 					);
-				}
+			}
 			$arButtons = CIBlock::GetPanelButtons(
 				$temp["IBLOCK_ID"],
 				$temp["ID"],
 				0,
 				array("SECTION_BUTTONS"=>false, "SESSID"=>false)
-			);	
+			);
 				
 			$arResult['ITEMS'][$temp['ID']]["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
 			$arResult['ITEMS'][$temp['ID']]["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
@@ -135,45 +133,35 @@ if($arParams["PARENT_SECTION"]>0)
 			));
 			unset($temp);
 			unset($arButtons);
-		}
-		else
-		{
+		} else {
 			break;
 		}
-	}
-	while($i);
+	} while($i);
 	$this->IncludeComponentTemplate();
 }
 
 
-if($USER->IsAuthorized())
-	{
-		if(
-			$APPLICATION->GetShowIncludeAreas()
-			|| (is_object($GLOBALS["INTRANET_TOOLBAR"]) && $arParams["INTRANET_TOOLBAR"]!=="N")
-			|| $arParams["SET_TITLE"]
-			|| isset($arResult[$arParams["BROWSER_TITLE"]])
-		)
-		{
-		if(CModule::IncludeModule("iblock"))
-			{
-
-				$arButtons = CIBlock::GetPanelButtons(
-					$arParams["IBLOCK_ID"],
-					0,
-					$arResult["ID"],
-					array("ELEMENT_ADD"=>true)
-				);
-				
-				unset($arButtons['submenu']['add_section']);
-				unset($arButtons['configure']['add_section']);
-				unset($arButtons['edit']['add_section']);
-				if($APPLICATION->GetShowIncludeAreas())
-				$this->AddIncludeAreaIcons(CIBlock::GetComponentMenu($APPLICATION->GetPublicShowMode(), $arButtons));
-			
-			}
-		}
-	}
-
-
+if($USER->IsAuthorized() && $arParams["IBLOCK_ID"] > 0)	{
+	if(
+	$APPLICATION->GetShowIncludeAreas()
+	|| (is_object($GLOBALS["INTRANET_TOOLBAR"]) && $arParams["INTRANET_TOOLBAR"]!=="N")
+	|| $arParams["SET_TITLE"]
+	|| isset($arResult[$arParams["BROWSER_TITLE"]])
+	) {
+        if(CModule::IncludeModule("iblock")) {
+            $arButtons = CIBlock::GetPanelButtons(
+                $arParams["IBLOCK_ID"],
+                0,
+                $arResult["ID"],
+                array("ELEMENT_ADD"=>true)
+            );
+            unset($arButtons['submenu']['add_section']);
+            unset($arButtons['configure']['add_section']);
+            unset($arButtons['edit']['add_section']);
+            if($APPLICATION->GetShowIncludeAreas()) {
+                $this->AddIncludeAreaIcons(CIBlock::GetComponentMenu($APPLICATION->GetPublicShowMode(), $arButtons));
+            }
+        }
+    }
+}
 ?>

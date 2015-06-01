@@ -11,7 +11,7 @@ $APPLICATION->SetTitle("Каталог");
 	"BASKET_URL" => "/personal/cart/",
 	"ACTION_VARIABLE" => "action",
 	"PRODUCT_ID_VARIABLE" => "id",
-	"SECTION_ID_VARIABLE" => "SECTION_ID",
+	"SECTION_ID_VARIABLE" => "SECTION_CODE",
 	"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 	"PRODUCT_PROPS_VARIABLE" => "prop",
 	"SEF_MODE" => "Y",
@@ -38,6 +38,7 @@ $APPLICATION->SetTitle("Каталог");
 		1 => "",
 	),
 	"FILTER_PRICE_CODE" => array(
+		0 => "BASE",
 	),
 	"USE_REVIEW" => "N",
 	"USE_COMPARE" => "N",
@@ -49,9 +50,6 @@ $APPLICATION->SetTitle("Каталог");
 	"PRICE_VAT_INCLUDE" => "Y",
 	"PRICE_VAT_SHOW_VALUE" => "N",
 	"PRODUCT_PROPERTIES" => array(
-		0 => "MODEL_WEEKS",
-		1 => "NEW",
-		2 => "SALE",
 	),
 	"USE_PRODUCT_QUANTITY" => "N",
 	"CONVERT_CURRENCY" => "N",

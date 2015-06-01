@@ -1,23 +1,75 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+
+<? GLOBAL $arrFilterZ; ?>
+
 <?if($arParams["USE_FILTER"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.filter",
-	"",
-	Array(
-		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-		"FILTER_NAME" => $arParams["FILTER_NAME"],
-		"FIELD_CODE" => $arParams["FILTER_FIELD_CODE"],
-		"PROPERTY_CODE" => $arParams["FILTER_PROPERTY_CODE"],
-		"PRICE_CODE" => $arParams["FILTER_PRICE_CODE"],
-		"OFFERS_FIELD_CODE" => $arParams["FILTER_OFFERS_FIELD_CODE"],
-		"OFFERS_PROPERTY_CODE" => $arParams["FILTER_OFFERS_PROPERTY_CODE"],
-		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-		"CACHE_TIME" => $arParams["CACHE_TIME"],
-		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-	),
-	$component
-);
+<?
+if (CModule::IncludeModule("iblock"))
+{
+    $arFilter = array(
+        "ACTIVE" => "Y",
+        "GLOBAL_ACTIVE" => "Y",
+        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+    );
+    if(strlen($arResult["VARIABLES"]["SECTION_CODE"])>0)
+    {
+        $arFilter["=CODE"] = $arResult["VARIABLES"]["SECTION_CODE"];
+    }
+    elseif($arResult["VARIABLES"]["SECTION_ID"]>0)
+    {
+        $arFilter["ID"] = $arResult["VARIABLES"]["SECTION_ID"];
+    }
+        
+    $obCache = new CPHPCache;
+    if($obCache->InitCache(36000, serialize($arFilter), "/iblock/catalog"))
+    {
+        $arCurSection = $obCache->GetVars();
+    }
+    else
+    {
+        $arCurSection = array();
+        $dbRes = CIBlockSection::GetList(array(), $arFilter, false, array("ID"));
+        $dbRes = new CIBlockResult($dbRes);
+
+        if(defined("BX_COMP_MANAGED_CACHE"))
+        {
+            global $CACHE_MANAGER;
+            $CACHE_MANAGER->StartTagCache("/iblock/catalog");
+
+            if ($arCurSection = $dbRes->GetNext())
+            {
+                $CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["IBLOCK_ID"]);
+            }
+            $CACHE_MANAGER->EndTagCache();
+        }
+        else
+        {
+            if(!$arCurSection = $dbRes->GetNext())
+                $arCurSection = array();
+        }
+
+        $obCache->EndDataCache($arCurSection);
+    }
+    ?>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:catalog.smart.filter",
+        "catalog_filter",
+        Array(
+            "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+            "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+            "SECTION_ID" => $arCurSection["ID"],
+            "FILTER_NAME" => "arrFilterZ",
+            "PRICE_CODE" => $arParams["PRICE_CODE"],
+            "CACHE_TYPE" => "A",
+            "CACHE_TIME" => "36000000",
+            "CACHE_NOTES" => "",
+            "CACHE_GROUPS" => "Y",
+            "SAVE_IN_SESSION" => "N"
+        ),
+        $component
+    );?>
+<?
+}
 ?>
 <br />
 <?endif?>
@@ -39,7 +91,6 @@
 
 
 <?
-$GLOBALS["arrFilterZ"] = array('>CATALOG_PRICE_1' => 0);
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"",

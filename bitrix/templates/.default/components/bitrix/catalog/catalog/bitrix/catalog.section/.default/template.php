@@ -1,15 +1,11 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
+
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
 <?endif;?>
 <section>
-<?$added=0;?>
 	<?foreach($arResult["ITEMS"] as $arElement):?>
-		<?if(intval($arElement['CATALOG_PRICE_1']) <= 0):?>
-			<?continue;?>
-		<?endif?>
-		<?$added++?>
 		<?
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
@@ -40,7 +36,7 @@
 					<?if($arPrice["CAN_ACCESS"]):?>
 						<p class="product_item_price dark_grey">
 						<?if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
-							<s><?=$arPrice["PRINT_VALUE"]?></s> <?=$arPrice["PRINT_DISCOUNT_VALUE"]?>
+							<s><?=$arPrice["PRINT_VALUE"]?></s> <span id="discount_price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></span>
 						<?else:?>
 							<?=$arPrice["PRINT_VALUE"]?>
 						<?endif;?>
@@ -53,11 +49,10 @@
 					<b><?=GetMessage("CATALOG_NOT_AVAILABLE")?></b>
 				<?endif?>
 			</figcaption>
-
 		</figure>
 	<?endforeach; // foreach($arResult["ITEMS"] as $arElement):?>
-	<?if($added % $arParams['LINE_ELEMENT_COUNT']):?>
-		<?for($i = 0; $i < (4 - ($added % $arParams['LINE_ELEMENT_COUNT'])); $i++):?>
+	<?if(count($arResult['ITEMS']) % $arParams['LINE_ELEMENT_COUNT']):?>
+		<?for($i = 0; $i < ($arParams['LINE_ELEMENT_COUNT'] - (count($arResult['ITEMS']) % $arParams['LINE_ELEMENT_COUNT'])); $i++):?>
 			<figure class="product_item">
 			</figure>
 		<?endfor?>

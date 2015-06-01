@@ -1,4 +1,4 @@
-<?
+<?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if(!CModule::IncludeModule("iblock"))
@@ -6,13 +6,12 @@ if(!CModule::IncludeModule("iblock"))
 
 $arIBlockType = CIBlockParameters::GetIBlockTypes();
 
-//Выбираем инфоблоки
+
 $arIBlock=array(
 	"-" => GetMessage("IBLOCK_ANY"),
 );
 $rsIBlock = CIBlock::GetList(Array("sort" => "asc"), Array("TYPE" => $arCurrentValues["IBLOCK_TYPE"], "ACTIVE"=>"Y"));
-while($arr=$rsIBlock->Fetch())
-{
+while ($arr = $rsIBlock->Fetch()) {
 	$arIBlock[$arr["ID"]] = "[".$arr["ID"]."] ".$arr["NAME"];
 }
 
@@ -23,8 +22,6 @@ $arAscDesc = array(
 );
 
 
-
-/////////////////////
 
 $arComponentParameters = array(
 	"GROUPS" => array(
@@ -93,7 +90,7 @@ $arComponentParameters = array(
 		
 		),
 		"IBLOCK_ALL_URL" => CIBlockParameters::GetPathTemplateParam(
-				"DETAIL",	
+				"DETAIL",
 				"DETAIL_URL",
 				GetMessage("IBLOCK_ALL_URL"),
 				"",

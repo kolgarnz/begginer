@@ -1,4 +1,4 @@
-<?
+<?php
 $MESS["IBLOCK_TYPE"] = "Type of information block";
 $MESS["IBLOCK_IBLOCK"] = "Information block";
 $MESS["IBLOCK_ANY"] = "(any)";
@@ -16,4 +16,5 @@ $MESS["IBLOCK_ELEMENT_SORT_FIELD"] = "Field to sort elements";
 $MESS["IBLOCK_SORT_SORT"] = "sorting index";
 $MESS["IBLOCK_SORT_NAME"] = "name";
 $MESS["IBLOCK_SORT_ID"] = "ID";
+$MESS["ROGA_I_SILA"] = "Horn and Strength";
 ?>

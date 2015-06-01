@@ -1,4 +1,4 @@
-<?
+<?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arComponentDescription = array(
@@ -13,8 +13,7 @@ $arComponentDescription = array(
 			"ID" => "stores.list",
 			"NAME" => GetMessage("T_IBLOCK_DESC_STORE"),
 			"SORT" => 20,
-		)
-	),
-);
-
+		                )
+	                ),
+    );
 ?>
