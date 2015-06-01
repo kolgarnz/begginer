@@ -1,5 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<!-- $arResult <?=json_encode($arResult)?> -->
+
 <form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartFilterQ">
 	<?foreach($arResult["HIDDEN"] as $arItem):?>
 		<input
