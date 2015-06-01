@@ -66,33 +66,22 @@
                         ),
                         false
                     );?>
-                    <nav class="main_menu">
-                        <ul>
-                            <li class="submenu current">
-                                <span>Легковые</span>
-                                <div class="submenu_border"></div>
-                                <ul>
-                                    <li><a href="#">Седаны</a></li>
-                                    <li><a href="#">Хетчбеки</a></li>
-                                    <li class="current"><span>Универсалы</span></li>
-                                    <li><a href="#">Купе</a></li>
-                                    <li><a href="#">Родстеры</a></li>
-                                </ul>
-                            </li>
-                            <li class="submenu">
-                                <span>Внедорожники</span>
-                                <div class="submenu_border"></div>
-                                <ul>
-                                    <li><a href="#">Рамные</a></li>
-                                    <li><a href="#">Пикапы</a></li>
-                                    <li><a href="#">Кроссоверы</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Раритетные</a></li>
-                            <li><a href="#">Распродажа</a></li>
-                            <li class="current"><a href="#">Новинки</a></li>
-                        </ul>
-                    </nav>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "catalog_top",
+                        Array(
+                            "ROOT_MENU_TYPE" => "top",
+                            "MENU_CACHE_TYPE" => "N",
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "MENU_CACHE_GET_VARS" => "",
+                            "MAX_LEVEL" => "2",
+                            "CHILD_MENU_TYPE" => "",
+                            "USE_EXT" => "Y",
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N"
+                        )
+                    );?>
                 </div>
             </section>
             <div class="clear"></div>

@@ -21,7 +21,7 @@
                             <?if(isset($arItem["VALUES"]["MIN"]["HTML_VALUE"])):?>
                                 value="<?=$arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
                             <?else:?>
-                                placeholder="<?echo GetMessage("CT_BCSF_FILTER_FROM")?> <?=$arItem["VALUES"]["MIN"]["VALUE"]?> руб."
+                                placeholder="<?echo GetMessage("CT_BCSF_FILTER_FROM")?> <?=CurrencyFormat($arItem["VALUES"]["MIN"]["VALUE"], 'RUB', true)?>"
                             <?endif?>
                             class="pie"
                             name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
@@ -32,7 +32,7 @@
                             <?if(isset($arItem["VALUES"]["MAX"]["HTML_VALUE"])):?>
                                 value="<?=$arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
                             <?else:?>
-                                placeholder="<?echo GetMessage("CT_BCSF_FILTER_TO")?> <?=intval($arItem["VALUES"]["MAX"]["VALUE"])?> руб."
+                                placeholder="<?echo GetMessage("CT_BCSF_FILTER_TO")?> <?=CurrencyFormat($arItem["VALUES"]["MAX"]["VALUE"], 'RUB', true)?>"
                             <?endif?>
                             class="pie"
                             name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"

@@ -1,39 +1,4 @@
 <?
 $aMenuLinks = Array(
-	Array(
-		"Главная", 
-		"/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Личный кабинет", 
-		"/personal/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Информация", 
-		"/company/", 
-		Array(), 
-		Array("NOTSHOW"=>"Y"), 
-		"" 
-	),
-	Array(
-		"Каталог", 
-		"/catalog/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Поиск", 
-		"/search/", 
-		Array(), 
-		Array(), 
-		"" 
-	)
 );
 ?>

@@ -67,7 +67,6 @@ if (CModule::IncludeModule("iblock"))
 <?
 }
 ?>
-<br />
 <?endif?>
 <?if($arParams["USE_COMPARE"]=="Y"):?>
 <?$APPLICATION->IncludeComponent(
@@ -82,7 +81,6 @@ if (CModule::IncludeModule("iblock"))
 	),
 	$component
 );?>
-<br />
 <?endif?>
 <?if($arParams["SHOW_TOP_ELEMENTS"]!="N"):?>
 <hr />

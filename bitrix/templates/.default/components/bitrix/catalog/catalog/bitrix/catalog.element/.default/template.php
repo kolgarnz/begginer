@@ -107,7 +107,9 @@
 					<?endif?>
 				<?endif;?>:&nbsp;
 				<?if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
+
 					<s><?=$arPrice["PRINT_VALUE"]?></s> <span class="catalog-price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></span>
+
 					<?if($arParams["PRICE_VAT_SHOW_VALUE"]):?><br />
 						<?=GetMessage("CATALOG_VAT")?>:&nbsp;&nbsp;<span class="catalog-vat catalog-price"><?=$arPrice["DISCOUNT_VATRATE_VALUE"] > 0 ? $arPrice["PRINT_DISCOUNT_VATRATE_VALUE"] : GetMessage("CATALOG_NO_VAT")?></span>
 					<?endif;?>
