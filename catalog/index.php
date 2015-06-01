@@ -28,7 +28,7 @@ $APPLICATION->SetTitle("Каталог");
 	"SET_STATUS_404" => "Y",
 	"USE_ELEMENT_COUNTER" => "Y",
 	"USE_FILTER" => "Y",
-	"FILTER_NAME" => "arrFilterZ",
+	"FILTER_NAME" => "",
 	"FILTER_FIELD_CODE" => array(
 		0 => "",
 		1 => "",

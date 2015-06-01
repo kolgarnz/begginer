@@ -1,7 +1,4 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-
-<? GLOBAL $arrFilterZ; ?>
-
 <?if($arParams["USE_FILTER"]=="Y"):?>
 <?
 if (CModule::IncludeModule("iblock"))
@@ -55,10 +52,10 @@ if (CModule::IncludeModule("iblock"))
 	"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 	"SECTION_ID" => $arCurSection["ID"],
-	"FILTER_NAME" => "arrFilterZ",
-	"CACHE_TYPE" => "A",
-	"CACHE_TIME" => "36000000",
-	"CACHE_GROUPS" => "Y",
+	"FILTER_NAME" => $arParams["FILTER_NAME"],
+	"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+	"CACHE_TIME" => $arParams["CACHE_TIME"],
+	"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
 	"SAVE_IN_SESSION" => "N",
 	"INSTANT_RELOAD" => "N",
 	"PRICE_CODE" => array(

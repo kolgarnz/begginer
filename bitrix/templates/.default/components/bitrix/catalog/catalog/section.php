@@ -51,21 +51,20 @@ if (CModule::IncludeModule("iblock"))
         $obCache->EndDataCache($arCurSection);
     }
     ?>
-    <?$APPLICATION->IncludeComponent(
-        "bitrix:catalog.smart.filter",
-        "catalog_filter",
-        Array(
-            "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-            "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-            "SECTION_ID" => $arCurSection["ID"],
-            "FILTER_NAME" => "arrFilterZ",
-            "PRICE_CODE" => $arParams["PRICE_CODE"],
-            "CACHE_TYPE" => "A",
-            "CACHE_TIME" => "36000000",
-            "CACHE_NOTES" => "",
-            "CACHE_GROUPS" => "Y",
-            "SAVE_IN_SESSION" => "N"
-        ),
+    <?$APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "catalog_filter", array(
+        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+        "SECTION_ID" => $arCurSection["ID"],
+        "FILTER_NAME" => $arParams["FILTER_NAME"],
+        "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+        "CACHE_TIME" => $arParams["CACHE_TIME"],
+        "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+        "SAVE_IN_SESSION" => "N",
+        "INSTANT_RELOAD" => "N",
+        "PRICE_CODE" => array(
+            0 => "BASE",
+        )
+    ),
         $component
     );?>
 <?
