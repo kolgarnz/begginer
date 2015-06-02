@@ -185,7 +185,9 @@ $APPLICATION->IncludeComponent(
 		"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
 		'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
 		'CURRENCY_ID' => $arParams['CURRENCY_ID'],
+        'ADD_SECTIONS_CHAIN' => $arParams['ADD_SECTIONS_CHAIN'],
 		"SHOW_ALL_WO_SECTION" => "Y",
+        'ADD_SECTIONS_CHAIN' => $arParams['ADD_SECTIONS_CHAIN'],
 	),
 	$component
 );

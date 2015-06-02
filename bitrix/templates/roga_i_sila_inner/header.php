@@ -80,11 +80,15 @@
     </section>
     <section class="content">
         <div class="work_area width_960">
-            <nav class="nav_chain">
-                <a href="/">Главная</a>
-                <span class="nav_arrow inline-block"></span>
-                <span>Легковые</span>
-            </nav>
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:breadcrumb",
+                "breadcrumbs_qsoft",
+                Array(
+                    "START_FROM" => "0",
+                    "PATH" => "",
+                    "SITE_ID" => "-"
+                )
+            );?>
             <section class="content_area">
                 <aside class="left_block">
                     <?$APPLICATION->IncludeComponent(

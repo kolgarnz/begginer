@@ -1,6 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Каталог");
+
 ?>
 	<?
 	$APPLICATION->IncludeComponent("bitrix:catalog", "catalog", array(
@@ -47,9 +48,6 @@ $APPLICATION->SetTitle("Каталог");
 	"PRICE_VAT_INCLUDE" => "Y",
 	"PRICE_VAT_SHOW_VALUE" => "N",
 	"PRODUCT_PROPERTIES" => array(
-		0 => "MODEL_WEEKS",
-		1 => "NEW",
-		2 => "SALE",
 	),
 	"USE_PRODUCT_QUANTITY" => "N",
 	"CONVERT_CURRENCY" => "N",
@@ -94,6 +92,8 @@ $APPLICATION->SetTitle("Каталог");
 	"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 	"PAGER_SHOW_ALL" => "N",
 	"AJAX_OPTION_ADDITIONAL" => "",
+    "ADD_SECTIONS_CHAIN" => "Y",
+    "ADD_ELEMENT_CHAIN" => "Y",
 	"SEF_URL_TEMPLATES" => array(
 		"sections" => "",
 		"section" => "#SECTION_CODE#/",
