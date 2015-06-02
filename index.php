@@ -37,7 +37,7 @@ $APPLICATION->IncludeComponent("qsoft:catalog.models.week", "models_main", array
 	),
 	"OFFERS_LIMIT" => "4",
 	"SECTION_URL" => "/catalog/#SECTION_CODE#/",
-	"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ID#/",
+	"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 	"BASKET_URL" => "/personal/cart/",
 	"ACTION_VARIABLE" => "action",
 	"PRODUCT_ID_VARIABLE" => "id",
