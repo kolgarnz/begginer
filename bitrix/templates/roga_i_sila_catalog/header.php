@@ -20,6 +20,7 @@
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.css')?>
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.theme.css')?>
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.selectmenu.css')?>
+
         <?$APPLICATION->AddHeadScript('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.js')?>
         <?$APPLICATION->AddHeadScript('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.widget.js')?>
         <?$APPLICATION->AddHeadScript('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.position.js')?>
