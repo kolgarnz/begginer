@@ -193,4 +193,3 @@ function ChangeGenerate(val)
 <?if($arResult["AUTH"]["new_user_registration"]=="Y"):?>
 	<?echo GetMessage("STOF_EMAIL_NOTE")?><br /><br />
 <?endif;?>
-<?echo GetMessage("STOF_PRIVATE_NOTES")?>
