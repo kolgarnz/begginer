@@ -1,0 +1,51 @@
+<?
+$MESS["SBB_DESC_YES"] = "Да";
+$MESS["SBB_DESC_NO"] = "Нет";
+$MESS["SBB_PATH_TO_ORDER"] = "Страница оформления заказа";
+$MESS["SBB_HIDE_COUPON"] = "Спрятать поле ввода купона";
+$MESS["SBB_COLUMNS_LIST"] = "Выводимые колонки";
+$MESS["SBB_BNAME"] = "Название товара";
+$MESS["SBB_BPROPS"] = "Свойства товара";
+$MESS["SBB_BPRICE"] = "Цена";
+$MESS["SBB_BTYPE"] = "Тип цены";
+$MESS["SBB_BQUANTITY"] = "Количество";
+$MESS["SBB_BDELETE"] = "Удалить";
+$MESS["SBB_BDELAY"] = "Отложить";
+$MESS["SBB_BWEIGHT"] = "Вес";
+$MESS["SBB_BDISCOUNT"] = "Скидка";
+$MESS["SBB_WEIGHT_UNIT"] = "Единица веса";
+$MESS["SBB_WEIGHT_UNIT_G"] = "г";
+$MESS["SBB_WEIGHT_KOEF"] = "Коэффициент единицы к грамму";
+$MESS["SBB_QUANTITY_FLOAT"] = "Использовать дробное значение количества";
+$MESS["SBB_VAT_SHOW_VALUE"] = "Отображать значение НДС";
+$MESS["SBB_VAT_INCLUDE"] = "Включать НДС в цену";
+$MESS["SBB_COUNT_DISCOUNT_4_ALL_QUANTITY"] = "Рассчитывать скидку для каждой позиции (на все количество товара)";
+$MESS["SOF_COUNT_DISCOUNT_4_ALL_QUANTITY"] = "Рассчитывать скидку для каждой позиции (на все количество товара)";
+$MESS["IBLOCK_PRICES"] = "Цены";
+$MESS["IBLOCK_LINK"] = "Настройки связанных элементов";
+$MESS["IBLOCK_TYPE"] = "Тип инфоблока";
+$MESS["IBLOCK_IBLOCK"] = "Инфоблок";
+$MESS["IBLOCK_PROPERTY"] = "Свойства";
+$MESS["IBLOCK_SECTION_URL"] = "URL, ведущий на страницу с содержимым раздела";
+$MESS["IBLOCK_PRICE_CODE"] = "Тип цены";
+$MESS["IBLOCK_VAT_INCLUDE"] = "Включать НДС в цену";
+$MESS["IBLOCK_VAT_SHOW_VALUE"] = "Отображать значение НДС";
+$MESS["IBLOCK_BASKET_URL"] = "URL, ведущий на страницу с корзиной покупателя";
+$MESS["IBLOCK_ELEMENT_ID"] = "ID элемента";
+$MESS["IBLOCK_ELEMENT_CODE"] = "Код элемента";
+$MESS["IBLOCK_SECTION_ID"] = "ID раздела";
+$MESS["IBLOCK_SECTION_CODE"] = "Код раздела";
+
+$MESS['SBB_PROPERTY_LIST'] = "Свойства товара";
+$MESS["SBB_KPP"] = "КПП";
+$MESS["SBB_SALON"] = "Салон";
+$MESS["SBB_CLASS"] = "Класс";
+$MESS["SBB_YEAR"] = "Год выпуска";
+$MESS["SBB_BODY"] = "Кузов";
+$MESS["SBB_ENGINE"] = "Двигатель";
+$MESS["SBB_COLOR"] = "Цвет";
+
+$MESS["SBB_NUMBER"] = "Номер элемента";
+$MESS['SBB_PICTURE'] = 'Изображение элемента';
+$MESS['SBB_TOTAL_PRICE'] = 'Общая цена за товар';
+?>

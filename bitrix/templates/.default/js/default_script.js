@@ -41,7 +41,7 @@ $(document).ready(function(){
       );
   /*x_catalog
 
-  $('.content_area table').each(function(){
+  $('.content_area table .customized').each(function(){
       if (!$(this).hasClass('without_color')) {
           $("tbody tr:odd").css('background-color', '#f8f8f8');
       }

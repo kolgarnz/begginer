@@ -1,0 +1,52 @@
+<?
+$MESS["SBB_DESC_YES"] = "Yes";
+$MESS["SBB_DESC_NO"] = "No";
+$MESS["SBB_PATH_TO_ORDER"] = "Order page";
+$MESS["SBB_HIDE_COUPON"] = "Hide upon entering coupon";
+$MESS["SBB_COLUMNS_LIST"] = "Columns";
+$MESS["SBB_BNAME"] = "Product name";
+$MESS["SBB_BPROPS"] = "Product Item Properties";
+$MESS["SBB_BPRICE"] = "Price";
+$MESS["SBB_BTYPE"] = "Price type";
+$MESS["SBB_BQUANTITY"] = "Quantity";
+$MESS["SBB_BDELETE"] = "Delete";
+$MESS["SBB_BDELAY"] = "Hold";
+$MESS["SBB_BWEIGHT"] = "Weight";
+$MESS["SBB_BDISCOUNT"] = "Discount";
+$MESS["SBB_WEIGHT_UNIT"] = "Weight unit";
+$MESS["SBB_WEIGHT_UNIT_G"] = "g";
+$MESS["SBB_WEIGHT_KOEF"] = "Grams in the unit of weight";
+$MESS["SBB_QUANTITY_FLOAT"] = "Permit using fractional values for quantity";
+$MESS["SBB_VAT_SHOW_VALUE"] = "Show tax rate value";
+$MESS["SBB_VAT_INCLUDE"] = "Include tax in price";
+$MESS["SBB_COUNT_DISCOUNT_4_ALL_QUANTITY"] = "Calculate discount for each order item (whole quantity)";
+$MESS["SOF_COUNT_DISCOUNT_4_ALL_QUANTITY"] = "Calculate discount for each order item (whole quantity)";
+$MESS["SBB_BVAT"] = "Tax";
+$MESS["IBLOCK_PRICES"] = "Prices";
+$MESS["IBLOCK_LINK"] = "Linked elements settings";
+$MESS["IBLOCK_TYPE"] = "Infoblock type";
+$MESS["IBLOCK_IBLOCK"] = "Infoblock";
+$MESS["IBLOCK_PROPERTY"] = "Properties";
+$MESS["IBLOCK_SECTION_URL"] = "URL of the page with the section contents";
+$MESS["IBLOCK_PRICE_CODE"] = "Price type";
+$MESS["IBLOCK_VAT_INCLUDE"] = "Include tax rate in price";
+$MESS["IBLOCK_VAT_SHOW_VALUE"] = "Display tax rate";
+$MESS["IBLOCK_BASKET_URL"] = "URL of the page with the customer cart";
+$MESS["IBLOCK_ELEMENT_ID"] = "Element ID";
+$MESS["IBLOCK_ELEMENT_CODE"] = "Element code";
+$MESS["IBLOCK_SECTION_ID"] = "Section ID";
+$MESS["IBLOCK_SECTION_CODE"] = "Section code";
+
+$MESS['SBB_PROPERTY_LIST'] = "Element Property";
+$MESS["SBB_KPP"] = "KPP";
+$MESS["SBB_SALON"] = "Salon";
+$MESS["SBB_CLASS"] = "Class";
+$MESS["SBB_YEAR"] = "Year";
+$MESS["SBB_BODY"] = "Body";
+$MESS["SBB_ENGINE"] = "Engine";
+$MESS["SBB_COLOR"] = "Color";
+
+$MESS["SBB_NUMBER"] = "Number of item";
+$MESS['SBB_PICTURE'] = 'Picture of item';
+$MESS['SBB_TOTAL_PRICE'] = 'Total price for item';
+?>
