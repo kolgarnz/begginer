@@ -2,9 +2,7 @@
 <h2 class="push_right" xmlns="http://www.w3.org/1999/html"><?=GetMessage('CATALOG_MODELS_WEEK')?></h2>
 
 <section class="product_line">
-
 	<?foreach($arResult["ROWS"] as $arItems):?>
-        <!-- <?=json_encode($arItems)?> -->
 		<?foreach($arItems as $arElement):?>
             <?if(is_array($arElement)):?>
             <?
