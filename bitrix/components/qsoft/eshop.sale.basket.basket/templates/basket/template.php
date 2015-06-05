@@ -7,8 +7,6 @@ if (StrLen($arResult["ERROR_MESSAGE"])<=0)
 		"shelve" => $APPLICATION->GetCurPage()."?action=shelve&id=#ID#",
 		"add" => $APPLICATION->GetCurPage()."?action=add&id=#ID#",
 	);
-    //echo '<br><textarea>'.json_encode($arParams).'</textarea><br>';
-    //echo '<br><textarea>'.json_encode($arResult).'</textarea><br>';
 	?>
 	<script>
 	function ShowBasketItems(val)

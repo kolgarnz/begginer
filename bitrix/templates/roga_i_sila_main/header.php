@@ -9,9 +9,9 @@
 		<title><?$APPLICATION->ShowTitle()?></title>
 		<link href="/bitrix/templates/.default/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js"></script>
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/css/base.css')?>
         <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/default_script.js")?>
-        <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/jquery.placeholder.js")?>
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/bxslider/jquery.bxslider.css')?>
         <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/bxslider/jquery.bxslider.js")?>
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.css')?>

@@ -22,8 +22,6 @@ if(!$USER->IsAuthorized() && $arParams["ALLOW_AUTO_REGISTER"] == "N")
 }
 else
 {
-    //echo '<textarea style="width: 100%;">'.json_encode($arResult).'</textarea><br><hr>';
-
 	if($arResult["USER_VALS"]["CONFIRM_ORDER"] == "Y" || $arResult["NEED_REDIRECT"] == "Y")
 	{
 		if(strlen($arResult["REDIRECT_URL"]) > 0)

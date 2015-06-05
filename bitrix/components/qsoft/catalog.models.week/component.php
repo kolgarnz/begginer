@@ -796,8 +796,7 @@ if($USER->IsAuthorized())
 				is_array($arButtons["intranet"])
 				&& is_object($GLOBALS["INTRANET_TOOLBAR"])
 				&& $arParams["INTRANET_TOOLBAR"]!=="N"
-			)
-			{
+			) {
 				$APPLICATION->AddHeadScript('/bitrix/js/main/utils.js');
 				foreach($arButtons["intranet"] as $arButton)
 					$GLOBALS["INTRANET_TOOLBAR"]->AddButton($arButton);

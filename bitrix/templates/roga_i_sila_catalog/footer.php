@@ -9,7 +9,7 @@
             <section class="float_inner bottom_block">
                 <?$APPLICATION->IncludeComponent(
                     "qsoft:stores.list",
-                    "",
+                    "stores_short",
                     Array(
                         "IBLOCK_TYPE" => "salon",
                         "IBLOCK_ID" => "23",

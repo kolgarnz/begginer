@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <section class="news_block inverse">
-	<h2 class="inline-block"><?=GetMessage('NEWS_TITLE')?></h2><span class="all_list">&nbsp;/&nbsp;<a href="/company/news/" class="text_decor_none"><b><?=GetMessage("ALL")?></b></a></span>
+	<h2 class="inline-block"><?=GetMessage('NEWS_TITLE')?></h2><span class="all_list">&nbsp;/&nbsp;<a href="/company/news" class="text_decor_none"><b><?=GetMessage("ALL")?></b></a></span>
 	<div>
 		<?foreach($arResult["ITEMS"] as $arItem):?>
 			<?

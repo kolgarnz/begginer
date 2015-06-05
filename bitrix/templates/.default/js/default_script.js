@@ -40,12 +40,12 @@ $(document).ready(function(){
           }
       );
   /*x_catalog
-
-  $('.content_area table .customized').each(function(){
+   */
+  $('.content_area table.snippet').each(function(){
       if (!$(this).hasClass('without_color')) {
           $("tbody tr:odd").css('background-color', '#f8f8f8');
       }
-  })*/
+  })
 
   /*dynamic_pie*/
     function setPie(selectors){

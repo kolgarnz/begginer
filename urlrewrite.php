@@ -1,10 +1,10 @@
 <?
 $arUrlRewrite = array(
 	array(
-		"CONDITION"	=>	"#^/personal/profile/#",
+		"CONDITION"	=>	"#^/personal/order/#",
 		"RULE"	=>	"",
-		"ID"	=>	"bitrix:main.profile",
-		"PATH"	=>	"/personal/profile.php",
+		"ID"	=>	"bitrix:sale.personal.order",
+		"PATH"	=>	"/personal/order/index.php",
 	),
 	array(
 		"CONDITION"	=>	"#^/personal/cart/#",
