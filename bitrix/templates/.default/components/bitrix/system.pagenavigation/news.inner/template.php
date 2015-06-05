@@ -7,7 +7,6 @@ if(!$arResult["NavShowAlways"])
 		return;
 }
 
-//echo "<pre>"; print_r($arResult);echo "</pre>";
 
 $strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryString"]."&amp;" : "");
 $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["NavQueryString"] : "");

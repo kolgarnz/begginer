@@ -1,5 +1,5 @@
 <?
 $MESS ['T_IBLOCK_DESC_CATALOG'] = "Каталог";
-$MESS ['IBLOCK_SECTION_TEMPLATE_NAME'] = "Элементы каталога";
-$MESS ['IBLOCK_SECTION_TEMPLATE_DESCRIPTION'] = "Выводит элементы раздела с указанным набором свойств, цен и т.д.";
+$MESS ['IBLOCK_MAIN_PAGE_TEMPLATE_NAME'] = "Модели недели";
+$MESS ['IBLOCK_MAIN_PAGE_TEMPLATE_DESCRIPTION'] = "Выводит модели недели из всех разделов в соответствии с заданной сортировкой (используется как правило на главной странице сайта)";
 ?>

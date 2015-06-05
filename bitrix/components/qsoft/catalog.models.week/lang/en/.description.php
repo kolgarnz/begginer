@@ -1,5 +1,5 @@
 <?
 $MESS ['T_IBLOCK_DESC_CATALOG'] = "Catalog";
-$MESS ['IBLOCK_SECTION_TEMPLATE_NAME'] = "Catalog elements";
-$MESS ['IBLOCK_SECTION_TEMPLATE_DESCRIPTION'] = "Displays the section elements with a set of properties, prices etc.";
+$MESS ['IBLOCK_MAIN_PAGE_TEMPLATE_NAME'] = "Elements of all sections on the main page";
+$MESS ['IBLOCK_MAIN_PAGE_TEMPLATE_DESCRIPTION'] = "Displays elements of all sections in a table";
 ?>
