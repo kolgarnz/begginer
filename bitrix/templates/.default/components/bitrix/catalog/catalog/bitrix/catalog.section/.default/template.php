@@ -5,13 +5,26 @@
 	<?=$arResult["NAV_STRING"]?><br />
 <?endif;?>
 <section>
-	<?foreach($arResult["ITEMS"] as $arElement):?>
+    <?for($i = 0; $i < count($arResult["ITEMS"]); $i++):?>
+        <?$arElement = $arResult["ITEMS"][$i];?>
 		<?
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
 		?>
-		
-		<figure class="product_item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
+
+        <?if(
+            count($arResult["ITEMS"]) > 0 && count($arResult["ITEMS"]) < 4 || (
+                count($arResult["ITEMS"]) % 4 > 0 &&
+                $i > count($arResult["ITEMS"]) - (count($arResult["ITEMS"]) % $arParams['LINE_ELEMENT_COUNT']) - 1
+            ) || (
+                count($arResult["ITEMS"]) % 4 == 0 &&
+                $i > count($arResult["ITEMS"]) - $arParams['LINE_ELEMENT_COUNT'] - 1
+            )
+        ):?>
+            <figure class="product_item last" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
+        <?else:?>
+            <figure class="product_item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
+        <?endif?>
 			<?if($arElement['PROPERTIES']['SALE']['VALUE'] == 'TRUE'):?>
 				<div class="product_item_label sale"></div>
 			<?elseif($arElement['PROPERTIES']['NEW']['VALUE'] == 'TRUE'):?>
@@ -50,7 +63,7 @@
 				<?endif?>
 			</figcaption>
 		</figure>
-	<?endforeach; // foreach($arResult["ITEMS"] as $arElement):?>
+    <?endfor // foreach($arResult["ITEMS"] as $arElement):?>
 	<?if(count($arResult['ITEMS']) % $arParams['LINE_ELEMENT_COUNT'] && false):?>
 		<?for($i = 0; $i < ($arParams['LINE_ELEMENT_COUNT'] - (count($arResult['ITEMS']) % $arParams['LINE_ELEMENT_COUNT'])); $i++):?>
 			<figure class="product_item">
