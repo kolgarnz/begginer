@@ -17,4 +17,5 @@ $MESS["IBLOCK_SORT_SORT"] = "sorting index";
 $MESS["IBLOCK_SORT_NAME"] = "name";
 $MESS["IBLOCK_SORT_ID"] = "ID";
 $MESS["ROGA_I_SILA"] = "Horn and Strength";
+$MESS["IBLOCK_DESK_PAGGER_SALON"] = "Salons";
 ?>

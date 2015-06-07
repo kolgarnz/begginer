@@ -98,4 +98,5 @@ $arComponentParameters = array(
 			),
 		),
 );
+CIBlockParameters::AddPagerSettings($arComponentParameters, GetMessage("T_IBLOCK_DESC_PAGER_NEWS"), true, true);
 ?>

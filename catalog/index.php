@@ -38,7 +38,6 @@ $APPLICATION->SetTitle("Каталог");
 	),
 	"FILTER_PRICE_CODE" => array(
 	),
-	"USE_REVIEW" => "N",
 	"USE_COMPARE" => "N",
 	"PRICE_CODE" => array(
 		0 => "BASE",
@@ -54,7 +53,7 @@ $APPLICATION->SetTitle("Каталог");
 	"SHOW_TOP_ELEMENTS" => "N",
 	"SECTION_COUNT_ELEMENTS" => "N",
 	"SECTION_TOP_DEPTH" => "2",
-	"PAGE_ELEMENT_COUNT" => "20",
+	"PAGE_ELEMENT_COUNT" => "4",
 	"LINE_ELEMENT_COUNT" => "4",
 	"ELEMENT_SORT_FIELD" => "name",
 	"ELEMENT_SORT_ORDER" => "asc",
@@ -93,7 +92,7 @@ $APPLICATION->SetTitle("Каталог");
 	"DISPLAY_BOTTOM_PAGER" => "Y",
 	"PAGER_TITLE" => "Товары",
 	"PAGER_SHOW_ALWAYS" => "N",
-	"PAGER_TEMPLATE" => "search",
+	"PAGER_TEMPLATE" => "pagenavigation",
 	"PAGER_DESC_NUMBERING" => "N",
 	"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 	"PAGER_SHOW_ALL" => "N",

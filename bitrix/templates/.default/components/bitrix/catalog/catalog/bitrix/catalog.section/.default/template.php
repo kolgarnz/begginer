@@ -51,7 +51,7 @@
 			</figcaption>
 		</figure>
 	<?endforeach; // foreach($arResult["ITEMS"] as $arElement):?>
-	<?if(count($arResult['ITEMS']) % $arParams['LINE_ELEMENT_COUNT']):?>
+	<?if(count($arResult['ITEMS']) % $arParams['LINE_ELEMENT_COUNT'] && false):?>
 		<?for($i = 0; $i < ($arParams['LINE_ELEMENT_COUNT'] - (count($arResult['ITEMS']) % $arParams['LINE_ELEMENT_COUNT'])); $i++):?>
 			<figure class="product_item">
 			</figure>

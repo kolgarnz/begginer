@@ -22,5 +22,11 @@
 			</figcaption>
 		</figure>
 	<?endforeach?>
+
 	</div>
 </section>
+<div>
+<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+    <br /><?=$arResult["NAV_STRING"]?>
+<?endif;?>
+</div>
