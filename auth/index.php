@@ -16,7 +16,14 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		Что Вы хотите сделать прямо сейчас?
 	</p>
 <?elseif(strlen($_GET['backurl']) > 0):?>
-	<?LocalRedirect($_GET['backurl'])?>
+	<?
+    $dir = parse_url($_GET['backurl']);
+    if(strlen($dir['path']) > 0) {
+        LocalRedirect($dir['path']);
+    } else {
+        LocalRedirect('/');
+    }
+    ?>
 <?else:?>
 <?LocalRedirect("/")?>
 <?endif?>
