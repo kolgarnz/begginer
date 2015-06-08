@@ -4,7 +4,7 @@
 <?if($arResult["FORM_TYPE"] == "login"):?>
 <nav class="top_menu grey inline-block">
 	<a href="<?=$arResult["AUTH_REGISTER_URL"]?>" class="register"><?=GetMessage("AUTH_REGISTER")?></a>
-	<a href="/auth/<?if(strlen($arResult['BACKURL']) > 0 && $APPLICATION->GetCurDir() !== '/auth/'):?><?$APPLICATION->GetCurUri("backurl=".urlencode($arResult['BACKURL']));?><? endif?>" class="auth">
+	<a href="/auth/<?if(strlen($arResult['BACKURL']) > 0 && !isset($_REQUEST['backurl'])):?>?backurl=<?=$APPLICATION->GetCurDir();?><? endif?>" class="auth">
         <?=GetMessage("AUTH_AUTHORIZATION")?>
     </a>
 </nav>
