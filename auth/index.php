@@ -2,6 +2,7 @@
 define("NEED_AUTH", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
+<?$dir = parse_url($_GET['backurl'],PHP_URL_PATH);?>
 <?if($_GET['register'] == 'yes'):?>
 	<?$APPLICATION->SetTitle('Благодарим Вас за регистрацию в интернет-магазине «Рога и сила»!')?>
 	<p>Добро пожаловать!</p>
@@ -15,15 +16,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		</ul>
 		Что Вы хотите сделать прямо сейчас?
 	</p>
-<?elseif(strlen($_GET['backurl']) > 0):?>
-	<?
-    $dir = parse_url($_GET['backurl'],PHP_URL_PATH);
-    if(strlen($dir) > 0) {
-        LocalRedirect($dir);
-    } else {
-        LocalRedirect('/');
-    }
-    ?>
+<?elseif(strlen($dir) > 0):?>
+	<?LocalRedirect($dir);?>
 <?else:?>
 <?LocalRedirect("/")?>
 <?endif?>
