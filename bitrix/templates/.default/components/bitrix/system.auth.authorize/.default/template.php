@@ -17,7 +17,7 @@ ShowMessage($arResult['ERROR_MESSAGE']);
 		<input type="hidden" name="AUTH_FORM" value="Y" />
 		<input type="hidden" name="TYPE" value="AUTH" />
 		<?if (strlen($arResult["BACKURL"]) > 0):?>
-		<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
+		    <input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
 		<?endif?>
 		<?foreach ($arResult["POST"] as $key => $value):?>
 		<input type="hidden" name="<?=$key?>" value="<?=$value?>" />
