@@ -44,7 +44,7 @@
         );?>
     </section>
     <div class="footer_inner">
-        <a href="http://www.qsoft.ru" target="_blank" class="qsoft grey inline-block">Сделано в</a>
+        <a href="http://www.qsoft.ru" target="_blank" class="qsoft grey inline-block"><?=GetMessage('CREATED_IN_QSOFT')?></a>
         <?$APPLICATION->IncludeComponent(
             "bitrix:main.include",
             "",

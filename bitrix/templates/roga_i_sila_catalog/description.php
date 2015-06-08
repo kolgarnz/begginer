@@ -1,1 +1,4 @@
-<?$arTemplate = array("NAME"=>"roga_i_sila_catalog", "DESCRIPTION"=>"");?>
+<?$arTemplate = array(
+    "NAME"=>"roga_i_sila_catalog",
+    "DESCRIPTION"=>"",
+);?>
