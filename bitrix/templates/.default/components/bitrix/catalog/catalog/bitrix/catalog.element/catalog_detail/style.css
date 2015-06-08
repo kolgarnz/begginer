@@ -1,3 +1,56 @@
 .catalog-price {
 	 color:red;
 }
+.b-product-photo {
+    float: left;
+    margin-top: 8px;
+    margin-left: -602px;
+    width: 600px;
+    text-align: center;
+}
+.b-product-photo__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.b-product-photo__list-item {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+.b-product-photo__list-item__content {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 528px;
+    height: 386px;
+}
+.b-product-photo__thumbnail {
+    padding: 10px 0;
+    text-align: center;
+    letter-spacing: -1px;
+    font-size: 1px;
+}
+.b-product-photo__thumbnail-item {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px 10px;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    font-size: 1px;
+}
+.b-product-photo__thumbnail-item.active:before {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    width: 10px;
+    height: 5px;
+    background: url("/bitrix/templates/.default/images/sprite.png") 0 -130px no-repeat;
+    content: "";
+}
+.b-product-photo__thumbnail-item__content {
+    width: 78px;
+    height: 58px;
+    border: 1px solid #d5d5d5;
+}

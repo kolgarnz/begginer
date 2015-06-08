@@ -21,7 +21,7 @@
 					
 					<?if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
 						<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-							<h3><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=$arItem["NAME"]?></a></h3>
+							<h3><a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="news_name"><?=$arItem["NAME"]?></a></h3>
 						<?else:?>
 							<h3><?=$arItem["NAME"]?></h3>
 						<?endif;?>

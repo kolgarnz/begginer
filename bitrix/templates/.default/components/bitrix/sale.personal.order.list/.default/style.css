@@ -1,72 +1,62 @@
-/*Table*/
-table.sale-personal-order-list
-{
-	width:100%;
-	background-color:#F9FAFB;
-	border-collapse:collapse;
-	font-size:100%;
+table.sale-personal-order-list{
+    color: #000;
+    font-size: 1em;
+    border-collapse: collapse;
+    width:100%;
 }
 
-/*Table head*/
-table.sale-personal-order-list th
-{
-	background-image:url(images/table_head.gif);
-	background-repeat:repeat-x;
-	text-align: left;
-	color:#25639A;
+table.sale-personal-order-list thead, table.sale-personal-order-list th{
+    font-size: 0.857em;
+    font-family: "PTSans_Bold";
+    background-color: #efefef;
+    color: #666;
+}
+table.sale-personal-order-list td {
+    padding: 7px 30px 15px 7px;
+}
+table.sale-personal-order-list thead td, table.sale-personal-order-list th{
+    padding-bottom: 7px;
+}
+table.sale-personal-order-list td:first-child{
+    width: 253px;
+}
+table.sale-personal-order-list td.action{
+    width: 150px;
+}
+table.sale-personal-order-list td.action a{
+    display: block;
+    margin-bottom: 6px;
 }
 
-/* Table cells and heads*/
-table.sale-personal-order-list th, table.sale-personal-order-list td
-{
-	border:1px solid #ADC3D5;
-	padding: 3px 5px;
-	vertical-align:top;
+
+
+/*FILTER*/
+table.sale-personal-order-list-filter{
+    color: #000;
+    font-size: 1em;
+    border-collapse: collapse;
+    width:100%;
 }
 
-/* Only table cells*/
-table.sale-personal-order-list td
-{
-
+table.sale-personal-order-list-filter thead, table.sale-personal-order-list-filter th{
+    font-size: 0.857em;
+    font-family: "PTSans_Bold";
+    background-color: #efefef;
+    color: #666;
 }
-
-
-/*Filter*/
-
-table.sale-personal-order-list-filter
-{
-	background-color:#F9FAFB;
-	font-size:100%;
-	border-collapse:collapse;
-    width: 100%;
+table.sale-personal-order-list-filter td {
+    padding: 4px 30px 4px 7px;
 }
-
-table.sale-personal-order-list-filter th
-{
-	background-image:url(images/table_head.gif);
-	background-repeat:repeat-x;
-	text-align: center;
-	font-size:100%;
-	color:#25639A;
+table.sale-personal-order-list-filter thead td, table.sale-personal-order-list-filter th{
+    padding-bottom: 7px;
 }
-
-table.sale-personal-order-list-filter td, table.sale-personal-order-list-filter th
-{
-	padding:3px;
-	border:1px solid #ADC3D5;
+table.sale-personal-order-list-filter td:first-child{
+    width: auto;
 }
-
-table.sale-personal-order-list-filter td
-{
-	vertical-align: top;
+table.sale-personal-order-list-filter td.action{
+    width: 150px;
 }
-
-table.sale-personal-order-list-filter select {
-    width: 20%;
-    height: auto;
+table.sale-personal-order-list-filter td.action a{
+    display: block;
+    margin-bottom: 6px;
 }
-.ui-selectmenu-dropdown{
-    border-top: 0 none;
-    border-bottom: 0 none;
-}
-

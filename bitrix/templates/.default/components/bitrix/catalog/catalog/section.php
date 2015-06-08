@@ -1,7 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<? GLOBAL $arrFilterZ; ?>
-
 <?if($arParams["USE_FILTER"]=="Y"):?>
 <?
 if (CModule::IncludeModule("iblock"))

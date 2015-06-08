@@ -20,6 +20,11 @@ div.news-list img.preview_picture
     margin-left: 8px;
     width: 300px;
 }
+.news_item a.news_name:visited
+{
+    color: #999;
+}
+
 .news_item:first-child
 {
     margin-left: 0;

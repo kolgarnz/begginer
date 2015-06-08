@@ -1,6 +1,6 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <form method="GET" action="<?= $arResult["CURRENT_PAGE"] ?>" name="bfilter">
-<table class="sale-personal-order-list-filter data-table">
+<table class="sale-personal-order-list-filter">
 	<tr>
 		<th colspan="2"><?echo GetMessage("SPOL_T_F_FILTER")?></th>
 	</tr>

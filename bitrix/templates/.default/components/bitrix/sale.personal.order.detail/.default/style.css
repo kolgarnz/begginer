@@ -1,0 +1,41 @@
+table.sale_personal_order_detail{
+    color: #000;
+    font-size: 1em;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.sale_personal_order_detail thead, table.sale_personal_order_detail th{
+    font-size: 0.857em;
+    font-family: "PTSans_Bold";
+    background-color: #efefef;
+    color: #666;
+}
+table.sale_personal_order_detail td {
+    padding: 4px 30px 4px 7px;
+    width: 50%;
+}
+table.sale_personal_order_detail thead td, table.sale_personal_order_detail th{
+    padding-bottom: 7px;
+}
+
+table.sale_personal_order_detail td:first-child{
+
+}
+table.sale_personal_order_detail td.action{
+    width: auto;
+}
+table.sale_personal_order_detail td.action a{
+    display: block;
+    margin-bottom: 6px;
+}
+
+table.total td:first-child {
+    width: 60%
+}
+table.total td:nth-child(2){
+     width: 25%;
+}
+table.total td:last-child {
+    width: 15%;
+}
