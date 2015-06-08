@@ -1,4 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?LocalRedirect("/catalog/new/")?>
 <?if($arParams["USE_FILTER"]=="Y"):?>
 <?
 if (CModule::IncludeModule("iblock"))
