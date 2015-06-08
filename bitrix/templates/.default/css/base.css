@@ -795,6 +795,9 @@ input[type="checkbox"] + label.filter-type-label {
 			background-position: 0 0;
 			background: rgb(185, 185, 185);
 		}
+a {
+    color: #333333;
+}
 /*x_forms*/
 input:focus, textarea:focus
 {
