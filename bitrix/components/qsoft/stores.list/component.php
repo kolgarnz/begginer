@@ -22,7 +22,7 @@ $arParams["PARENT_SECTION"] = intval($arParams["PARENT_SECTION"]);
 $arParams["IBLOCK_ID"] = intval($arParams["IBLOCK_ID"]);
 
 $arParams["IBLOCK_ELEMENT_COUNT"] = intval($arParams["IBLOCK_ELEMENT_COUNT"]);
-if($arParams["IBLOCK_ELEMENT_COUNT"] < 0)
+if($arParams["IBLOCK_ELEMENT_COUNT"] <= 0)
 	$arParams["IBLOCK_ELEMENT_COUNT"] = 1;
 	
 if("Y"===$arParams["IBLOCK_SHOW_MAP"])

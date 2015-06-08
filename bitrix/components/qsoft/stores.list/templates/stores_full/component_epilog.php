@@ -4,7 +4,7 @@
 <?$APPLICATION->IncludeComponent("bitrix:map.yandex.view", ".default", array(
 	"INIT_MAP_TYPE" => "MAP",
 	"MAP_DATA" => serialize($arResult['POSITION']),
-	"MAP_WIDTH" => "600",
+	"MAP_WIDTH" => "690",
 	"MAP_HEIGHT" => "500",
 	"CONTROLS" => array(
 		0 => "ZOOM",
@@ -19,4 +19,3 @@
 	false
 );
 ?>
-&nbsp;
