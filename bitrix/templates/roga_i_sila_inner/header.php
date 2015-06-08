@@ -14,9 +14,6 @@
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/css/base.css')?>
         <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/default_script.js")?>
 
-        <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/bxslider/jquery.bxslider.css')?>
-        <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/bxslider/jquery.bxslider.js")?>
-
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.core.css')?>
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.theme.css')?>
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/js/jquery.ui.selectmenu/jquery.ui.selectmenu.css')?>
