@@ -26,11 +26,11 @@ ShowMessage($arResult['ERROR_MESSAGE']);
                 <td class="bx-auth-label"><?=GetMessage("AUTH_PASSWORD")?></td>
                 <td><input placeholder="*********" class="bx-auth-input" type="password" name="USER_PASSWORD" maxlength="255" />
                     <?if($arResult["SECURE_AUTH"]):?>
-                        <span class="bx-auth-secure" id="bx_auth_secure" title="<?echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
+                        <span class="bx-auth-secure" id="bx_auth_secure" title="<?=GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
                         <div class="bx-auth-secure-icon"></div>
                     </span>
                         <noscript>
-                        <span class="bx-auth-secure" title="<?echo GetMessage("AUTH_NONSECURE_NOTE")?>">
+                        <span class="bx-auth-secure" title="<?=GetMessage("AUTH_NONSECURE_NOTE")?>">
                             <div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
                         </span>
                         </noscript>
@@ -43,11 +43,11 @@ ShowMessage($arResult['ERROR_MESSAGE']);
             <?if($arResult["CAPTCHA_CODE"]):?>
                 <tr>
                     <td></td>
-                    <td><input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
-                        <img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></td>
+                    <td><input type="hidden" name="captcha_sid" value="<?=$arResult["CAPTCHA_CODE"]?>" />
+                        <img src="/bitrix/tools/captcha.php?captcha_sid=<?=$arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></td>
                 </tr>
                 <tr>
-                    <td class="bx-auth-label"><?echo GetMessage("AUTH_CAPTCHA_PROMT")?>:</td>
+                    <td class="bx-auth-label"><?=GetMessage("AUTH_CAPTCHA_PROMT")?>:</td>
                     <td><input class="bx-auth-input" type="text" name="captcha_word" maxlength="50" value="" size="15" /></td>
                 </tr>
             <?endif;?>

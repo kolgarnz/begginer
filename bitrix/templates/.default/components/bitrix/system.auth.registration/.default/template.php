@@ -7,12 +7,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
     ?>
     <?if($arResult["USE_EMAIL_CONFIRMATION"] === "Y" && is_array($arParams["AUTH_RESULT"]) &&  $arParams["AUTH_RESULT"]["TYPE"] === "OK"):?>
         <p>
-            <?echo GetMessage("AUTH_EMAIL_SENT")?>
+            <?=GetMessage("AUTH_EMAIL_SENT")?>
         </p>
     <?else:?>
 
     <?if($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):?>
-        <p><?echo GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></p>
+        <p><?=GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></p>
     <?endif?>
         <noindex>
             <form method="post" action="<?=$arResult["AUTH_URL"]?>" name="bform">
@@ -44,7 +44,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
                     <tr>
                         <td><span class="starrequired">*</span><?=GetMessage("AUTH_PASSWORD_REQ")?></td>
                         <td><input type="password" name="USER_PASSWORD" maxlength="50" value="<?=$arResult["USER_PASSWORD"]?>" class="bx-auth-input" /></td>
-                        <td style="font-size:11px;"><?echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></td>
+                        <td style="font-size:11px;"><?=$arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></td>
                     </tr>
                     <tr>
                         <td><span class="starrequired">*</span><?=GetMessage("AUTH_CONFIRM")?></td>

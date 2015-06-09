@@ -126,7 +126,7 @@ function PrintPropsForm($arSource=Array(), $locationTemplate = ".default")
 
 					if (strlen($arProperties["DESCRIPTION"]) > 0)
 					{
-						?><br /><small><?echo $arProperties["DESCRIPTION"] ?></small><?
+						?><br /><small><?=$arProperties["DESCRIPTION"] ?></small><?
 					}
 					?>
 

@@ -25,7 +25,7 @@
 				?></td>
 	</tr>
 	<tr>
-		<td align="right"><?= GetMessage("P_ORDER_CANCELED") ?>:</td>
+		<td align="right"><?=GetMessage("P_ORDER_CANCELED") ?>:</td>
 		<td><?
 			echo (($arResult["CANCELED"] == "Y") ? GetMessage("SALE_YES") : GetMessage("SALE_NO"));
 			if ($arResult["CANCELED"] == "Y") {
@@ -46,11 +46,11 @@
 			<th colspan="2"><b><?=GetMessage("SPOD_ACCOUNT_DATA")?></b></th>
 		</tr>
 		<tr>
-			<td align="right"><?= GetMessage("SPOD_ACCOUNT") ?>:</td>
+			<td align="right"><?=GetMessage("SPOD_ACCOUNT") ?>:</td>
 			<td><?=$arResult["USER_NAME"]?></td>
 		</tr>
 		<tr>
-			<td align="right"><?= GetMessage("SPOD_LOGIN") ?>:</td>
+			<td align="right"><?=GetMessage("SPOD_LOGIN") ?>:</td>
 			<td><?=$arResult["USER"]["LOGIN"]?></td>
 		</tr>
 		<tr>
@@ -170,7 +170,7 @@
 	</tr>
 
 	<tr>
-		<th colspan="2" align="center"><b><?= GetMessage("P_ORDER_DELIVERY")?></b></th>
+		<th colspan="2" align="center"><b><?=GetMessage("P_ORDER_DELIVERY")?></b></th>
 	</tr>
 	<tr>
 		<td align="right"><?=GetMessage("P_ORDER_DELIVERY")?>:</td>
@@ -195,9 +195,9 @@
 
         <table class="sale_personal_order_detail total">
             <tr>
-				<th><?= GetMessage("SPOD_NAME") ?></th>
-				<th><?= GetMessage("SPOD_QUANTITY") ?></th>
-				<th><?= GetMessage("SPOD_PRICE") ?></th>
+				<th><?=GetMessage("SPOD_NAME") ?></th>
+				<th><?=GetMessage("SPOD_QUANTITY") ?></th>
+				<th><?=GetMessage("SPOD_PRICE") ?></th>
             </tr>
 		<?
 		foreach($arResult["BASKET"] as $val) {
