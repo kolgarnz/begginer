@@ -46,46 +46,19 @@ if (strlen($arResult["BACKURL"]) > 0)
 		</tr>
 		<tr>
 			<td><span class="starrequired">*</span><?=GetMessage("AUTH_PASSWORD_REQ")?></td>
-			<td><input type="password" name="USER_PASSWORD" maxlength="50" value="<?=$arResult["USER_PASSWORD"]?>" class="bx-auth-input" />
-<?if($arResult["SECURE_AUTH"]):?>
-				<span class="bx-auth-secure" id="bx_auth_secure" title="<?echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
-					<div class="bx-auth-secure-icon"></div>
-				</span>
-				<noscript>
-				<span class="bx-auth-secure" title="<?echo GetMessage("AUTH_NONSECURE_NOTE")?>">
-					<div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
-				</span>
-				</noscript>
-<script type="text/javascript">
-document.getElementById('bx_auth_secure').style.display = 'inline-block';
-</script>
-<?endif?>
-			</td>
+			<td><input type="password" name="USER_PASSWORD" maxlength="50" value="<?=$arResult["USER_PASSWORD"]?>" class="bx-auth-input" /></td>
+            <td style="font-size:11px;"><?echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></td>
 		</tr>
 		<tr>
 			<td><span class="starrequired">*</span><?=GetMessage("AUTH_CONFIRM")?></td>
 			<td><input type="password" name="USER_CONFIRM_PASSWORD" maxlength="50" value="<?=$arResult["USER_CONFIRM_PASSWORD"]?>" class="bx-auth-input" /></td>
-			<td style="font-size:11px;"><?echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></td>
 		</tr>
 		<tr>
 			<td><span class="starrequired">*</span><?=GetMessage("AUTH_EMAIL")?></td>
 			<td><input type="text" placeholder="name@site.domain" name="USER_EMAIL" maxlength="255" value="<?=$arResult["USER_EMAIL"]?>" class="bx-auth-input" /></td>
 		</tr>
-<?// ********************* User properties ***************************************************?>
-<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
-	<tr><td colspan="2"><?=strLen(trim($arParams["USER_PROPERTY_NAME"])) > 0 ? $arParams["USER_PROPERTY_NAME"] : GetMessage("USER_TYPE_EDIT_TAB")?></td></tr>
-	<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
-	<tr><td><?if ($arUserField["MANDATORY"]=="Y"):?><span class="required">*</span><?endif;?>
-		<?=$arUserField["EDIT_FORM_LABEL"]?>:</td><td>
-			<?$APPLICATION->IncludeComponent(
-				"bitrix:system.field.edit",
-				$arUserField["USER_TYPE"]["USER_TYPE_ID"],
-				array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "bform"), null, array("HIDE_ICONS"=>"Y"));?></td></tr>
-	<?endforeach;?>
-<?endif;?>
-<?// ******************** /User properties ***************************************************
 
-	/* CAPTCHA */
+<?	/* CAPTCHA */
 	if ($arResult["USE_CAPTCHA"] == "Y")
 	{
 		?>

@@ -145,8 +145,7 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
         $arResult["NAV_CACHED_DATA"] = $navComponentObject->GetTemplateCachedData();
         $arResult["NAV_RESULT"] = $rsIBlockElement;
         $this->SetResultCacheKeys(array("NAV_CACHED_DATA"));
-    }
-    echo '<!--  '.json_encode($arResult).'  -->';
+    };
 
 
     $this->SetResultCacheKeys(array(
@@ -155,7 +154,6 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
     ));
 	$this->IncludeComponentTemplate();
 }
-
 
 if(isset($arResult["ITEMS"]) && $arResult["NAV_CACHED_DATA"]) {
     $this->SetTemplateCachedData($arResult["NAV_CACHED_DATA"]);
