@@ -18,4 +18,5 @@ $MESS["IBLOCK_SORT_NAME"] = "название";
 $MESS["IBLOCK_SORT_ID"] = "ID";
 $MESS["ROGA_I_SILA"] = "Рога и Сила";
 $MESS["IBLOCK_DESK_PAGGER_SALON"] = "Салоны";
+$MESS["IBLOCK_NO_IMAGE"] = "Путь к стандартной картинке";
 ?>
