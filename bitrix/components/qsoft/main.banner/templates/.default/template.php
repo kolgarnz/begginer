@@ -1,19 +1,21 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
-<?if(count($arResult) > 0):?>
+<?if(count($arResult['BANNERS']) > 0):?>
 	<div class="slider">
 		<ul class="bxslider">
-		<?foreach($arResult as $banner):?>
-		<li>
-			<div class="banner">
-				<a href="<?=$banner['URL']?>"><img src="<?=$banner['IMG_URL']?>" alt="" title="" /></a>
-				<div class="banner_content">
-					<h1>Это просто тестовое сообщение</h1>
-				</div>
-			</div>
-		</li>
+		<?foreach($arResult['BANNERS'] as $banner):?>
+            <li>
+                <div class="banner">
+                    <a href="<?=$banner['URL']?>"><img src="<?=$banner['IMG']?>" alt="<?=$banner['NAME']?>" title="<?=$banner['NAME']?>" /></a>
+                    <?if(strlen($banner['CODE']) > 0):?>
+                        <div class="banner_content">
+                            <?=$banner['CODE']?>
+                        </div>
+                    <?endif?>
+                </div>
+            </li>
 		<?endforeach?>
 		</ul>
-	<div class="slider">
+	</div>
 <?endif?>

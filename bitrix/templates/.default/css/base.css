@@ -857,7 +857,7 @@ nav a
 	font-weight: normal;
 	width: 75%;
 }
-.detail_link{
+.detail_link, .detail_link:visited{
 	color: #ff7519;
 	text-decoration: none;
 	position: relative;

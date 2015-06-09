@@ -68,7 +68,17 @@ if($arParams["DISPLAY_TOP_PAGER"] || $arParams["DISPLAY_BOTTOM_PAGER"]) {
 }
 //end of Постраничная навигация
 
-if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false: $USER->GetGroups()), $arNavigation, $arParams["IBLOCK_ELEMENT_COUNT"])))
+if(
+    $arParams["IBLOCK_ID"] > 0
+    && $this->StartResultCache(
+        false,
+        array(
+            ($arParams["CACHE_GROUPS"]==="N"? false: $USER->GetGroups()),
+            $arNavigation,
+            $arParams["IBLOCK_ELEMENT_COUNT"]
+        )
+    )
+)
 {
 	if(!CModule::IncludeModule("iblock"))
 	{

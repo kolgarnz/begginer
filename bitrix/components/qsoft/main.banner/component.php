@@ -9,50 +9,65 @@ if($arParams["NOINDEX"] <> "Y") {
 	$arParams["NOINDEX"] = "N";
 }
 
-if ($arParams["CACHE_TYPE"] == "Y" || ($arParams["CACHE_TYPE"] == "A" && COption::GetOptionString("main", "component_cache_on", "Y") == "Y"))
+if (
+    $arParams["CACHE_TYPE"] == "Y" || (
+        $arParams["CACHE_TYPE"] == "A" &&
+        COption::GetOptionString("main", "component_cache_on", "Y") == "Y"
+        )
+) {
 	$arParams["CACHE_TIME"] = intval($arParams["CACHE_TIME"]);
-else
-	$arParams["CACHE_TIME"] = 0;
-
-
-$obCache = new CPHPCache;
-$cache_id = SITE_ID."|advertising.banner|".serialize($arParams)."|".$USER->GetGroups();
-$cache_path = "/".SITE_ID.$this->GetRelativePath();
+} else {
+    $arParams["CACHE_TIME"] = 0;
+}
 
 $arResult = array();
-if ($obCache->StartDataCache($arParams["CACHE_TIME"], $cache_id, $cache_path)) {
+if($this->StartResultCache(
+    false,
+    array(
+        ($arParams["CACHE_GROUPS"]==="N"? false: $USER->GetGroups()),
+        $arParams["TYPE"]
+        )
+    )
+) {
 	if(!CModule::IncludeModule("advertising")) {
+        $this->AbortResultCache();
 		return;
     }
 
-	$rs = CAdvBanner::GetList($by="s_id", $order="desc", array("TYPE_SID" => $arParams["TYPE"], "TYPE_SID_EXACT_MATCH" => "Y", "ACTIVE" => "Y"), $if_filtered, "N");
-	while($ar = $rs->Fetch()) {
-		$imgUrl = CFile::GetPath(intval($ar['IMAGE_ID']));
-		
-		if(strlen($ar['URL']) > 0 && $imgUrl) {
-            $arResult[] = array(
-                'URL' => $ar['URL'],
-                'IMG_URL' => $imgUrl
-            );
+	$rs = CAdvBanner::GetList(
+        $by="s_id",
+        $order="desc",
+        array(
+            "TYPE_SID" => $arParams["TYPE"],
+            "TYPE_SID_EXACT_MATCH" => "Y",
+            "ACTIVE" => "Y"
+        ),
+        $if_filtered,
+        "N"
+    );
+
+	while($ar = $rs->GetNext(true,false)) {
+        $ar['IMAGE_ID'] = intval($ar['IMAGE_ID']);
+
+        if($ar['IMAGE_ID'] > 0 && strlen($ar['URL']) > 0) {
+            $imgUrl = CFile::GetPath($ar['IMAGE_ID']);
+            if(strlen($imgUrl) > 0) {
+                $arResult['BANNERS'][$ar['ID']] = array(
+                    'NAME' => $ar['NAME'],
+                    'IMG' => $imgUrl,
+                    'URL' => $ar['URL'],
+                    'CODE' => str_replace('#BANNER_URL#', $ar['URL'], $ar['CODE']),
+                );
+            }
         }
-		unset($ar);
-		unset($imgUrl);
 	}
-	unset($rs);
-
+    $this->SetResultCacheKeys(array(
+        'BANNERS'
+    ));
 	$this->IncludeComponentTemplate();
-
-	$templateCachedData = $this->GetTemplateCachedData();
-
-	$obCache->EndDataCache(
-		Array(
-			"arResult" => $arResult,
-			"templateCachedData" => $templateCachedData
-		)
-	);
-} else {
-	$arVars = $obCache->GetVars();
-	$arResult = $arVars["arResult"];
-	$this->SetTemplateCachedData($arVars["templateCachedData"]);
 }
-?>
+
+if(isset($arResult["BANNERS"])) {
+    $this->SetTemplateCachedData($arResult["BANNERS"]);
+}
+
