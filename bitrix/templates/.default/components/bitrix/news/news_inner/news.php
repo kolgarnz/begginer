@@ -1,4 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arParams['LIST_NO_IMAGE'] = addslashes(trim($arParams['LIST_NO_IMAGE']));
 $APPLICATION->IncludeComponent(
@@ -48,4 +49,3 @@ $APPLICATION->IncludeComponent(
 	),
 	$component
 );
-?>

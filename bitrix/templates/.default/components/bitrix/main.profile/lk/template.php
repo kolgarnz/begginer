@@ -83,7 +83,10 @@ var cookie_prefix = '<?=$arResult["COOKIE_PREFIX"]?>';
             </table>
         </div>
     <?endif;?>
-
-	<p><input type="submit" name="save" value="<?=(($arResult["ID"]>0) ? GetMessage("MAIN_SAVE") : GetMessage("MAIN_ADD"))?>">&nbsp;&nbsp;<input type="reset" value="<?=GetMessage('MAIN_RESET');?>"></p>
+	<p>
+        <input type="submit" name="save" value="<?=(($arResult["ID"]>0) ? GetMessage("MAIN_SAVE") : GetMessage("MAIN_ADD"))?>">
+        &nbsp;&nbsp;
+        <input type="reset" value="<?=GetMessage('MAIN_RESET');?>">
+    </p>
 </form>
 </div>

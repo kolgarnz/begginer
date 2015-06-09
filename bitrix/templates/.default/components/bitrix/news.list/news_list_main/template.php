@@ -1,4 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?if(count($arResult["ITEMS"]) > 0):?>
 <section class="news_block inverse">
     <?if(strlen($arResult['LIST_PAGE_URL']) > 0):?>
 	    <h2 class="inline-block">
@@ -29,12 +30,8 @@
                     </a>
 				<?endif?>
 				<figcaption class="news_item_description">
-					<?if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
-						<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-							<h3><a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="news_name"><?=$arItem["NAME"]?></a></h3>
-						<?else:?>
-							<h3><?=$arItem["NAME"]?></h3>
-						<?endif;?>
+					<?if($arItem["NAME"]):?>
+						<h3><a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="news_name"><?=$arItem["NAME"]?></a></h3>
 					<?endif;?>
 					<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
 						<div class="news_item_anons">
@@ -52,3 +49,4 @@
 		<?endforeach;?>
 	</div>
 </section>
+<?endif?>
