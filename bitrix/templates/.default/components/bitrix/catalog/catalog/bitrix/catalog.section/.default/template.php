@@ -5,20 +5,20 @@
         <?=$arResult["NAV_STRING"]?><br />
     <?endif;?>
     <section>
-        <?for($i = 0; $i < count($arResult["NOT_ZERO"]); $i++):?>
-            <?$arElement = $arResult["NOT_ZERO"][$i];?>
+        <?for($i = 0; $i < count($arResult["ITEMS"]); $i++):?>
+            <?$arElement = $arResult["ITEMS"][$i];?>
             <?
             $this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
             $this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
             ?>
 
             <?if(
-                count($arResult["NOT_ZERO"]) > 0 && count($arResult["NOT_ZERO"]) < $arParams['LINE_ELEMENT_COUNT'] || (
-                    count($arResult["NOT_ZERO"]) % $arParams['LINE_ELEMENT_COUNT'] > 0 &&
-                    $i > count($arResult["NOT_ZERO"]) - (count($arResult["NOT_ZERO"]) % $arParams['LINE_ELEMENT_COUNT']) - 1
+                count($arResult["ITEMS"]) > 0 && count($arResult["ITEMS"]) < $arParams['LINE_ELEMENT_COUNT'] || (
+                    count($arResult["ITEMS"]) % $arParams['LINE_ELEMENT_COUNT'] > 0 &&
+                    $i > count($arResult["ITEMS"]) - (count($arResult["ITEMS"]) % $arParams['LINE_ELEMENT_COUNT']) - 1
                 ) || (
-                    count($arResult["NOT_ZERO"]) % $arParams['LINE_ELEMENT_COUNT'] == 0 &&
-                    $i > count($arResult["NOT_ZERO"]) - $arParams['LINE_ELEMENT_COUNT'] - 1
+                    count($arResult["ITEMS"]) % $arParams['LINE_ELEMENT_COUNT'] == 0 &&
+                    $i > count($arResult["ITEMS"]) - $arParams['LINE_ELEMENT_COUNT'] - 1
                 )
             ):?>
                 <figure class="product_item last" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
