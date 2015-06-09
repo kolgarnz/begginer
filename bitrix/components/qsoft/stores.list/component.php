@@ -108,7 +108,6 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
 	
 	//EXECUTE
 	$rsIBlockElement = CIBlockElement::GetList($arSort, $arFilter, false, $arNavParams, $arSelect);
-	$rsIBlockElement->SetUrlTemplates($arParams["IBLOCK_ALL_URL"]);
 
     while($temp = $rsIBlockElement->GetNext(true,false)) {
 
@@ -121,7 +120,7 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
         }
 
         $arResult['ITEMS'][$temp['ID']] = $temp;
-        if ($arParams["IBLOCK_SHOW_MAP"]) {
+        if ($arParams["IBLOCK_SHOW_MAP"] && strlen($temp['PROPERTY_MAP_VALUE'] > 0)) {
             list($arResult['POSITION']['yandex_lat'], $arResult['POSITION']['yandex_lon']) = explode(',', $temp['PROPERTY_MAP_VALUE']);
             $arResult['POSITION']['PLACEMARKS'][] = array(
                 'LAT' => $arResult['POSITION']['yandex_lat'],

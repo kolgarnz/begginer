@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<section class="shops_block">
-    <?if(count($arResult['ITEMS'] > 0)):?>
+<?if(count($arResult['ITEMS'] > 0)):?>
+    <section class="shops_block">
         <h2 class="inline-block"><?=GetMessage('OUR_STORES')?></h2>
         <?if(strlen($arParams['IBLOCK_ALL_URL']) > 0):?>
             <span class="dark_grey all_list">&nbsp;/&nbsp;<a href="<?=$arParams['IBLOCK_ALL_URL']?>" class="text_decor_none"><b><?=GetMessage('ALL')?></b></a></span>
@@ -20,5 +20,5 @@
             </figure>
         <?endforeach?>
         </div>
-    <?endif?>
-</section>
+    </section>
+<?endif?>
