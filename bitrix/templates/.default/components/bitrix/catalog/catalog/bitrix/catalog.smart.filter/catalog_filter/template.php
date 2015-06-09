@@ -18,7 +18,7 @@
 						<input 
                             type="text"
                             id="price-start"
-                            <?if(isset($arItem["VALUES"]["MIN"]["HTML_VALUE"])):?>
+                            <?if($arItem["VALUES"]["MIN"]["HTML_VALUE"] > 0):?>
                                 value="<?=$arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
                             <?else:?>
                                 placeholder="<?echo GetMessage("CT_BCSF_FILTER_FROM")?> <?=CurrencyFormat($arItem["VALUES"]["MIN"]["VALUE"], 'RUB', true)?>"
@@ -29,7 +29,7 @@
 						<input 
                             type="text"
                             id="price-end"
-                            <?if(isset($arItem["VALUES"]["MAX"]["HTML_VALUE"])):?>
+                            <?if($arItem["VALUES"]["MAX"]["HTML_VALUE"] > 0):?>
                                 value="<?=$arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
                             <?else:?>
                                 placeholder="<?echo GetMessage("CT_BCSF_FILTER_TO")?> <?=CurrencyFormat($arItem["VALUES"]["MAX"]["VALUE"], 'RUB', true)?>"
@@ -89,6 +89,7 @@
 <script>
 window.onload = function() {
   $("#slider-range").slider({
+     <!-- <?=json_encode($arResult["ITEMS"]["BASE"]["VALUES"])?> -->
           animate: "slow",
           range: true,
           min: <?=intval($arResult["ITEMS"]["BASE"]["VALUES"]["MIN"]["VALUE"])?>,
@@ -96,13 +97,13 @@ window.onload = function() {
           step: 50000,
           values: [
               <?php
-                  if(isset($arResult["ITEMS"]["BASE"]["VALUES"]["MIN"]["HTML_VALUE"])) {
+                  if($arResult["ITEMS"]["BASE"]["VALUES"]["MIN"]["HTML_VALUE"] > 0) {
                       echo $arResult["ITEMS"]["BASE"]["VALUES"]["MIN"]["HTML_VALUE"].',';
                   } else {
                       echo $arResult["ITEMS"]["BASE"]["VALUES"]["MIN"]["VALUE"].',';
                   }
 
-                  if(isset($arResult["ITEMS"]["BASE"]["VALUES"]["MAX"]["HTML_VALUE"])) {
+                  if($arResult["ITEMS"]["BASE"]["VALUES"]["MAX"]["HTML_VALUE"] > 0) {
                       echo $arResult["ITEMS"]["BASE"]["VALUES"]["MAX"]["HTML_VALUE"];
                   } else {
                       echo $arResult["ITEMS"]["BASE"]["VALUES"]["MAX"]["VALUE"];

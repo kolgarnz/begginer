@@ -96,6 +96,7 @@ $APPLICATION->SetTitle("Каталог");
 	"PAGER_DESC_NUMBERING" => "N",
 	"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 	"PAGER_SHOW_ALL" => "N",
+	"CATALOG_NO_IMAGE" => "/bitrix/templates/.default/images/no-image.jpg",
 	"AJAX_OPTION_ADDITIONAL" => "",
 	"SEF_URL_TEMPLATES" => array(
 		"sections" => "",
