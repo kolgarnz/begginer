@@ -5,27 +5,20 @@
 	<div class="errortext"><?=GetMessage("SOA_NO_JS")?></div>
 </NOSCRIPT>
 <?
-if(!$USER->IsAuthorized() && $arParams["ALLOW_AUTO_REGISTER"] == "N")
-{
-	if(!empty($arResult["ERROR"]))
-	{
+if(!$USER->IsAuthorized() && $arParams["ALLOW_AUTO_REGISTER"] == "N") {
+	if(!empty($arResult["ERROR"])) {
 		foreach($arResult["ERROR"] as $v)
 			echo ShowError($v);
-	}
-	elseif(!empty($arResult["OK_MESSAGE"]))
-	{
-		foreach($arResult["OK_MESSAGE"] as $v)
-			echo ShowNote($v);
+	} elseif(!empty($arResult["OK_MESSAGE"])) {
+		foreach($arResult["OK_MESSAGE"] as $v) {
+            echo ShowNote($v);
+        }
 	}
 
 	include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/auth.php");
-}
-else
-{
-	if($arResult["USER_VALS"]["CONFIRM_ORDER"] == "Y" || $arResult["NEED_REDIRECT"] == "Y")
-	{
-		if(strlen($arResult["REDIRECT_URL"]) > 0)
-		{
+} else {
+	if($arResult["USER_VALS"]["CONFIRM_ORDER"] == "Y" || $arResult["NEED_REDIRECT"] == "Y") {
+		if(strlen($arResult["REDIRECT_URL"]) > 0) {
 			?>
 			<script>
 			<!--
@@ -34,14 +27,10 @@ else
 			</script>
 			<?
 			die();
-		}
-		else
-		{
+		} else {
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/confirm.php");
 		}
-	}
-	else
-	{
+	} else {
 		?>
 		<script>
 		<!--
@@ -64,22 +53,18 @@ else
 		}
 		//-->
 		</script>
-		<?if($_POST["is_ajax_post"] != "Y")
-		{
+		<?if($_POST["is_ajax_post"] != "Y") {
 			?><form action="" method="POST" name="ORDER_FORM" id="ORDER_FORM">
 			<?=bitrix_sessid_post()?>
 			<div id="order_form_content">
 			<?
-		}
-		else
-		{
+		} else {
 			$APPLICATION->RestartBuffer();
 		}
-		if(!empty($arResult["ERROR"]) && $arResult["USER_VALS"]["FINAL_STEP"] == "Y")
-		{
-			foreach($arResult["ERROR"] as $v)
-				echo ShowError($v);
-
+		if(!empty($arResult["ERROR"]) && $arResult["USER_VALS"]["FINAL_STEP"] == "Y") {
+			foreach($arResult["ERROR"] as $v) {
+                echo ShowError($v);
+            }
 			?>
 			<script>
 				top.BX.scrollToNode(top.BX('ORDER_FORM'));
@@ -87,16 +72,14 @@ else
 			<?
 		}
 
-		if(count($arResult["PERSON_TYPE"]) > 1)
-		{
+		if(count($arResult["PERSON_TYPE"]) > 1) {
 			?>
 			<b><?=GetMessage("SOA_TEMPL_PERSON_TYPE")?></b>
 			<table class="sale_order_full_table">
 			<tr>
 			<td>
 			<?
-			foreach($arResult["PERSON_TYPE"] as $v)
-			{
+			foreach($arResult["PERSON_TYPE"] as $v) {
 				?><input type="radio" id="PERSON_TYPE_<?= $v["ID"] ?>" name="PERSON_TYPE" value="<?= $v["ID"] ?>"<?if ($v["CHECKED"]=="Y") echo " checked=\"checked\"";?> onClick="submitForm()"> <label for="PERSON_TYPE_<?= $v["ID"] ?>"><?= $v["NAME"] ?></label><br /><?
 			}
 			?>
@@ -104,20 +87,14 @@ else
 			</td></tr></table>
 			<br /><br />
 			<?
-		}
-		else
-		{
-			if(IntVal($arResult["USER_VALS"]["PERSON_TYPE_ID"]) > 0)
-			{
+		} else {
+			if(IntVal($arResult["USER_VALS"]["PERSON_TYPE_ID"]) > 0) {
 				?>
 				<input type="hidden" name="PERSON_TYPE" value="<?=IntVal($arResult["USER_VALS"]["PERSON_TYPE_ID"])?>">
 				<input type="hidden" name="PERSON_TYPE_OLD" value="<?=IntVal($arResult["USER_VALS"]["PERSON_TYPE_ID"])?>">
 				<?
-			}
-			else
-			{
-				foreach($arResult["PERSON_TYPE"] as $v)
-				{
+			} else {
+				foreach($arResult["PERSON_TYPE"] as $v) {
 					?>
 					<input type="hidden" id="PERSON_TYPE" name="PERSON_TYPE" value="<?=$v["ID"]?>">
 					<input type="hidden" name="PERSON_TYPE_OLD" value="<?=$v["ID"]?>">
@@ -129,13 +106,10 @@ else
 		include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/props.php");
 		?>			
 		<?
-		if ($arParams["DELIVERY_TO_PAYSYSTEM"] == "p2d")
-		{
+		if ($arParams["DELIVERY_TO_PAYSYSTEM"] == "p2d") {
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem.php");
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/delivery.php");
-		}
-		else
-		{
+		} else {
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/delivery.php");
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/paysystem.php");
 		}
@@ -144,11 +118,11 @@ else
 		<?
 		include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/summary.php");
 
-		if(strlen($arResult["PREPAY_ADIT_FIELDS"]) > 0)
-			echo $arResult["PREPAY_ADIT_FIELDS"];
+		if(strlen($arResult["PREPAY_ADIT_FIELDS"]) > 0) {
+            echo $arResult["PREPAY_ADIT_FIELDS"];
+        }
 		?>
-		<?if($_POST["is_ajax_post"] != "Y")
-		{
+		<?if($_POST["is_ajax_post"] != "Y") {
 			?>
 				</div>
 				<input type="hidden" name="confirmorder" id="confirmorder" value="Y">
@@ -168,9 +142,7 @@ else
 				<script language="JavaScript" src="/bitrix/components/bitrix/sale.ajax.delivery.calculator/templates/.default/proceed.js"></script>
 			<?endif;?>
 			<?
-		}
-		else
-		{
+		} else {
 			?>
 			<script>
 				top.BX('confirmorder').value = 'Y';
