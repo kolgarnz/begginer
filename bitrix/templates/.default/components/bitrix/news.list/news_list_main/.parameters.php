@@ -22,5 +22,10 @@ $arTemplateParameters = array(
 		"TYPE" => "CHECKBOX",
 		"DEFAULT" => "Y",
 	),
+    "LIST_NO_IMAGE" => Array(
+        "NAME" => GetMessage("T_IBLOCK_LIST_NO_IMAGE"),
+        "TYPE" => "STRING",
+        "DEFAULT" => "/bitrix/templates/.default/images/no-image.jpg"
+    )
 );
 ?>

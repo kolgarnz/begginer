@@ -91,7 +91,7 @@ $APPLICATION->IncludeComponent("qsoft:catalog.models.week", "models_main", array
 	"DISPLAY_BOTTOM_PAGER" => "N",
 	"PAGER_TITLE" => "Новости",
 	"PAGER_SHOW_ALWAYS" => "N",
-	"PAGER_TEMPLATE" => "forum",
+	"PAGER_TEMPLATE" => "",
 	"PAGER_DESC_NUMBERING" => "N",
 	"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 	"PAGER_SHOW_ALL" => "Y",
@@ -99,6 +99,7 @@ $APPLICATION->IncludeComponent("qsoft:catalog.models.week", "models_main", array
 	"DISPLAY_NAME" => "Y",
 	"DISPLAY_PICTURE" => "Y",
 	"DISPLAY_PREVIEW_TEXT" => "Y",
+	"LIST_NO_IMAGE" => "/bitrix/templates/.default/images/no-image.jpg",
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false

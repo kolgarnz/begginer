@@ -70,7 +70,7 @@ $APPLICATION->SetTitle("Новости");
 	"DISPLAY_DATE" => "Y",
 	"DISPLAY_PICTURE" => "Y",
 	"DISPLAY_PREVIEW_TEXT" => "Y",
-	"USE_SHARE" => "N",
+	"LIST_NO_IMAGE" => "/bitrix/templates/.default/images/no-image.jpg",
 	"AJAX_OPTION_ADDITIONAL" => "",
 	"SEF_URL_TEMPLATES" => array(
 		"news" => "",

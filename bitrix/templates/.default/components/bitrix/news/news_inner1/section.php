@@ -54,6 +54,5 @@ $APPLICATION->IncludeComponent(
 	),
 	$component
 );
-?>
-123123
+
 

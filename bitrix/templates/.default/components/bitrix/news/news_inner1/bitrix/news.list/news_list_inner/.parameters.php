@@ -23,6 +23,4 @@ $arTemplateParameters = array(
 		"DEFAULT" => "Y",
 	),
 );
-
-
 ?>
