@@ -14,7 +14,7 @@ function PrintPropsForm($arSource=Array(), $locationTemplate = ".default")
 				?>
 				<tr>
 					<td colspan="2">
-						<b><?= $arProperties["GROUP_NAME"] ?></b>
+						<b><?=$arProperties["GROUP_NAME"] ?></b>
 					</td>
 				</tr>
 				<?
@@ -22,7 +22,7 @@ function PrintPropsForm($arSource=Array(), $locationTemplate = ".default")
 			?>
 			<tr>
 				<td align="right" valign="top">
-					<?= $arProperties["NAME"] ?>:<?
+					<?=$arProperties["NAME"] ?>:<?
 					if($arProperties["REQUIED_FORMATED"]=="Y")
 					{
 						?><span class="sof-req">*</span><?
@@ -155,7 +155,7 @@ if(!empty($arResult["ORDER_PROP"]["USER_PROFILES"]))
 		foreach($arResult["ORDER_PROP"]["USER_PROFILES"] as $arUserProfiles)
 		{
 			?>
-			<option value="<?= $arUserProfiles["ID"] ?>"<?if ($arUserProfiles["CHECKED"]=="Y") echo " selected";?>><?=$arUserProfiles["NAME"]?></option>
+			<option value="<?=$arUserProfiles["ID"] ?>"<?if ($arUserProfiles["CHECKED"]=="Y") echo " selected";?>><?=$arUserProfiles["NAME"]?></option>
 			<?
 		}
 		?>

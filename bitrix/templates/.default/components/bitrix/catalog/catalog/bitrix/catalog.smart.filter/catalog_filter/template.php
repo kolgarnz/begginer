@@ -1,11 +1,11 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartFilterQ">
+<form name="<?=$arResult["FILTER_NAME"]."_form"?>" action="<?=$arResult["FORM_ACTION"]?>" method="get" class="smartFilterQ">
     <?foreach($arResult["HIDDEN"] as $arItem):?>
         <input
             type="hidden"
-            name="<?echo $arItem["CONTROL_NAME"]?>"
-            id="<?echo $arItem["CONTROL_ID"]?>"
-            value="<?echo $arItem["HTML_VALUE"]?>"
+            name="<?=$arItem["CONTROL_NAME"]?>"
+            id="<?=$arItem["CONTROL_ID"]?>"
+            value="<?=$arItem["HTML_VALUE"]?>"
             />
     <?endforeach;?>
     <div class="filter pie">
@@ -20,10 +20,10 @@
                             <?if($arItem["VALUES"]["MIN"]["HTML_VALUE"] > 0):?>
                                 value="<?=$arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
                             <?else:?>
-                                placeholder="<?echo GetMessage("CT_BCSF_FILTER_FROM")?> <?=CurrencyFormat($arItem["VALUES"]["MIN"]["VALUE"], 'RUB', true)?>"
+                                placeholder="<?=GetMessage("CT_BCSF_FILTER_FROM")?> <?=CurrencyFormat($arItem["VALUES"]["MIN"]["VALUE"], 'RUB', true)?>"
                             <?endif?>
                             class="pie"
-                            name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
+                            name="<?=$arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
                             />
                         <input
                             type="text"
@@ -31,10 +31,10 @@
                             <?if($arItem["VALUES"]["MAX"]["HTML_VALUE"] > 0):?>
                                 value="<?=$arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
                             <?else:?>
-                                placeholder="<?echo GetMessage("CT_BCSF_FILTER_TO")?> <?=CurrencyFormat($arItem["VALUES"]["MAX"]["VALUE"], 'RUB', true)?>"
+                                placeholder="<?=GetMessage("CT_BCSF_FILTER_TO")?> <?=CurrencyFormat($arItem["VALUES"]["MAX"]["VALUE"], 'RUB', true)?>"
                             <?endif?>
                             class="pie"
-                            name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
+                            name="<?=$arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
                             />
                     </div>
                     <div id="slider-range"></div>
@@ -47,16 +47,16 @@
 
                             <div class="b-trans-type__wrapper">
                                 <input
-                                    id="<?echo $ar["CONTROL_ID"]?>"
-                                    name="<?echo $ar["CONTROL_NAME"]?>"
-                                    value="<?echo $ar["HTML_VALUE"]?>"
-                                    <?echo $ar["CHECKED"]? 'checked="checked"': ''?>
-                                    <?echo $ar['DISABLED']? 'disabled' : '' ?>
+                                    id="<?=$ar["CONTROL_ID"]?>"
+                                    name="<?=$ar["CONTROL_NAME"]?>"
+                                    value="<?=$ar["HTML_VALUE"]?>"
+                                    <?=$ar["CHECKED"]? 'checked="checked"': ''?>
+                                    <?=$ar['DISABLED']? 'disabled' : '' ?>
                                     class="filter-type"
                                     type="checkbox"
                                     onclick="$( '.smartFilterQ' ).submit();"
                                     />
-                                <label class="filter-type-label" for="<?echo $ar["CONTROL_ID"]?>"><?echo $ar["VALUE"];?></label>
+                                <label class="filter-type-label" for="<?=$ar["CONTROL_ID"]?>"><?=$ar["VALUE"];?></label>
                             </div>
                         <?endforeach;?>
                     </div>
@@ -66,16 +66,16 @@
                         <?foreach($arItem["VALUES"] as $val => $ar):?>
                             <div class="b-color__wrapper">
                                 <input
-                                    id="<?echo $ar["CONTROL_ID"]?>"
-                                    name="<?echo $ar["CONTROL_NAME"]?>"
-                                    value="<?echo $ar["HTML_VALUE"]?>"
-                                    <?echo $ar["CHECKED"]? 'checked="checked"': ''?>
-                                    <?echo $ar['DISABLED']? 'disabled' : '' ?>
+                                    id="<?=$ar["CONTROL_ID"]?>"
+                                    name="<?=$ar["CONTROL_NAME"]?>"
+                                    value="<?=$ar["HTML_VALUE"]?>"
+                                    <?=$ar["CHECKED"]? 'checked="checked"': ''?>
+                                    <?=$ar['DISABLED']? 'disabled' : '' ?>
                                     class="filter-type"
                                     type="checkbox"
                                     onclick="$( '.smartFilterQ' ).submit();"
                                     />
-                                <label class="filter-type-label" for="<?echo $ar["CONTROL_ID"]?>"><?echo $ar["VALUE"];?></label>
+                                <label class="filter-type-label" for="<?=$ar["CONTROL_ID"]?>"><?=$ar["VALUE"];?></label>
                             </div>
                         <?endforeach;?>
                     </div>

@@ -21,13 +21,13 @@ function ChangeGenerate(val)
 	<tr>
 		<td width="45%" valign="top">
 			<?if($arResult["AUTH"]["new_user_registration"]=="Y"):?>
-				<b><?echo GetMessage("STOF_2REG")?></b>
+				<b><?=GetMessage("STOF_2REG")?></b>
 			<?endif;?>
 		</td>
 		<td width="10%">&nbsp;</td>
 		<td width="45%" valign="top">
 			<?if($arResult["AUTH"]["new_user_registration"]=="Y"):?>
-				<b><?echo GetMessage("STOF_2NEW")?></b>
+				<b><?=GetMessage("STOF_2NEW")?></b>
 			<?endif;?>
 		</td>
 	</tr>
@@ -45,22 +45,22 @@ function ChangeGenerate(val)
 				?>
 				<table class="sale_order_full_table">
 					<tr>
-						<td><?echo GetMessage("STOF_LOGIN_PROMT")?></td>
+						<td><?=GetMessage("STOF_LOGIN_PROMT")?></td>
 					</tr>
 					<tr>
-						<td nowrap><?echo GetMessage("STOF_LOGIN")?> <span class="starrequired">*</span><br />
+						<td nowrap><?=GetMessage("STOF_LOGIN")?> <span class="starrequired">*</span><br />
 							<input type="text" name="USER_LOGIN" maxlength="30" size="30" value="<?=$arResult["AUTH"]["USER_LOGIN"]?>">&nbsp;&nbsp;&nbsp;</td>
 					</tr>
 					<tr>
-						<td nowrap><?echo GetMessage("STOF_PASSWORD")?> <span class="starrequired">*</span><br />
+						<td nowrap><?=GetMessage("STOF_PASSWORD")?> <span class="starrequired">*</span><br />
 							<input type="password" name="USER_PASSWORD" maxlength="30" size="30">&nbsp;&nbsp;&nbsp;</td>
 					</tr>
 					<tr>
-						<td nowrap><a href="<?=$arParams["PATH_TO_AUTH"]?>?forgot_password=yes&back_url=<?= urlencode($APPLICATION->GetCurPageParam()); ?>"><?echo GetMessage("STOF_FORGET_PASSWORD")?></a></td>
+						<td nowrap><a href="<?=$arParams["PATH_TO_AUTH"]?>?forgot_password=yes&back_url=<?=urlencode($APPLICATION->GetCurPageParam()); ?>"><?=GetMessage("STOF_FORGET_PASSWORD")?></a></td>
 					</tr>
 					<tr>
 						<td nowrap align="center">
-							<input type="submit" value="<?echo GetMessage("STOF_NEXT_STEP")?>">
+							<input type="submit" value="<?=GetMessage("STOF_NEXT_STEP")?>">
 							<input type="hidden" name="do_authorize" value="Y">
 						</td>
 					</tr>
@@ -83,13 +83,13 @@ function ChangeGenerate(val)
 					<table class="sale_order_full_table">
 						<tr>
 							<td nowrap>
-								<?echo GetMessage("STOF_NAME")?> <span class="starrequired">*</span><br />
+								<?=GetMessage("STOF_NAME")?> <span class="starrequired">*</span><br />
 								<input type="text" name="NEW_NAME" size="40" value="<?=$arResult["AUTH"]["NEW_NAME"]?>">&nbsp;&nbsp;&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td nowrap>
-								<?echo GetMessage("STOF_LASTNAME")?> <span class="starrequired">*</span><br />
+								<?=GetMessage("STOF_LASTNAME")?> <span class="starrequired">*</span><br />
 								<input type="text" name="NEW_LAST_NAME" size="40" value="<?=$arResult["AUTH"]["NEW_LAST_NAME"]?>">&nbsp;&nbsp;&nbsp;
 							</td>
 						</tr>
@@ -101,7 +101,7 @@ function ChangeGenerate(val)
 						</tr>
 						<?if($arResult["AUTH"]["new_user_registration_email_confirmation"] != "Y"):?>
 						<tr>
-							<td nowrap><input type="radio" id="NEW_GENERATE_N" name="NEW_GENERATE" value="N" OnClick="ChangeGenerate(false)"<?if ($_POST["NEW_GENERATE"] == "N") echo " checked";?>> <label for="NEW_GENERATE_N"><?echo GetMessage("STOF_MY_PASSWORD")?></label></td>
+							<td nowrap><input type="radio" id="NEW_GENERATE_N" name="NEW_GENERATE" value="N" OnClick="ChangeGenerate(false)"<?if ($_POST["NEW_GENERATE"] == "N") echo " checked";?>> <label for="NEW_GENERATE_N"><?=GetMessage("STOF_MY_PASSWORD")?></label></td>
 						</tr>
 						<?endif;?>
 						<?if($arResult["AUTH"]["new_user_registration_email_confirmation"] != "Y"):?>
@@ -114,7 +114,7 @@ function ChangeGenerate(val)
 											<?if($arResult["AUTH"]["new_user_registration_email_confirmation"] != "Y"):?>
 											<td width="0%">&nbsp;&nbsp;&nbsp;</td>
 											<?endif;?>
-											<td><?echo GetMessage("STOF_LOGIN")?> <span class="starrequired">*</span><br />
+											<td><?=GetMessage("STOF_LOGIN")?> <span class="starrequired">*</span><br />
 												<input type="text" name="NEW_LOGIN" size="30" value="<?=$arResult["AUTH"]["NEW_LOGIN"]?>">
 											</td>
 										</tr>
@@ -123,7 +123,7 @@ function ChangeGenerate(val)
 											<td width="0%">&nbsp;&nbsp;&nbsp;</td>
 											<?endif;?>
 											<td>
-												<?echo GetMessage("STOF_PASSWORD")?> <span class="starrequired">*</span><br />
+												<?=GetMessage("STOF_PASSWORD")?> <span class="starrequired">*</span><br />
 												<input type="password" name="NEW_PASSWORD" size="30">
 											</td>
 										</tr>
@@ -132,7 +132,7 @@ function ChangeGenerate(val)
 											<td width="0%">&nbsp;&nbsp;&nbsp;</td>
 											<?endif;?>
 											<td>
-												<?echo GetMessage("STOF_RE_PASSWORD")?> <span class="starrequired">*</span><br />
+												<?=GetMessage("STOF_RE_PASSWORD")?> <span class="starrequired">*</span><br />
 												<input type="password" name="NEW_PASSWORD_CONFIRM" size="30">
 											</td>
 										</tr>
@@ -145,10 +145,10 @@ function ChangeGenerate(val)
 						<?if($arResult["AUTH"]["new_user_registration_email_confirmation"] != "Y"):?>
 						<tr>
 							<td>
-								<input type="radio" id="NEW_GENERATE_Y" name="NEW_GENERATE" value="Y" OnClick="ChangeGenerate(true)"<?if ($POST["NEW_GENERATE"] != "N") echo " checked";?>> <label for="NEW_GENERATE_Y"><?echo GetMessage("STOF_SYS_PASSWORD")?></label>
+								<input type="radio" id="NEW_GENERATE_Y" name="NEW_GENERATE" value="Y" OnClick="ChangeGenerate(true)"<?if ($POST["NEW_GENERATE"] != "N") echo " checked";?>> <label for="NEW_GENERATE_Y"><?=GetMessage("STOF_SYS_PASSWORD")?></label>
 								<script language="JavaScript">
 								<!--
-								ChangeGenerate(<?= (($_POST["NEW_GENERATE"] != "N") ? "true" : "false") ?>);
+								ChangeGenerate(<?=(($_POST["NEW_GENERATE"] != "N") ? "true" : "false") ?>);
 								//-->
 								</script>
 							</td>
@@ -178,7 +178,7 @@ function ChangeGenerate(val)
 						?>
 						<tr>
 							<td align="center">
-								<input type="submit" value="<?echo GetMessage("STOF_NEXT_STEP")?>">
+								<input type="submit" value="<?=GetMessage("STOF_NEXT_STEP")?>">
 								<input type="hidden" name="do_register" value="Y">
 							</td>
 						</tr>
@@ -189,7 +189,7 @@ function ChangeGenerate(val)
 	</tr>
 </table>
 <br /><br />
-<?echo GetMessage("STOF_REQUIED_FIELDS_NOTE")?><br /><br />
+<?=GetMessage("STOF_REQUIED_FIELDS_NOTE")?><br /><br />
 <?if($arResult["AUTH"]["new_user_registration"]=="Y"):?>
-	<?echo GetMessage("STOF_EMAIL_NOTE")?><br /><br />
+	<?=GetMessage("STOF_EMAIL_NOTE")?><br /><br />
 <?endif;?>

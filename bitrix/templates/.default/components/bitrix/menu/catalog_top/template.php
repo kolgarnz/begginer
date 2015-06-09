@@ -11,12 +11,12 @@
             <?endif?>
             <?if ($arItem["IS_PARENT"]):?>
                 <?if ($arItem["DEPTH_LEVEL"] == 1):?>
-                    <li class="submenu<?echo $arItem["SELECTED"]? ' current' : ' pie'?>">
+                    <li class="submenu<?=$arItem["SELECTED"]? ' current' : ' pie'?>">
                         <span><?=$arItem["TEXT"]?></span>
                         <div class="submenu_border"></div>
                          <ul>
                 <?else:?>
-                    <li<?echo $arItem["SELECTED"]? ' class="current"' : ''?>>
+                    <li<?=$arItem["SELECTED"]? ' class="current"' : ''?>>
                     <?=$arItem["TEXT"]?>
                         <ul>
                 <?endif?>

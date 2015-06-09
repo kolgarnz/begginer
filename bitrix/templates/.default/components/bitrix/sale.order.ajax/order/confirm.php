@@ -5,8 +5,8 @@ if (!empty($arResult["ORDER"]))
 	?>
     <?$APPLICATION->SetTitle(GetMessage("SOA_TEMPL_ORDER_COMPLETE"));?>
 
-    <?= GetMessage("SOA_TEMPL_ORDER_SUC", Array("#ORDER_DATE#" => $arResult["ORDER"]["DATE_INSERT"], "#ORDER_ID#" => $arResult["ORDER_ID"]))?><br /><br />
-    <?= GetMessage("SOA_TEMPL_ORDER_SUC1", Array("#LINK#" => $arParams["PATH_TO_PERSONAL"])) ?>
+    <?=GetMessage("SOA_TEMPL_ORDER_SUC", Array("#ORDER_DATE#" => $arResult["ORDER"]["DATE_INSERT"], "#ORDER_ID#" => $arResult["ORDER_ID"]))?><br /><br />
+    <?=GetMessage("SOA_TEMPL_ORDER_SUC1", Array("#LINK#" => $arParams["PATH_TO_PERSONAL"])) ?>
 
 	<?
 	if (!empty($arResult["PAY_SYSTEM"]))
@@ -14,7 +14,7 @@ if (!empty($arResult["ORDER"]))
 		?>
 		<br /><br />
         <p>
-            <?=GetMessage("SOA_TEMPL_PAY")?>: <?= $arResult["PAY_SYSTEM"]["NAME"] ?>
+            <?=GetMessage("SOA_TEMPL_PAY")?>: <?=$arResult["PAY_SYSTEM"]["NAME"] ?>
         </p>
 
 			<?
@@ -28,9 +28,9 @@ if (!empty($arResult["ORDER"]))
 						{
 							?>
 							<script language="JavaScript">
-								window.open('<?=$arParams["PATH_TO_PAYMENT"]?>?ORDER_ID=<?= $arResult["ORDER_ID"] ?>');
+								window.open('<?=$arParams["PATH_TO_PAYMENT"]?>?ORDER_ID=<?=$arResult["ORDER_ID"] ?>');
 							</script>
-							<?= GetMessage("SOA_TEMPL_PAY_LINK", Array("#LINK#" => $arParams["PATH_TO_PAYMENT"]."?ORDER_ID=".$arResult["ORDER_ID"])) ?>
+							<?=GetMessage("SOA_TEMPL_PAY_LINK", Array("#LINK#" => $arParams["PATH_TO_PAYMENT"]."?ORDER_ID=".$arResult["ORDER_ID"])) ?>
 							<?
 						}
 						else

@@ -80,7 +80,7 @@ if(!$USER->IsAuthorized() && $arParams["ALLOW_AUTO_REGISTER"] == "N") {
 			<td>
 			<?
 			foreach($arResult["PERSON_TYPE"] as $v) {
-				?><input type="radio" id="PERSON_TYPE_<?= $v["ID"] ?>" name="PERSON_TYPE" value="<?= $v["ID"] ?>"<?if ($v["CHECKED"]=="Y") echo " checked=\"checked\"";?> onClick="submitForm()"> <label for="PERSON_TYPE_<?= $v["ID"] ?>"><?= $v["NAME"] ?></label><br /><?
+				?><input type="radio" id="PERSON_TYPE_<?=$v["ID"] ?>" name="PERSON_TYPE" value="<?=$v["ID"] ?>"<?if ($v["CHECKED"]=="Y") echo " checked=\"checked\"";?> onClick="submitForm()"> <label for="PERSON_TYPE_<?=$v["ID"] ?>"><?=$v["NAME"] ?></label><br /><?
 			}
 			?>
 			<input type="hidden" name="PERSON_TYPE_OLD" value="<?=$arResult["USER_VALS"]["PERSON_TYPE_ID"]?>">

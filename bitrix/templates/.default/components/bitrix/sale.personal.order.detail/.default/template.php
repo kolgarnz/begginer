@@ -30,8 +30,9 @@
 			echo (($arResult["CANCELED"] == "Y") ? GetMessage("SALE_YES") : GetMessage("SALE_NO"));
 			if ($arResult["CANCELED"] == "Y") {
 				echo GetMessage("SPOD_ORDER_FROM").$arResult["DATE_CANCELED"].")";
-				if (strlen($arResult["REASON_CANCELED"]) > 0)
-					echo "<br />".$arResult["REASON_CANCELED"];
+				if (strlen($arResult["REASON_CANCELED"]) > 0) {
+                    echo "<br />" . $arResult["REASON_CANCELED"];
+                }
 			} elseif ($arResult["CAN_CANCEL"]=="Y") {
 				?>&nbsp;<a href="<?=$arResult["URL_TO_CANCEL"]?>"><?=GetMessage("SALE_CANCEL_ORDER")?>&gt;&gt;</a><?
 			}
@@ -40,7 +41,7 @@
 	<tr>
 		<td align="right" colspan="2"><img src="/bitrix/images/1.gif" width="1" height="8"></td>
 	</tr>
-	<?if (IntVal($arResult["USER_ID"])>0):?>
+	<?if(intval($arResult["USER_ID"])>0):?>
 		<tr>
 			<th colspan="2"><b><?=GetMessage("SPOD_ACCOUNT_DATA")?></b></th>
 		</tr>
@@ -70,7 +71,8 @@
 	<?
 	if(!empty($arResult["ORDER_PROPS"])) {
 		foreach($arResult["ORDER_PROPS"] as $val) {
-			if ($val["SHOW_GROUP_NAME"] == "Y") {
+			if ($val["SHOW_GROUP_NAME"] == "Y")
+			{
 				?>
 				<tr>
 					<td colspan="2" align="center"><b><?=$val["GROUP_NAME"];?></b></td>
@@ -83,13 +85,14 @@
 				<td><?
 					if ($val["TYPE"] == "CHECKBOX") {
 						if ($val["VALUE"] == "Y") {
-                            echo GetMessage("SALE_YES");
-                        } else {
+							echo GetMessage("SALE_YES");
+                    } else {
                             echo GetMessage("SALE_NO");
                         }
 					}
-					else
-						echo $val["VALUE"];
+					else {
+                        echo $val["VALUE"];
+                    }
 					?></td>
 			</tr>
 			<?
@@ -114,13 +117,14 @@
 			<img src="/bitrix/images/1.gif" width="1" height="8">
 		</td>
 	</tr>
+
 	<tr>
 		<th colspan="2"><b><?=GetMessage("P_ORDER_PAYMENT")?></b></th>
 	</tr>
 	<tr>
 		<td align="right"><?=GetMessage("P_ORDER_PAY_SYSTEM")?>:</td>
 		<td><?
-			if (IntVal($arResult["PAY_SYSTEM_ID"]) > 0) {
+			if (intval($arResult["PAY_SYSTEM_ID"]) > 0) {
                 echo $arResult["PAY_SYSTEM"]["NAME"];
             } else {
                 echo GetMessage("SPOD_NONE");
@@ -136,6 +140,7 @@
                 echo GetMessage("SPOD_ORDER_FROM") . $arResult["DATE_PAYED"] . ")";
             }
 			?>
+
 		</td>
 	</tr>
 	<?
