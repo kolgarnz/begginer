@@ -67,9 +67,7 @@
 				<h4><a href="<?=$arItem["URL"]?>"><?=$arItem["TITLE_FORMATED"]?></a></h4>
 				<div class="search-preview"><?=$arItem["BODY_FORMATED"]?></div>
 
-				<?if(
-					($arParams["SHOW_ITEM_DATE_CHANGE"] != "N")
-				):?>
+				<?if($arParams["SHOW_ITEM_DATE_CHANGE"] != "N"):?>
 				<div class="search-item-meta">
 					<div class="search-item-date"><label><?=GetMessage("CT_BSP_DATE_CHANGE")?>: </label><span><?=$arItem["DATE_CHANGE"]?></span></div>
 				</div>
