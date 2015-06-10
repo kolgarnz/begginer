@@ -9,6 +9,7 @@ if(empty($arResult)) {
 $notShow = array();
 $notShow[] = '/catalog/';
 $notShow[] = '/company/';
+$notShow[] = '/auth/';
 
 
 $strReturn = '<nav class="nav_chain">';

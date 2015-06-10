@@ -11,4 +11,5 @@ $MESS["AUTH_CAPTCHA_PROMT"] = "Type text from image";
 $MESS["AUTH_TITLE"] = "Log In";
 $MESS["AUTH_SECURE_NOTE"] = "The password will be encrypted before it is sent. This will prevent the password from appearing in open form over data transmission channels.";
 $MESS["AUTH_NONSECURE_NOTE"] = "The password will be sent in open form. Enable JavaScript in your web browser to enable password encryption.";
+$MESS["AUTH_BREAD"] = 'Authorization';
 ?>

@@ -4,8 +4,8 @@
     <nav class="top_menu grey inline-block">
         <a href="<?=$arResult["AUTH_REGISTER_URL"]?>" class="register"><?=GetMessage("AUTH_REGISTER")?></a>
         <a
-            href="/auth/
-            <?if(
+            href="/auth/<?
+            if(
                 strlen($arResult['BACKURL']) > 0 &&
                 $APPLICATION->GetCurDir() !== '/auth/' &&
                 !isset($_REQUEST['backurl'])
