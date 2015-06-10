@@ -6,7 +6,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	Processing of received parameters
 *************************************************************************/
 if(!isset($arParams["CACHE_TIME"]))
-	$arParams["CACHE_TIME"] = 36000000;
+	$arParams["CACHE_TIME"] = CACHED_b_file;
 
 unset($arParams["IBLOCK_TYPE"]); //was used only for IBLOCK_ID setup with Editor
 $arParams["IBLOCK_ID"] = intval($arParams["IBLOCK_ID"]);
@@ -74,7 +74,7 @@ $arParams["PRICE_VAT_INCLUDE"] = $arParams["PRICE_VAT_INCLUDE"] !== "N";
 
 $arParams['NO_IMAGE'] = trim($arParams['NO_IMAGE']);
 if(strlen($arParams['NO_IMAGE']) <= 0) {
-    $arParams['NO_IMAGE'] = '/bitrix/templates/.default/images/no-image.jpg';
+    $arParams['NO_IMAGE'] = NO_IMAGE_LINK;
 }
 
 
@@ -122,14 +122,13 @@ if(strlen($strError)>0)
 /*************************************************************************
 			Work with cache
 *************************************************************************/
-if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==="N"? false: $USER->GetGroups()))))
-{
+if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N" ? false: $USER->GetGroups())))) {
 	if (!CModule::IncludeModule("iblock")) {
 		$this->AbortResultCache();
 		ShowError(GetMessage("IBLOCK_MODULE_NOT_INSTALLED"));
 		return;
 	}
-    
+
 	$arResult["PRICES"] = CIBlockPriceTools::GetCatalogPrices($arParams["IBLOCK_ID"], $arParams["PRICE_CODE"]);
 
 	/************************************
@@ -222,8 +221,6 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 		$arResult["ELEMENTS"][] = $arItem["ID"];
 	}
 
-	$this->SetResultCacheKeys(array(
-	));
 	$this->IncludeComponentTemplate();
 }
 ?>

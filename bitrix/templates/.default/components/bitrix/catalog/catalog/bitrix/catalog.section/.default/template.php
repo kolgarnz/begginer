@@ -25,18 +25,14 @@
             <?else:?>
                 <figure class="product_item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
             <?endif?>
-                <?if($arElement['PROPERTIES']['SALE']['VALUE'] == 'TRUE'):?>
-                    <div class="product_item_label sale"></div>
-                <?elseif($arElement['PROPERTIES']['NEW']['VALUE'] == 'TRUE'):?>
-                    <div class="product_item_label new"></div>
-                <?endif?>
+                <?=$arElement['ACTION'] ? '<div class="product_item_label '.$arElement['ACTION'].'"></div>' : '' ?>
                 <?if(is_array($arElement["PREVIEW_PICTURE"])):?>
                     <div class="product_item_pict">
                         <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
                             <img src="<?=$arElement["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>"/>
                         </a>
                     </div>
-                <?elseif(strlen($arParams['CATALOG_NO_IMAGE']) > 0):?>
+                <?else:?>
                     <div class="product_item_pict">
                         <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
                             <img src="<?=$arParams['CATALOG_NO_IMAGE']?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>"/>

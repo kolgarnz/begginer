@@ -7,7 +7,7 @@ CPageOption::SetOptionString("main", "nav_page_in_session", "N");
 	Processing of received parameters
 *************************************************************************/
 if(!isset($arParams["CACHE_TIME"])) {
-    $arParams["CACHE_TIME"] = 3600;
+    $arParams["CACHE_TIME"] = CACHED_b_file;
 }
 
 if(strlen($arParams["ELEMENT_SORT_FIELD"])<=0) {
@@ -36,7 +36,7 @@ $arParams['IBLOCK_NO_IMAGE'] = trim($arParams['IBLOCK_NO_IMAGE']);
 if(strlen($arParams['IBLOCK_NO_IMAGE']) > 0) {
     $arParams['IBLOCK_NO_IMAGE'] = addslashes($arParams['IBLOCK_NO_IMAGE']);
 } else {
-    $arParams['IBLOCK_NO_IMAGE'] = '';
+    $arParams['IBLOCK_NO_IMAGE'] = NO_IMAGE_LINK;
 }
 
 $arParams['IBLOCK_ALL_URL'] = trim($arParams['IBLOCK_ALL_URL']);
@@ -123,10 +123,8 @@ if(
 
         if(strlen($temp["PREVIEW_PICTURE"]) > 0) {
         $temp["PICTURE"] = CFile::GetPath($temp["PREVIEW_PICTURE"]);
-        } elseif(strlen($arParams['IBLOCK_NO_IMAGE']) > 0) {
-            $temp["PICTURE"] = $arParams['IBLOCK_NO_IMAGE'];
         } else {
-            $temp["PICTURE"] = '';
+            $temp["PICTURE"] = $arParams['IBLOCK_NO_IMAGE'];
         }
 
         $arResult['ITEMS'][$temp['ID']] = $temp;

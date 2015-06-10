@@ -1,10 +1,11 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?if(count($arResult["ITEMS"]) > 0):?>
 <section class="news_block inverse">
+
+    <h2 class="inline-block">
+        <?=GetMessage('NEWS_TITLE')?>
+    </h2>
     <?if(strlen($arResult['LIST_PAGE_URL']) > 0):?>
-	    <h2 class="inline-block">
-            <?=GetMessage('NEWS_TITLE')?>
-        </h2>
         <span class="all_list">
             &nbsp;/&nbsp;
             <a href="<?=$arResult['LIST_PAGE_URL']?>" class="text_decor_none">
@@ -24,7 +25,7 @@
 					<a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
                         <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>" />
                     </a>
-				<?elseif(strlen($arParams['LIST_NO_IMAGE']) > 0):?>
+				<?else:?>
                     <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
                         <img src="<?=$arParams["LIST_NO_IMAGE"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>" />
                     </a>

@@ -15,7 +15,7 @@
                 <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
                     <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>"/>
                 </a>
-            <?elseif(strlen($arParams['LIST_NO_IMAGE']) > 0):?>
+            <?else:?>
                 <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
                     <img src="<?=$arParams['LIST_NO_IMAGE']?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>"/>
                 </a>

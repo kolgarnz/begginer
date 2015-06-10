@@ -1,4 +1,5 @@
 <?
+define("NEED_AUTH", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мой кабинет");
 ?> <blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"> 

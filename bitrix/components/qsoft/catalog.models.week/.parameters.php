@@ -173,7 +173,7 @@ $arComponentParameters = array(
             "PARENT" => "VISUAL",
             "NAME" => GetMessage("NO_IMAGE"),
             "TYPE" => "STRING",
-            "DEFAULT" => '/bitrix/templates/.default/images/no-image.jpg',
+            "DEFAULT" => NO_IMAGE_LINK,
         ),
     ),
 );

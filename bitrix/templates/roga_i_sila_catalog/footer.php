@@ -7,24 +7,25 @@
         </div>
         <footer class="footer width_960">
             <section class="float_inner bottom_block">
-                <?$APPLICATION->IncludeComponent(
-                    "qsoft:stores.list",
-                    "stores_short",
-                    Array(
-                        "IBLOCK_TYPE" => "salon",
-                        "IBLOCK_ID" => "23",
-                        "PARENT_SECTION" => "",
-                        "CACHE_TYPE" => "A",
-                        "CACHE_TIME" => "3600",
-                        "CACHE_GROUPS" => "Y",
-                        "ELEMENT_SORT_FIELD" => "RAND",
-                        "ELEMENT_SORT_ORDER" => "asc",
-                        "IBLOCK_ELEMENT_COUNT" => "2",
-                        "IBLOCK_SHOW_MAP" => "N",
-                        "IBLOCK_ALL_URL" => "/company/stores/"
-                    ),
-                    false
-                );?>
+                <?$APPLICATION->IncludeComponent("qsoft:stores.list", "stores_short", array(
+	"IBLOCK_TYPE" => "salon",
+	"IBLOCK_ID" => "23",
+	"ELEMENT_SORT_FIELD" => "RAND",
+	"ELEMENT_SORT_ORDER" => "asc",
+	"IBLOCK_ELEMENT_COUNT" => "2",
+	"IBLOCK_NO_IMAGE" => "/bitrix/templates/.default/images/no-image.jpg",
+	"IBLOCK_ALL_URL" => "/company/stores/",
+	"CACHE_TYPE" => "A",
+	"CACHE_TIME" => "3600",
+	"CACHE_GROUPS" => "Y",
+	"DISPLAY_TOP_PAGER" => "N",
+	"DISPLAY_BOTTOM_PAGER" => "Y",
+	"PAGER_TITLE" => "Салоны",
+	"PAGER_SHOW_ALWAYS" => "Y",
+	"PAGER_TEMPLATE" => ""
+	),
+	false
+);?>
                 <?$APPLICATION->IncludeComponent(
                     "bitrix:menu",
                     "menu_footer",
