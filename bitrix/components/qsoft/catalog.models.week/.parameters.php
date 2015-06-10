@@ -285,31 +285,31 @@ $arComponentParameters = array(
 	),
 );
 
-if (CModule::IncludeModule('catalog') && CModule::IncludeModule('currency'))
-{
-	$arComponentParameters["PARAMETERS"]['CONVERT_CURRENCY'] = array(
-		'PARENT' => 'PRICES',
-		'NAME' => GetMessage('CP_BCT_CONVERT_CURRENCY'),
-		'TYPE' => 'CHECKBOX',
-		'DEFAULT' => 'N',
-		'REFRESH' => 'Y',
-	);
-
-	if (isset($arCurrentValues['CONVERT_CURRENCY']) && 'Y' == $arCurrentValues['CONVERT_CURRENCY'])
-	{
-		$arCurrencyList = array();
-		$rsCurrencies = CCurrency::GetList(($by = 'SORT'), ($order = 'ASC'));
-		while ($arCurrency = $rsCurrencies->Fetch())
-		{
-			$arCurrencyList[$arCurrency['CURRENCY']] = $arCurrency['CURRENCY'];
-		}
-		$arComponentParameters['PARAMETERS']['CURRENCY_ID'] = array(
-			'PARENT' => 'PRICES',
-			'NAME' => GetMessage('CP_BCT_CURRENCY_ID'),
-			'TYPE' => 'LIST',
-			'VALUES' => $arCurrencyList,
-			'DEFAULT' => CCurrency::GetBaseCurrency(),
-			"ADDITIONAL_VALUES" => "Y",
-		);
-	}
-}
+//if (CModule::IncludeModule('catalog') && CModule::IncludeModule('currency'))
+//{
+//	$arComponentParameters["PARAMETERS"]['CONVERT_CURRENCY'] = array(
+//		'PARENT' => 'PRICES',
+//		'NAME' => GetMessage('CP_BCT_CONVERT_CURRENCY'),
+//		'TYPE' => 'CHECKBOX',
+//		'DEFAULT' => 'N',
+//		'REFRESH' => 'Y',
+//	);
+//
+//	if (isset($arCurrentValues['CONVERT_CURRENCY']) && 'Y' == $arCurrentValues['CONVERT_CURRENCY'])
+//	{
+//		$arCurrencyList = array();
+//		$rsCurrencies = CCurrency::GetList(($by = 'SORT'), ($order = 'ASC'));
+//		while ($arCurrency = $rsCurrencies->Fetch())
+//		{
+//			$arCurrencyList[$arCurrency['CURRENCY']] = $arCurrency['CURRENCY'];
+//		}
+//		$arComponentParameters['PARAMETERS']['CURRENCY_ID'] = array(
+//			'PARENT' => 'PRICES',
+//			'NAME' => GetMessage('CP_BCT_CURRENCY_ID'),
+//			'TYPE' => 'LIST',
+//			'VALUES' => $arCurrencyList,
+//			'DEFAULT' => CCurrency::GetBaseCurrency(),
+//			"ADDITIONAL_VALUES" => "Y",
+//		);
+//	}
+//}

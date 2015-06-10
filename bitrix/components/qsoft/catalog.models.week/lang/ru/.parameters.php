@@ -45,8 +45,8 @@ $MESS["CP_BCT_PRODUCT_PROPERTIES"] = "Характеристики товара"
 //$MESS["CP_BCT_OFFERS_SORT_ORDER"] = "Порядок сортировки предложений товара";
 //$MESS["CP_BCT_OFFERS_CART_PROPERTIES"] = "Свойства предложений, добавляемые в корзину";
 
-$MESS["CP_BCT_CONVERT_CURRENCY"] = "Показывать цены в одной валюте";
-$MESS["CP_BCT_CURRENCY_ID"] = "Валюта, в которую будут сконвертированы цены";
+//$MESS["CP_BCT_CONVERT_CURRENCY"] = "Показывать цены в одной валюте";
+//$MESS["CP_BCT_CURRENCY_ID"] = "Валюта, в которую будут сконвертированы цены";
 
 $MESS["CP_BCT_OFFERS_LIMIT"] = "Максимальное количество предложений для показа (0 - все)";
 ?>

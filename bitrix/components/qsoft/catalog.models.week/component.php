@@ -46,7 +46,7 @@ if(strlen($arParams["SECTION_ID_VARIABLE"])<=0|| !preg_match("/^[A-Za-z_][A-Za-z
 
 $arParams["ELEMENT_COUNT"] = intval($arParams["ELEMENT_COUNT"]);
 if($arParams["ELEMENT_COUNT"]<=0)
-	$arParams["ELEMENT_COUNT"]=9;
+	$arParams["ELEMENT_COUNT"]=4;
 
 if(!is_array($arParams["PROPERTY_CODE"]))
 	$arParams["PROPERTY_CODE"] = array();
@@ -59,28 +59,30 @@ if(!is_array($arParams["PRICE_CODE"]))
 
 $arParams["PRICE_VAT_INCLUDE"] = $arParams["PRICE_VAT_INCLUDE"] !== "N";
 
-if(strlen($arParams["FILTER_NAME"])>0)
-{
-	global ${$arParams["FILTER_NAME"]};
-	$arrFilter = ${$arParams["FILTER_NAME"]};
-}
-if(!is_array($arrFilter))
-	$arrFilter=array();
+//if(strlen($arParams["FILTER_NAME"])>0)
+//{
+//	global ${$arParams["FILTER_NAME"]};
+//	$arrFilter = ${$arParams["FILTER_NAME"]};
+//}
+//if(!is_array($arrFilter))
 
-$arParams["CACHE_FILTER"]=$arParams["CACHE_FILTER"]=="Y";
-if(!$arParams["CACHE_FILTER"] && count($arrFilter)>0)
-	$arParams["CACHE_TIME"] = 0;
+$arrFilter=array();
 
-$arParams['CONVERT_CURRENCY'] = (isset($arParams['CONVERT_CURRENCY']) && 'Y' == $arParams['CONVERT_CURRENCY'] ? 'Y' : 'N');
-$arParams['CURRENCY_ID'] = trim(strval($arParams['CURRENCY_ID']));
-if ('' == $arParams['CURRENCY_ID'])
-{
-	$arParams['CONVERT_CURRENCY'] = 'N';
-}
-elseif ('N' == $arParams['CONVERT_CURRENCY'])
-{
-	$arParams['CURRENCY_ID'] = '';
-}
+//$arParams["CACHE_FILTER"]=$arParams["CACHE_FILTER"]=="Y";
+//if(!$arParams["CACHE_FILTER"] && count($arrFilter)>0)
+//	$arParams["CACHE_TIME"] = 0;
+
+//$arParams['CONVERT_CURRENCY'] = (isset($arParams['CONVERT_CURRENCY']) && 'Y' == $arParams['CONVERT_CURRENCY'] ? 'Y' : 'N');
+
+//$arParams['CURRENCY_ID'] = trim(strval($arParams['CURRENCY_ID']));
+//if ('' == $arParams['CURRENCY_ID'])
+//{
+//	$arParams['CONVERT_CURRENCY'] = 'N';
+//}
+//elseif ('N' == $arParams['CONVERT_CURRENCY'])
+//{
+//	$arParams['CURRENCY_ID'] = '';
+//}
 
 
 /*************************************************************************
@@ -141,30 +143,30 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 	}
 
 	global $CACHE_MANAGER;
-	$arConvertParams = array();
-	if ('Y' == $arParams['CONVERT_CURRENCY'])
-	{
-		if (!CModule::IncludeModule('currency'))
-		{
-			$arParams['CONVERT_CURRENCY'] = 'N';
-			$arParams['CURRENCY_ID'] = '';
-		}
-		else
-		{
-			$arCurrencyInfo = CCurrency::GetByID($arParams['CURRENCY_ID']);
-			if (!(is_array($arCurrencyInfo) && !empty($arCurrencyInfo)))
-			{
-				$arParams['CONVERT_CURRENCY'] = 'N';
-				$arParams['CURRENCY_ID'] = '';
-			}
-			else
-			{
-				$arParams['CURRENCY_ID'] = $arCurrencyInfo['CURRENCY'];
-				$arConvertParams['CURRENCY_ID'] = $arCurrencyInfo['CURRENCY'];
-			}
-		}
-	}
-	$arResult['CONVERT_CURRENCY'] = $arConvertParams;
+//	$arConvertParams = array();
+//	if ('Y' == $arParams['CONVERT_CURRENCY'])
+//	{
+//		if (!CModule::IncludeModule('currency'))
+//		{
+//			$arParams['CONVERT_CURRENCY'] = 'N';
+//			$arParams['CURRENCY_ID'] = '';
+//		}
+//		else
+//		{
+//			$arCurrencyInfo = CCurrency::GetByID($arParams['CURRENCY_ID']);
+//			if (!(is_array($arCurrencyInfo) && !empty($arCurrencyInfo)))
+//			{
+//				$arParams['CONVERT_CURRENCY'] = 'N';
+//				$arParams['CURRENCY_ID'] = '';
+//			}
+//			else
+//			{
+//				$arParams['CURRENCY_ID'] = $arCurrencyInfo['CURRENCY'];
+//				$arConvertParams['CURRENCY_ID'] = $arCurrencyInfo['CURRENCY'];
+//			}
+//		}
+//	}
+//	$arResult['CONVERT_CURRENCY'] = $arConvertParams;
 	//This function returns array with prices description and access rights
 	//in case catalog module n/a prices get values from element properties
 	$arResult["PRICES"] = CIBlockPriceTools::GetCatalogPrices($arParams["IBLOCK_ID"], $arParams["PRICE_CODE"]);
@@ -265,44 +267,44 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 		$arItem["ADD_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=ADD2BASKET&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arItem["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
 
 
-		if ('Y' == $arParams['CONVERT_CURRENCY'])
-		{
-				if (!empty($arItem["PRICES"])) {
-					foreach ($arItem["PRICES"] as &$arOnePrices) {
-						if (isset($arOnePrices['ORIG_CURRENCY'])) {
-                            $arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
-                        }
-					}
-					if (isset($arOnePrices)) {
-                        unset($arOnePrices);
-                    }
-				}
-		}
+//		if ('Y' == $arParams['CONVERT_CURRENCY'])
+//		{
+//				if (!empty($arItem["PRICES"])) {
+//					foreach ($arItem["PRICES"] as &$arOnePrices) {
+//						if (isset($arOnePrices['ORIG_CURRENCY'])) {
+//                            $arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
+//                        }
+//					}
+//					if (isset($arOnePrices)) {
+//                        unset($arOnePrices);
+//                    }
+//				}
+//		}
 
 		$arResult["ITEMS"][]=$arItem;
 		$arResult["ELEMENTS"][] = $arItem["ID"];
 	}
 	$arResult["RESULT"] = $rsElements;
 
-	if ('Y' == $arParams['CONVERT_CURRENCY'])
-	{
-		if (!empty($arCurrencyList))
-		{
-			if (defined("BX_COMP_MANAGED_CACHE"))
-			{
-				$arCurrencyList[] = $arConvertParams['CURRENCY_ID'];
-				$arCurrencyList = array_unique($arCurrencyList);
-				$CACHE_MANAGER->StartTagCache($this->GetCachePath());
-				foreach ($arCurrencyList as &$strOneCurrency)
-				{
-					$CACHE_MANAGER->RegisterTag("currency_id_".$strOneCurrency);
-				}
-				if (isset($strOneCurrency))
-					unset($strOneCurrency);
-				$CACHE_MANAGER->EndTagCache();
-			}
-		}
-	}
+//	if ('Y' == $arParams['CONVERT_CURRENCY'])
+//	{
+//		if (!empty($arCurrencyList))
+//		{
+//			if (defined("BX_COMP_MANAGED_CACHE"))
+//			{
+//				$arCurrencyList[] = $arConvertParams['CURRENCY_ID'];
+//				$arCurrencyList = array_unique($arCurrencyList);
+//				$CACHE_MANAGER->StartTagCache($this->GetCachePath());
+//				foreach ($arCurrencyList as &$strOneCurrency)
+//				{
+//					$CACHE_MANAGER->RegisterTag("currency_id_".$strOneCurrency);
+//				}
+//				if (isset($strOneCurrency))
+//					unset($strOneCurrency);
+//				$CACHE_MANAGER->EndTagCache();
+//			}
+//		}
+//	}
 
 	$this->SetResultCacheKeys(array(
 	));
