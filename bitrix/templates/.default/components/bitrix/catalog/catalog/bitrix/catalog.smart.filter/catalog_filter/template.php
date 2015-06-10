@@ -88,7 +88,7 @@
 <script>
     window.onload = function() {
         $("#slider-range").slider({
-            <!-- <?=json_encode($arResult["ITEMS"]["BASE"]["VALUES"])?> -->
+
             animate: "slow",
             range: true,
             min: <?=intval($arResult["ITEMS"]["BASE"]["VALUES"]["MIN"]["VALUE"])?>,
