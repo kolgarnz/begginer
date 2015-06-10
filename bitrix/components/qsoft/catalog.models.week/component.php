@@ -74,11 +74,11 @@ foreach($arParams["PRODUCT_PROPERTIES"] as $k=>$v)
 	if($v==="")
 		unset($arParams["PRODUCT_PROPERTIES"][$k]);
 
-if (!is_array($arParams["OFFERS_CART_PROPERTIES"]))
-	$arParams["OFFERS_CART_PROPERTIES"] = array();
-foreach($arParams["OFFERS_CART_PROPERTIES"] as $i => $pid)
-	if ($pid === "")
-		unset($arParams["OFFERS_CART_PROPERTIES"][$i]);
+//if (!is_array($arParams["OFFERS_CART_PROPERTIES"]))
+//	$arParams["OFFERS_CART_PROPERTIES"] = array();
+//foreach($arParams["OFFERS_CART_PROPERTIES"] as $i => $pid)
+//	if ($pid === "")
+//		unset($arParams["OFFERS_CART_PROPERTIES"][$i]);
 
 $arParams["PRICE_VAT_INCLUDE"] = $arParams["PRICE_VAT_INCLUDE"] !== "N";
 
@@ -105,9 +105,9 @@ elseif ('N' == $arParams['CONVERT_CURRENCY'])
 	$arParams['CURRENCY_ID'] = '';
 }
 
-$arParams["OFFERS_LIMIT"] = intval($arParams["OFFERS_LIMIT"]);
-if (0 > $arParams["OFFERS_LIMIT"])
-	$arParams["OFFERS_LIMIT"] = 0;
+//$arParams["OFFERS_LIMIT"] = intval($arParams["OFFERS_LIMIT"]);
+//if (0 > $arParams["OFFERS_LIMIT"])
+//	$arParams["OFFERS_LIMIT"] = 0;
 
 /*************************************************************************
 			Processing of the Buy link
@@ -251,24 +251,24 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 		"ID",
 		"IBLOCK_ID",
 		"CODE",
-		"XML_ID",
+//		"XML_ID",
 		"NAME",
 		"ACTIVE",
 		"DATE_ACTIVE_FROM",
 		"DATE_ACTIVE_TO",
 		"SORT",
-		"PREVIEW_TEXT",
-		"PREVIEW_TEXT_TYPE",
-		"DETAIL_TEXT",
-		"DETAIL_TEXT_TYPE",
+//		"PREVIEW_TEXT",
+//		"PREVIEW_TEXT_TYPE",
+//		"DETAIL_TEXT",
+//		"DETAIL_TEXT_TYPE",
 		"DATE_CREATE",
 		"CREATED_BY",
 		"TIMESTAMP_X",
-		"MODIFIED_BY",
-		"TAGS",
+//		"MODIFIED_BY",
+//		"TAGS",
 		"IBLOCK_SECTION_ID",
 		"DETAIL_PAGE_URL",
-		"DETAIL_PICTURE",
+//		"DETAIL_PICTURE",
 		"PREVIEW_PICTURE",
 		"PROPERTY_*",
 	);
@@ -379,16 +379,16 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 		else
 		{*/
 
-        $arItem["PRICE_MATRIX"] = false;
+//        $arItem["PRICE_MATRIX"] = false;
         $arItem["PRICES"] = CIBlockPriceTools::GetItemPrices($arParams["IBLOCK_ID"], $arResult["PRICES"], $arItem, $arParams['PRICE_VAT_INCLUDE'], $arConvertParams);
 
 //		}
 
 		$arItem["CAN_BUY"] = CIBlockPriceTools::CanBuy($arParams["IBLOCK_ID"], $arResult["PRICES"], $arItem);
-
 		$arItem["BUY_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=BUY&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arItem["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
 		$arItem["ADD_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=ADD2BASKET&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arItem["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
-		$arItem["COMPARE_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_TO_COMPARE_LIST&id=".$arItem["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
+
+//		$arItem["COMPARE_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_TO_COMPARE_LIST&id=".$arItem["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
 
 		if ('Y' == $arParams['CONVERT_CURRENCY'])
 		{
@@ -420,80 +420,80 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 	}
 	$arResult["RESULT"] = $rsElements;
 
-	if(!isset($arParams["OFFERS_FIELD_CODE"]))
-		$arParams["OFFERS_FIELD_CODE"] = array();
-	elseif (!is_array($arParams["OFFERS_FIELD_CODE"]))
-		$arParams["OFFERS_FIELD_CODE"] = array($arParams["OFFERS_FIELD_CODE"]);
-	foreach($arParams["OFFERS_FIELD_CODE"] as $key => $value)
-		if($value === "")
-			unset($arParams["OFFERS_FIELD_CODE"][$key]);
-
-	if(!isset($arParams["OFFERS_PROPERTY_CODE"]))
-		$arParams["OFFERS_PROPERTY_CODE"] = array();
-	elseif (!is_array($arParams["OFFERS_PROPERTY_CODE"]))
-		$arParams["OFFERS_PROPERTY_CODE"] = array($arParams["OFFERS_PROPERTY_CODE"]);
-	foreach($arParams["OFFERS_PROPERTY_CODE"] as $key => $value)
-		if($value === "")
-			unset($arParams["OFFERS_PROPERTY_CODE"][$key]);
-
-	if(
-		!empty($arResult["ELEMENTS"])
-		&& (
-			!empty($arParams["OFFERS_FIELD_CODE"])
-			|| !empty($arParams["OFFERS_PROPERTY_CODE"])
-		)
-	)
-	{
-		$arOffers = CIBlockPriceTools::GetOffersArray(
-			$arParams["IBLOCK_ID"]
-			,$arResult["ELEMENTS"]
-			,array(
-				$arParams["OFFERS_SORT_FIELD"] => $arParams["OFFERS_SORT_ORDER"],
-				"ID" => "DESC",
-			)
-			,$arParams["OFFERS_FIELD_CODE"]
-			,$arParams["OFFERS_PROPERTY_CODE"]
-			,$arParams["OFFERS_LIMIT"]
-			,$arResult["PRICES"]
-			,$arParams['PRICE_VAT_INCLUDE']
-			,$arConvertParams
-		);
-		if(!empty($arOffers))
-		{
-			$arElementOffer = array();
-			foreach($arResult["ELEMENTS"] as $i => $id)
-			{
-				$arResult["ITEMS"][$i]["OFFERS"] = array();
-				$arElementOffer[$id] = &$arResult["ITEMS"][$i]["OFFERS"];
-			}
-
-			foreach($arOffers as $arOffer)
-			{
-				if(array_key_exists($arOffer["LINK_ELEMENT_ID"], $arElementOffer))
-				{
-					$arOffer["BUY_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=BUY&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arOffer["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
-					$arOffer["ADD_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=ADD2BASKET&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arOffer["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
-					$arOffer["COMPARE_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_TO_COMPARE_LIST&id=".$arOffer["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
-
-					$arElementOffer[$arOffer["LINK_ELEMENT_ID"]][] = $arOffer;
-
-					if ('Y' == $arParams['CONVERT_CURRENCY'])
-					{
-						if (!empty($arOffer['PRICES']))
-						{
-							foreach ($arOffer['PRICES'] as &$arOnePrices)
-							{
-								if (isset($arOnePrices['ORIG_CURRENCY']))
-									$arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
-							}
-							if (isset($arOnePrices))
-								unset($arOnePrices);
-						}
-					}
-				}
-			}
-		}
-	}
+//	if(!isset($arParams["OFFERS_FIELD_CODE"]))
+//		$arParams["OFFERS_FIELD_CODE"] = array();
+//	elseif (!is_array($arParams["OFFERS_FIELD_CODE"]))
+//		$arParams["OFFERS_FIELD_CODE"] = array($arParams["OFFERS_FIELD_CODE"]);
+//	foreach($arParams["OFFERS_FIELD_CODE"] as $key => $value)
+//		if($value === "")
+//			unset($arParams["OFFERS_FIELD_CODE"][$key]);
+//
+//	if(!isset($arParams["OFFERS_PROPERTY_CODE"]))
+//		$arParams["OFFERS_PROPERTY_CODE"] = array();
+//	elseif (!is_array($arParams["OFFERS_PROPERTY_CODE"]))
+//		$arParams["OFFERS_PROPERTY_CODE"] = array($arParams["OFFERS_PROPERTY_CODE"]);
+//	foreach($arParams["OFFERS_PROPERTY_CODE"] as $key => $value)
+//		if($value === "")
+//			unset($arParams["OFFERS_PROPERTY_CODE"][$key]);
+//
+//	if(
+//		!empty($arResult["ELEMENTS"])
+//		&& (
+//			!empty($arParams["OFFERS_FIELD_CODE"])
+//			|| !empty($arParams["OFFERS_PROPERTY_CODE"])
+//		)
+//	)
+//	{
+//		$arOffers = CIBlockPriceTools::GetOffersArray(
+//			$arParams["IBLOCK_ID"]
+//			,$arResult["ELEMENTS"]
+//			,array(
+//				$arParams["OFFERS_SORT_FIELD"] => $arParams["OFFERS_SORT_ORDER"],
+//				"ID" => "DESC",
+//			)
+//			,$arParams["OFFERS_FIELD_CODE"]
+//			,$arParams["OFFERS_PROPERTY_CODE"]
+//			,$arParams["OFFERS_LIMIT"]
+//			,$arResult["PRICES"]
+//			,$arParams['PRICE_VAT_INCLUDE']
+//			,$arConvertParams
+//		);
+//		if(!empty($arOffers))
+//		{
+//			$arElementOffer = array();
+//			foreach($arResult["ELEMENTS"] as $i => $id)
+//			{
+//				$arResult["ITEMS"][$i]["OFFERS"] = array();
+//				$arElementOffer[$id] = &$arResult["ITEMS"][$i]["OFFERS"];
+//			}
+//
+//			foreach($arOffers as $arOffer)
+//			{
+//				if(array_key_exists($arOffer["LINK_ELEMENT_ID"], $arElementOffer))
+//				{
+//					$arOffer["BUY_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=BUY&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arOffer["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
+//					$arOffer["ADD_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=ADD2BASKET&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arOffer["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
+//					$arOffer["COMPARE_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_TO_COMPARE_LIST&id=".$arOffer["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
+//
+//					$arElementOffer[$arOffer["LINK_ELEMENT_ID"]][] = $arOffer;
+//
+//					if ('Y' == $arParams['CONVERT_CURRENCY'])
+//					{
+//						if (!empty($arOffer['PRICES']))
+//						{
+//							foreach ($arOffer['PRICES'] as &$arOnePrices)
+//							{
+//								if (isset($arOnePrices['ORIG_CURRENCY']))
+//									$arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
+//							}
+//							if (isset($arOnePrices))
+//								unset($arOnePrices);
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
 
 	if ('Y' == $arParams['CONVERT_CURRENCY'])
 	{

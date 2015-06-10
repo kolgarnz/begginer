@@ -40,18 +40,18 @@ if (0 < intval($arCurrentValues["IBLOCK_ID"]))
 	}
 }
 
-$arOffers = CIBlockPriceTools::GetOffersIBlock($arCurrentValues["IBLOCK_ID"]);
-$OFFERS_IBLOCK_ID = is_array($arOffers)? $arOffers["OFFERS_IBLOCK_ID"]: 0;
-$arProperty_Offers = array();
-if($OFFERS_IBLOCK_ID)
-{
-	$rsProp = CIBlockProperty::GetList(Array("sort"=>"asc", "name"=>"asc"), Array("IBLOCK_ID"=>$OFFERS_IBLOCK_ID, "ACTIVE"=>"Y"));
-	while($arr=$rsProp->Fetch())
-	{
-		if($arr["PROPERTY_TYPE"] != "F")
-			$arProperty_Offers[$arr["CODE"]] = "[".$arr["CODE"]."] ".$arr["NAME"];
-	}
-}
+//$arOffers = CIBlockPriceTools::GetOffersIBlock($arCurrentValues["IBLOCK_ID"]);
+//$OFFERS_IBLOCK_ID = is_array($arOffers)? $arOffers["OFFERS_IBLOCK_ID"]: 0;
+//$arProperty_Offers = array();
+//if($OFFERS_IBLOCK_ID)
+//{
+//	$rsProp = CIBlockProperty::GetList(Array("sort"=>"asc", "name"=>"asc"), Array("IBLOCK_ID"=>$OFFERS_IBLOCK_ID, "ACTIVE"=>"Y"));
+//	while($arr=$rsProp->Fetch())
+//	{
+//		if($arr["PROPERTY_TYPE"] != "F")
+//			$arProperty_Offers[$arr["CODE"]] = "[".$arr["CODE"]."] ".$arr["NAME"];
+//	}
+//}
 
 $arPrice = array();
 if(CModule::IncludeModule("catalog"))
@@ -193,45 +193,48 @@ $arComponentParameters = array(
 			"VALUES" => $arProperty,
 			"ADDITIONAL_VALUES" => "Y",
 		),
-		"OFFERS_FIELD_CODE" => CIBlockParameters::GetFieldCode(GetMessage("CP_BCT_OFFERS_FIELD_CODE"), "VISUAL"),
-		"OFFERS_PROPERTY_CODE" => array(
-			"PARENT" => "VISUAL",
-			"NAME" => GetMessage("CP_BCT_OFFERS_PROPERTY_CODE"),
-			"TYPE" => "LIST",
-			"MULTIPLE" => "Y",
-			"VALUES" => $arProperty_Offers,
-			"ADDITIONAL_VALUES" => "Y",
-		),
-		"OFFERS_SORT_FIELD" => array(
-			"PARENT" => "VISUAL",
-			"NAME" => GetMessage("CP_BCT_OFFERS_SORT_FIELD"),
-			"TYPE" => "LIST",
-			"VALUES" => array(
-				"shows" => GetMessage("IBLOCK_FIELD_SHOW_COUNTER"),
-				"sort" => GetMessage("IBLOCK_FIELD_SORT"),
-				"timestamp_x" => GetMessage("IBLOCK_FIELD_TIMESTAMP_X"),
-				"name" => GetMessage("IBLOCK_FIELD_NAME"),
-				"id" => GetMessage("IBLOCK_FIELD_ID"),
-				"active_from" => GetMessage("IBLOCK_FIELD_ACTIVE_FROM"),
-				"active_to" => GetMessage("IBLOCK_FIELD_ACTIVE_TO"),
-			),
-			"ADDITIONAL_VALUES" => "Y",
-			"DEFAULT" => "sort",
-		),
-		"OFFERS_SORT_ORDER" => array(
-			"PARENT" => "VISUAL",
-			"NAME" => GetMessage("CP_BCT_OFFERS_SORT_ORDER"),
-			"TYPE" => "LIST",
-			"VALUES" => $arAscDesc,
-			"DEFAULT" => "asc",
-			"ADDITIONAL_VALUES" => "Y",
-		),
-		"OFFERS_LIMIT" => array(
-			"PARENT" => "VISUAL",
-			"NAME" => GetMessage('CP_BCT_OFFERS_LIMIT'),
-			"TYPE" => "STRING",
-			"DEFAULT" => 5,
-		),
+
+//		"OFFERS_FIELD_CODE" => CIBlockParameters::GetFieldCode(GetMessage("CP_BCT_OFFERS_FIELD_CODE"), "VISUAL"),
+//		"OFFERS_PROPERTY_CODE" => array(
+//			"PARENT" => "VISUAL",
+//			"NAME" => GetMessage("CP_BCT_OFFERS_PROPERTY_CODE"),
+//			"TYPE" => "LIST",
+//			"MULTIPLE" => "Y",
+//			"VALUES" => $arProperty_Offers,
+//			"ADDITIONAL_VALUES" => "Y",
+//		),
+//		"OFFERS_SORT_FIELD" => array(
+//			"PARENT" => "VISUAL",
+//			"NAME" => GetMessage("CP_BCT_OFFERS_SORT_FIELD"),
+//			"TYPE" => "LIST",
+//			"VALUES" => array(
+//				"shows" => GetMessage("IBLOCK_FIELD_SHOW_COUNTER"),
+//				"sort" => GetMessage("IBLOCK_FIELD_SORT"),
+//				"timestamp_x" => GetMessage("IBLOCK_FIELD_TIMESTAMP_X"),
+//				"name" => GetMessage("IBLOCK_FIELD_NAME"),
+//				"id" => GetMessage("IBLOCK_FIELD_ID"),
+//				"active_from" => GetMessage("IBLOCK_FIELD_ACTIVE_FROM"),
+//				"active_to" => GetMessage("IBLOCK_FIELD_ACTIVE_TO"),
+//			),
+//			"ADDITIONAL_VALUES" => "Y",
+//			"DEFAULT" => "sort",
+//		),
+//		"OFFERS_SORT_ORDER" => array(
+//			"PARENT" => "VISUAL",
+//			"NAME" => GetMessage("CP_BCT_OFFERS_SORT_ORDER"),
+//			"TYPE" => "LIST",
+//			"VALUES" => $arAscDesc,
+//			"DEFAULT" => "asc",
+//			"ADDITIONAL_VALUES" => "Y",
+//		),
+//		"OFFERS_LIMIT" => array(
+//			"PARENT" => "VISUAL",
+//			"NAME" => GetMessage('CP_BCT_OFFERS_LIMIT'),
+//			"TYPE" => "STRING",
+//			"DEFAULT" => 5,
+//		),
+
+
 		"PRICE_CODE" => array(
 			"PARENT" => "PRICES",
 			"NAME" => GetMessage("IBLOCK_PRICE_CODE"),
@@ -308,22 +311,3 @@ if (CModule::IncludeModule('catalog') && CModule::IncludeModule('currency'))
 		);
 	}
 }
-
-if(!$OFFERS_IBLOCK_ID)
-{
-	unset($arComponentParameters["PARAMETERS"]["OFFERS_FIELD_CODE"]);
-	unset($arComponentParameters["PARAMETERS"]["OFFERS_PROPERTY_CODE"]);
-	unset($arComponentParameters["PARAMETERS"]["OFFERS_SORT_FIELD"]);
-	unset($arComponentParameters["PARAMETERS"]["OFFERS_SORT_ORDER"]);
-}
-else
-{
-	$arComponentParameters["PARAMETERS"]["OFFERS_CART_PROPERTIES"] = array(
-		"PARENT" => "PRICES",
-		"NAME" => GetMessage("CP_BCT_OFFERS_CART_PROPERTIES"),
-		"TYPE" => "LIST",
-		"MULTIPLE" => "Y",
-		"VALUES" => $arProperty_Offers,
-	);
-}
-?>
