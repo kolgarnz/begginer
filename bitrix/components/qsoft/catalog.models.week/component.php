@@ -72,7 +72,7 @@ if(!is_array($arParams["PRICE_CODE"]))
 
 $arParams["PRICE_VAT_INCLUDE"] = $arParams["PRICE_VAT_INCLUDE"] !== "N";
 
-$arParams['NO_IMAGE'] = trim($arParams['NO_IMAGE']);
+$arParams['NO_IMAGE'] = addslashes(trim($arParams['NO_IMAGE']));
 if(strlen($arParams['NO_IMAGE']) <= 0) {
     $arParams['NO_IMAGE'] = NO_IMAGE_LINK;
 }
