@@ -189,6 +189,9 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N" ? false
 		$arItem["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
 
 		$arItem["PREVIEW_PICTURE"] = CFile::GetPath($arItem["PREVIEW_PICTURE"]);
+        if(strlen($arItem["PREVIEW_PICTURE"]) <= 0) {
+            $arItem["PREVIEW_PICTURE"] = $arParams['NO_IMAGE'];
+        }
 
 		if(count($arParams["PROPERTY_CODE"])) {
             $arItem["PROPERTIES"] = $obElement->GetProperties();
@@ -205,6 +208,13 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N" ? false
 				$arItem["DISPLAY_PROPERTIES"][$pid] = CIBlockFormatProperties::GetDisplayValue($arItem, $prop, "catalog_out");
 			}
 		}
+
+        $arItem['ACTION'] = '';
+        if($arItem['PROPERTIES']['SALE']['VALUE'] == 'TRUE') {
+            $arItem['ACTION'] = 'sale';
+        } elseif($arItem['PROPERTIES']['NEW']['VALUE'] == 'TRUE') {
+            $arItem['ACTION'] = 'new';
+        }
 
         $arItem["PRICES"] = CIBlockPriceTools::GetItemPrices(
             $arParams["IBLOCK_ID"],

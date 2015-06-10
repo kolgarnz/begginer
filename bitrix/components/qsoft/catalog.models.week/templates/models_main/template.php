@@ -11,15 +11,9 @@
                 <figure class="product_item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
                     <?=$arElement['ACTION'] ? '<div class="product_item_label '.$arElement['ACTION'].'"></div>' : '' ?>
                     <div class="product_item_pict">
-                        <?if(strlen($arElement["PREVIEW_PICTURE"])):?>
-                            <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
-                                <img border="0" src="<?=$arElement["PREVIEW_PICTURE"]?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>" />
-                            </a>
-                        <?else:?>
-                            <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
-                                <img border="0" src="<?=$arParams['NO_IMAGE']?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>" />
-                            </a>
-                        <?endif?>
+                        <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
+                            <img border="0" src="<?=$arElement["PREVIEW_PICTURE"]?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>" />
+                        </a>
                     </div>
                     <figcaption>
                         <h3><a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><?=$arElement["NAME"]?></a></h3>

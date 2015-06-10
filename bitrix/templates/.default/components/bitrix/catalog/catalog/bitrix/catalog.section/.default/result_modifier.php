@@ -13,8 +13,13 @@ foreach($arResult['ITEMS'] as $key => $arItem) {
         $arResult['ITEMS'][$key]['ACTION'] = 'new';
     }
 
+    if(is_array($arItem["PREVIEW_PICTURE"]) && !empty($arItem['PREVIEW_PICTURE'])) {
+        $arResult["ITEMS"][$key]['PICTURE'] = $arItem["PREVIEW_PICTURE"]['SRC'];
+    } elseif(strlen($arParams['CATALOG_NO_IMAGE']) > 0) {
+        $arResult["ITEMS"][$key]['PICTURE'] = $arParams['CATALOG_NO_IMAGE'];
+    } else {
+        $arResult["ITEMS"][$key]['PICTURE'] = NO_IMAGE_LINK;
+    }
+
 }
 sort($arResult['ITEMS']);
-if(strlen($arParams['CATALOG_NO_IMAGE']) <= 0) {
-    $arParams['CATALOG_NO_IMAGE'] = NO_IMAGE_LINK;
-}
