@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Корзина");
+$APPLICATION->SetTitle("Моя Корзина");
 ?><?$APPLICATION->IncludeComponent("qsoft:eshop.sale.basket.basket", "basket", array(
 	"COUNT_DISCOUNT_4_ALL_QUANTITY" => "Y",
 	"COLUMNS_LIST" => array(
