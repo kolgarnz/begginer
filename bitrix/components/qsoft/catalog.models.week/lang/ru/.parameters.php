@@ -25,7 +25,9 @@ $MESS["IBLOCK_PRODUCT_ID_VARIABLE"] = "Название переменной, в
 $MESS["IBLOCK_SECTION_ID_VARIABLE"] = "Название переменной, в которой передается код группы";
 $MESS["IBLOCK_USE_PRICE_COUNT"] = "Использовать вывод цен с диапазонами";
 $MESS["IBLOCK_SHOW_PRICE_COUNT"] = "Выводить цены для количества";
+
 $MESS["T_IBLOCK_DESC_DISPLAY_COMPARE"] = "Выводить кнопку сравнения";
+
 $MESS["IBLOCK_VAT_INCLUDE"] = "Включать НДС в цену";
 $MESS["CP_BCT_CACHE_GROUPS"] = "Учитывать права доступа";
 $MESS["CP_BCT_PRODUCT_QUANTITY_VARIABLE"] = "Название переменной, в которой передается количество товара";

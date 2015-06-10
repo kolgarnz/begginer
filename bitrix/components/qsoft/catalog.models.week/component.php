@@ -42,7 +42,8 @@ if(strlen($arParams["SECTION_ID_VARIABLE"])<=0|| !preg_match("/^[A-Za-z_][A-Za-z
 	$arParams["SECTION_ID_VARIABLE"] = "SECTION_ID";
 
 $arParams["SET_TITLE"] = $arParams["SET_TITLE"]!="N";
-$arParams["DISPLAY_COMPARE"] = $arParams["DISPLAY_COMPARE"]=="Y";
+
+/*$arParams["DISPLAY_COMPARE"] = $arParams["DISPLAY_COMPARE"]=="Y";*/
 
 $arParams["ELEMENT_COUNT"] = intval($arParams["ELEMENT_COUNT"]);
 if($arParams["ELEMENT_COUNT"]<=0)

@@ -165,12 +165,14 @@ $arComponentParameters = array(
 			"TYPE"		=> "STRING",
 			"DEFAULT"	=> "SECTION_ID"
 		),
+        /*
 		"DISPLAY_COMPARE" => Array(
 			"PARENT" => "ADDITIONAL_SETTINGS",
 			"NAME" => GetMessage("T_IBLOCK_DESC_DISPLAY_COMPARE"),
 			"TYPE" => "CHECKBOX",
 			"DEFAULT" => "N",
 		),
+        */
 		"ELEMENT_COUNT" => array(
 			"PARENT" => "VISUAL",
 			"NAME" => GetMessage("IBLOCK_ELEMENT_COUNT"),

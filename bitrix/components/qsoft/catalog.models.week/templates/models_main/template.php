@@ -1,6 +1,17 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <h2 class="push_right" xmlns="http://www.w3.org/1999/html"><?=GetMessage('CATALOG_MODELS_WEEK')?></h2>
 
+<!-- Debig Section -->
+<div class="debug">
+    <label>$arParams</label>
+    <textarea style="width:100%; height: 50%;"><?print_r($arParams)?></textarea>
+    <hr>
+    <label>$arResult</label>
+    <textarea style="width:100%; height: 50%;"><?print_r($arResult)?></textarea>
+</div>
+<!-- -->
+
+
 <section class="product_line">
 	<?foreach($arResult["ROWS"] as $arItems):?>
 		<?foreach($arItems as $arElement):?>
