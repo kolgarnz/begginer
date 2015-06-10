@@ -129,8 +129,7 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 		ShowError(GetMessage("IBLOCK_MODULE_NOT_INSTALLED"));
 		return;
 	}
-
-	global $CACHE_MANAGER;
+    
 	$arResult["PRICES"] = CIBlockPriceTools::GetCatalogPrices($arParams["IBLOCK_ID"], $arParams["PRICE_CODE"]);
 
 	/************************************
@@ -174,14 +173,11 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
         unset($value);
     }
 
-	$arCurrencyList = array();
-
 	$arResult["ITEMS"] = array();
 	$rsElements = CIBlockElement::GetList($arSort, $arrFilter, false, array("nTopCount" => $arParams["ELEMENT_COUNT"]), $arSelect);
 	$rsElements->SetUrlTemplates($arParams["DETAIL_URL"]);
 
-	while($obElement = $rsElements->GetNextElement(true,false))
-	{
+	while($obElement = $rsElements->GetNextElement(true,false)) {
 		$arItem = $obElement->GetFields();
 
 		$arButtons = CIBlock::GetPanelButtons(
