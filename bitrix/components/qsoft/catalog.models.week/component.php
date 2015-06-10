@@ -48,9 +48,10 @@ $arParams["SET_TITLE"] = $arParams["SET_TITLE"]!="N";
 $arParams["ELEMENT_COUNT"] = intval($arParams["ELEMENT_COUNT"]);
 if($arParams["ELEMENT_COUNT"]<=0)
 	$arParams["ELEMENT_COUNT"]=9;
-$arParams["LINE_ELEMENT_COUNT"] = intval($arParams["LINE_ELEMENT_COUNT"]);
-if($arParams["LINE_ELEMENT_COUNT"]<=0)
-	$arParams["LINE_ELEMENT_COUNT"]=3;
+
+//$arParams["LINE_ELEMENT_COUNT"] = intval($arParams["LINE_ELEMENT_COUNT"]);
+//if($arParams["LINE_ELEMENT_COUNT"]<=0)
+//	$arParams["LINE_ELEMENT_COUNT"]=3;
 
 if(!is_array($arParams["PROPERTY_CODE"]))
 	$arParams["PROPERTY_CODE"] = array();

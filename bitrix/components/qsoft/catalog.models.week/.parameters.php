@@ -179,12 +179,12 @@ $arComponentParameters = array(
 			"TYPE" => "STRING",
 			"DEFAULT" => "9",
 		),
-		"LINE_ELEMENT_COUNT" => array(
-			"PARENT" => "VISUAL",
-			"NAME" => GetMessage("IBLOCK_LINE_ELEMENT_COUNT"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "3",
-		),
+//		"LINE_ELEMENT_COUNT" => array(
+//			"PARENT" => "VISUAL",
+//			"NAME" => GetMessage("IBLOCK_LINE_ELEMENT_COUNT"),
+//			"TYPE" => "STRING",
+//			"DEFAULT" => "3",
+//		),
 		"PROPERTY_CODE" => array(
 			"PARENT" => "VISUAL",
 			"NAME" => GetMessage("IBLOCK_PROPERTY"),
