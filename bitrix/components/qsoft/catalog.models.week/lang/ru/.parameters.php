@@ -33,16 +33,17 @@ $MESS["IBLOCK_VAT_INCLUDE"] = "Включать НДС в цену";
 $MESS["CP_BCT_CACHE_GROUPS"] = "Учитывать права доступа";
 
 $MESS["CP_BCT_PRODUCT_QUANTITY_VARIABLE"] = "Название переменной, в которой передается количество товара";
-
 $MESS["CP_BCT_PRODUCT_PROPS_VARIABLE"] = "Название переменной, в которой передаются характеристики товара";
+
 $MESS["CP_BCT_USE_PRODUCT_QUANTITY"] = "Разрешить указание количества товара";
+
 $MESS["CP_BCT_PRODUCT_PROPERTIES"] = "Характеристики товара";
 
-$MESS["CP_BCT_OFFERS_FIELD_CODE"] = "Поля предложений";
-$MESS["CP_BCT_OFFERS_PROPERTY_CODE"] = "Свойства предложений";
-$MESS["CP_BCT_OFFERS_SORT_FIELD"] = "По какому полю сортируем предложения товара";
-$MESS["CP_BCT_OFFERS_SORT_ORDER"] = "Порядок сортировки предложений товара";
-$MESS["CP_BCT_OFFERS_CART_PROPERTIES"] = "Свойства предложений, добавляемые в корзину";
+//$MESS["CP_BCT_OFFERS_FIELD_CODE"] = "Поля предложений";
+//$MESS["CP_BCT_OFFERS_PROPERTY_CODE"] = "Свойства предложений";
+//$MESS["CP_BCT_OFFERS_SORT_FIELD"] = "По какому полю сортируем предложения товара";
+//$MESS["CP_BCT_OFFERS_SORT_ORDER"] = "Порядок сортировки предложений товара";
+//$MESS["CP_BCT_OFFERS_CART_PROPERTIES"] = "Свойства предложений, добавляемые в корзину";
 
 $MESS["CP_BCT_CONVERT_CURRENCY"] = "Показывать цены в одной валюте";
 $MESS["CP_BCT_CURRENCY_ID"] = "Валюта, в которую будут сконвертированы цены";

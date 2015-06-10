@@ -267,12 +267,14 @@ $arComponentParameters = array(
 			"MULTIPLE" => "Y",
 			"VALUES" => $arProperty_X,
 		),
-		"USE_PRODUCT_QUANTITY" => array(
-			"PARENT" => "PRICES",
-			"NAME" => GetMessage("CP_BCT_USE_PRODUCT_QUANTITY"),
-			"TYPE" => "CHECKBOX",
-			"DEFAULT" => "N",
-		),
+
+//		"USE_PRODUCT_QUANTITY" => array(
+//			"PARENT" => "PRICES",
+//			"NAME" => GetMessage("CP_BCT_USE_PRODUCT_QUANTITY"),
+//			"TYPE" => "CHECKBOX",
+//			"DEFAULT" => "N",
+//		),
+
 		"CACHE_TIME"  =>  Array("DEFAULT"=>36000000),
 		"CACHE_GROUPS" => array(
 			"PARENT" => "CACHE_SETTINGS",

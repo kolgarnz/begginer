@@ -66,7 +66,8 @@ if(!is_array($arParams["PRICE_CODE"]))
 $arParams["SHOW_PRICE_COUNT"] = intval($arParams["SHOW_PRICE_COUNT"]);
 if($arParams["SHOW_PRICE_COUNT"]<=0)
 	$arParams["SHOW_PRICE_COUNT"]=1;
-$arParams["USE_PRODUCT_QUANTITY"] = $arParams["USE_PRODUCT_QUANTITY"]==="Y";
+
+//$arParams["USE_PRODUCT_QUANTITY"] = $arParams["USE_PRODUCT_QUANTITY"]==="Y";
 
 if(!is_array($arParams["PRODUCT_PROPERTIES"]))
 	$arParams["PRODUCT_PROPERTIES"] = array();
@@ -127,9 +128,9 @@ if(array_key_exists($arParams["ACTION_VARIABLE"], $_REQUEST) && array_key_exists
 	{
 		if (CModule::IncludeModule("sale") && CModule::IncludeModule("catalog") && CModule::IncludeModule('iblock'))
 		{
-			if($arParams["USE_PRODUCT_QUANTITY"])
-				$QUANTITY = intval($_REQUEST[$arParams["PRODUCT_QUANTITY_VARIABLE"]]);
-			if($QUANTITY <= 1)
+//			if($arParams["USE_PRODUCT_QUANTITY"])
+//				$QUANTITY = intval($_REQUEST[$arParams["PRODUCT_QUANTITY_VARIABLE"]]);
+//			if($QUANTITY <= 1)
 				$QUANTITY = 1;
 
 			$product_properties = array();
