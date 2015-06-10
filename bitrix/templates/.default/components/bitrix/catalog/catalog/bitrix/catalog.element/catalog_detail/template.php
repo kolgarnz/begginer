@@ -16,7 +16,7 @@
                 <div class="b-product-photo__thumbnail">
                     <?foreach($arResult['TO_SHOW'] as $img):?>
                         <a data-slide-index="<?=$i++?>" href="" class="b-product-photo__thumbnail-item">
-                            <img class="b-product-photo__thumbnail-item__content" src="<?=$img?>" alt="<?=$arResult["NAME"]?> Thumbnail">
+                            <img class="b-product-photo__thumbnail-item__content" src="<?=$img?>" alt="<?=$arResult["NAME"]?>">
                         </a>
                     <?endforeach?>
                 </div>

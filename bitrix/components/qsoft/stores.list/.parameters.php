@@ -42,7 +42,7 @@ $arComponentParameters = array(
 			"REFRESH" => "Y",
 		),
 
-		"CACHE_TIME"  =>  Array("DEFAULT"=>3600),
+		"CACHE_TIME"  =>  Array("DEFAULT"=>CACHED_b_file),
 		"CACHE_GROUPS" => array(
 			"PARENT" => "CACHE_SETTINGS",
 			"NAME" => GetMessage("CP_BPR_CACHE_GROUPS"),
@@ -76,18 +76,11 @@ $arComponentParameters = array(
 			"DEFAULT" => 2,
 		
 		),
-		"IBLOCK_SHOW_MAP" => array(
-			"PARENT" => "VISUAL",
-			"NAME" => GetMessage("IBLOCK_SHOW_MAP"),
-			"TYPE" => "CHECKBOX",
-			"DEFAULT" => false,
-		
-		),
         "IBLOCK_NO_IMAGE" => array(
             "PARENT" => "VISUAL",
             "NAME" => GetMessage("IBLOCK_NO_IMAGE"),
             "TYPE" => "STRING",
-            "DEFAULT" => '/bitrix/templates/.default/images/no-image.jpg',
+            "DEFAULT" => NO_IMAGE_LINK,
         ),
 		"IBLOCK_ALL_URL" => CIBlockParameters::GetPathTemplateParam(
 				"DETAIL",

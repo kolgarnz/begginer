@@ -5,6 +5,6 @@ $arTemplateParameters = array(
     "CATALOG_NO_IMAGE" => Array(
         "NAME" => GetMessage("CATALOG_NO_IMAGE"),
         "TYPE" => "STRING",
-        "DEFAULT" => "/bitrix/templates/.default/images/no-image.jpg"
+        "DEFAULT" => NO_IMAGE_LINK
     )
 );

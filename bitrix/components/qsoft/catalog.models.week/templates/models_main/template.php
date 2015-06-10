@@ -9,17 +9,13 @@
                 $this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arElement["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCT_ELEMENT_DELETE_CONFIRM')));
                 ?>
                 <figure class="product_item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
-                    <?if($arElement['DISPLAY_PROPERTIES']['SALE']['VALUE'] == 'TRUE'):?>
-                        <div class="product_item_label sale"></div>
-                    <?elseif($arElement['DISPLAY_PROPERTIES']['NEW']['VALUE'] == 'TRUE'):?>
-                        <div class="product_item_label new"></div>
-                    <?endif?>
+                    <?=$arElement['ACTION'] ? '<div class="product_item_label '.$arElement['ACTION'].'"></div>' : '' ?>
                     <div class="product_item_pict">
                         <?if(strlen($arElement["PREVIEW_PICTURE"])):?>
                             <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
                                 <img border="0" src="<?=$arElement["PREVIEW_PICTURE"]?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>" />
                             </a>
-                        <?elseif($arParams['NO_IMAGE']):?>
+                        <?else:?>
                             <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
                                 <img border="0" src="<?=$arParams['NO_IMAGE']?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>" />
                             </a>

@@ -9,7 +9,6 @@ function FunctionName(params)
 }
 */
 
-function clearBannersCache() {
-	BXClearCache(true, "/s1/qsoft/main.banner/");
-}
+define("NO_IMAGE_LINK", '/bitrix/templates/.default/images/no-image.jpg');
+
 ?>
