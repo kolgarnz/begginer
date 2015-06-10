@@ -248,25 +248,25 @@ $arComponentParameters = array(
 			"TYPE" => "CHECKBOX",
 			"DEFAULT" => "N",
 			),*/
-		"SHOW_PRICE_COUNT" => array(
-			"PARENT" => "PRICES",
-			"NAME" => GetMessage("IBLOCK_SHOW_PRICE_COUNT"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "1"
-		),
+//		"SHOW_PRICE_COUNT" => array(
+//			"PARENT" => "PRICES",
+//			"NAME" => GetMessage("IBLOCK_SHOW_PRICE_COUNT"),
+//			"TYPE" => "STRING",
+//			"DEFAULT" => "1"
+//		),
 		"PRICE_VAT_INCLUDE" => array(
 			"PARENT" => "PRICES",
 			"NAME" => GetMessage("IBLOCK_VAT_INCLUDE"),
 			"TYPE" => "CHECKBOX",
 			"DEFAULT" => "Y",
 		),
-		"PRODUCT_PROPERTIES" => array(
-			"PARENT" => "PRICES",
-			"NAME" => GetMessage("CP_BCT_PRODUCT_PROPERTIES"),
-			"TYPE" => "LIST",
-			"MULTIPLE" => "Y",
-			"VALUES" => $arProperty_X,
-		),
+//		"PRODUCT_PROPERTIES" => array(
+//			"PARENT" => "PRICES",
+//			"NAME" => GetMessage("CP_BCT_PRODUCT_PROPERTIES"),
+//			"TYPE" => "LIST",
+//			"MULTIPLE" => "Y",
+//			"VALUES" => $arProperty_X,
+//		),
 
 //		"USE_PRODUCT_QUANTITY" => array(
 //			"PARENT" => "PRICES",

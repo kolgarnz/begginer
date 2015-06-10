@@ -63,17 +63,17 @@ if(!is_array($arParams["PRICE_CODE"]))
 
 /*$arParams["USE_PRICE_COUNT"] = $arParams["USE_PRICE_COUNT"]=="Y";*/
 
-$arParams["SHOW_PRICE_COUNT"] = intval($arParams["SHOW_PRICE_COUNT"]);
-if($arParams["SHOW_PRICE_COUNT"]<=0)
-	$arParams["SHOW_PRICE_COUNT"]=1;
+//$arParams["SHOW_PRICE_COUNT"] = intval($arParams["SHOW_PRICE_COUNT"]);
+//if($arParams["SHOW_PRICE_COUNT"]<=0)
+//	$arParams["SHOW_PRICE_COUNT"]=1;
 
 //$arParams["USE_PRODUCT_QUANTITY"] = $arParams["USE_PRODUCT_QUANTITY"]==="Y";
 
-if(!is_array($arParams["PRODUCT_PROPERTIES"]))
-	$arParams["PRODUCT_PROPERTIES"] = array();
-foreach($arParams["PRODUCT_PROPERTIES"] as $k=>$v)
-	if($v==="")
-		unset($arParams["PRODUCT_PROPERTIES"][$k]);
+//if(!is_array($arParams["PRODUCT_PROPERTIES"]))
+//	$arParams["PRODUCT_PROPERTIES"] = array();
+//foreach($arParams["PRODUCT_PROPERTIES"] as $k=>$v)
+//	if($v==="")
+//		unset($arParams["PRODUCT_PROPERTIES"][$k]);
 
 //if (!is_array($arParams["OFFERS_CART_PROPERTIES"]))
 //	$arParams["OFFERS_CART_PROPERTIES"] = array();
@@ -139,48 +139,48 @@ if(array_key_exists($arParams["ACTION_VARIABLE"], $_REQUEST) && array_key_exists
 			if ($arItem = $rsItems->Fetch())
 			{
 				$arItem['IBLOCK_ID'] = intval($arItem['IBLOCK_ID']);
-				if ($arItem['IBLOCK_ID'] == $arParams["IBLOCK_ID"])
-				{
-					if (!empty($arParams["PRODUCT_PROPERTIES"]))
-					{
-						if (
-							array_key_exists($arParams["PRODUCT_PROPS_VARIABLE"], $_REQUEST)
-							&& is_array($_REQUEST[$arParams["PRODUCT_PROPS_VARIABLE"]])
-						)
-						{
-							$product_properties = CIBlockPriceTools::CheckProductProperties(
-								$arParams["IBLOCK_ID"],
-								$productID,
-								$arParams["PRODUCT_PROPERTIES"],
-								$_REQUEST[$arParams["PRODUCT_PROPS_VARIABLE"]]
-							);
-							if (!is_array($product_properties))
-								$strError = GetMessage("CATALOG_ERROR2BASKET").".";
-						}
-						else
-						{
-							$strError = GetMessage("CATALOG_ERROR2BASKET").".";
-						}
-					}
-				}
-				else
-				{
-					if (!empty($arParams["OFFERS_CART_PROPERTIES"]))
-					{
-						$product_properties = CIBlockPriceTools::GetOfferProperties(
-							$productID,
-							$arParams["IBLOCK_ID"],
-							$arParams["OFFERS_CART_PROPERTIES"]
-						);
-					}
-				}
+//				if ($arItem['IBLOCK_ID'] == $arParams["IBLOCK_ID"])
+//				{
+//					if (!empty($arParams["PRODUCT_PROPERTIES"]))
+//					{
+//						if (
+//							array_key_exists($arParams["PRODUCT_PROPS_VARIABLE"], $_REQUEST)
+//							&& is_array($_REQUEST[$arParams["PRODUCT_PROPS_VARIABLE"]])
+//						)
+//						{
+//							$product_properties = CIBlockPriceTools::CheckProductProperties(
+//								$arParams["IBLOCK_ID"],
+//								$productID,
+//								$arParams["PRODUCT_PROPERTIES"],
+//								$_REQUEST[$arParams["PRODUCT_PROPS_VARIABLE"]]
+//							);
+//							if (!is_array($product_properties))
+//								$strError = GetMessage("CATALOG_ERROR2BASKET").".";
+//						}
+//						else
+//						{
+//							$strError = GetMessage("CATALOG_ERROR2BASKET").".";
+//						}
+//					}
+//				}
+//				else
+//				{
+//					if (!empty($arParams["OFFERS_CART_PROPERTIES"]))
+//					{
+//						$product_properties = CIBlockPriceTools::GetOfferProperties(
+//							$productID,
+//							$arParams["IBLOCK_ID"],
+//							$arParams["OFFERS_CART_PROPERTIES"]
+//						);
+//					}
+//				}
 			}
 			else
 			{
 				$strError = GetMessage('CATALOG_PRODUCT_NOT_FOUND').".";
 			}
 
-			if(!$strError && Add2BasketByProductID($productID, $QUANTITY, $product_properties))
+			if(!$strError && Add2BasketByProductID($productID/*, $QUANTITY, $product_properties*/))
 			{
 				if ($action == "BUY")
 					LocalRedirect($arParams["BASKET_URL"]);
@@ -296,7 +296,7 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 
     foreach($arResult["PRICES"] as &$value) {
         $arSelect[] = $value["SELECT"];
-        $arrFilter["CATALOG_SHOP_QUANTITY_".$value["ID"]] = $arParams["SHOW_PRICE_COUNT"];
+        $arrFilter["CATALOG_SHOP_QUANTITY_".$value["ID"]] = 1/*$arParams["SHOW_PRICE_COUNT"]*/;
     }
     if (isset($value)) {
         unset($value);
@@ -340,8 +340,8 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 
 		if(count($arParams["PROPERTY_CODE"]))
 			$arItem["PROPERTIES"] = $obElement->GetProperties();
-		elseif(count($arParams["PRODUCT_PROPERTIES"]))
-			$arItem["PROPERTIES"] = $obElement->GetProperties();
+//		elseif(count($arParams["PRODUCT_PROPERTIES"]))
+//			$arItem["PROPERTIES"] = $obElement->GetProperties();
 
 		$arItem["DISPLAY_PROPERTIES"] = array();
 		foreach($arParams["PROPERTY_CODE"] as $pid)
@@ -356,12 +356,12 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 			}
 		}
 
-		$arItem["PRODUCT_PROPERTIES"] = CIBlockPriceTools::GetProductProperties(
-			$arParams["IBLOCK_ID"],
-			$arItem["ID"],
-			$arParams["PRODUCT_PROPERTIES"],
-			$arItem["PROPERTIES"]
-		);
+//		$arItem["PRODUCT_PROPERTIES"] = CIBlockPriceTools::GetProductProperties(
+//			$arParams["IBLOCK_ID"],
+//			$arItem["ID"],
+//			$arParams["PRODUCT_PROPERTIES"],
+//			$arItem["PROPERTIES"]
+//		);
 
 /*		if($arParams["USE_PRICE_COUNT"])
 		{
