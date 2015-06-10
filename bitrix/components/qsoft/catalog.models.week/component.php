@@ -60,7 +60,8 @@ foreach($arParams["PROPERTY_CODE"] as $k=>$v)
 if(!is_array($arParams["PRICE_CODE"]))
 	$arParams["PRICE_CODE"] = array();
 
-$arParams["USE_PRICE_COUNT"] = $arParams["USE_PRICE_COUNT"]=="Y";
+/*$arParams["USE_PRICE_COUNT"] = $arParams["USE_PRICE_COUNT"]=="Y";*/
+
 $arParams["SHOW_PRICE_COUNT"] = intval($arParams["SHOW_PRICE_COUNT"]);
 if($arParams["SHOW_PRICE_COUNT"]<=0)
 	$arParams["SHOW_PRICE_COUNT"]=1;
@@ -287,25 +288,28 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 	);
 	//PRICES
 	$arPriceTypeID = array();
-	if (!$arParams["USE_PRICE_COUNT"])
-	{
-		foreach($arResult["PRICES"] as &$value)
-		{
-			$arSelect[] = $value["SELECT"];
-			$arrFilter["CATALOG_SHOP_QUANTITY_".$value["ID"]] = $arParams["SHOW_PRICE_COUNT"];
-		}
-		if (isset($value))
-			unset($value);
-	}
-	else
-	{
-		foreach($arResult["PRICES"] as &$value)
-		{
-			$arPriceTypeID[] = $value["ID"];
-		}
-		if (isset($value))
-			unset($value);
-	}
+
+/*    if (!$arParams["USE_PRICE_COUNT"])
+    {*/
+
+    foreach($arResult["PRICES"] as &$value) {
+        $arSelect[] = $value["SELECT"];
+        $arrFilter["CATALOG_SHOP_QUANTITY_".$value["ID"]] = $arParams["SHOW_PRICE_COUNT"];
+    }
+    if (isset($value)) {
+        unset($value);
+    }
+
+/*    }
+    else
+    {
+        foreach($arResult["PRICES"] as &$value)
+        {
+            $arPriceTypeID[] = $value["ID"];
+        }
+        if (isset($value))
+            unset($value);
+    }*/
 
 	$arCurrencyList = array();
 
@@ -357,7 +361,7 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 			$arItem["PROPERTIES"]
 		);
 
-		if($arParams["USE_PRICE_COUNT"])
+/*		if($arParams["USE_PRICE_COUNT"])
 		{
 			if(CModule::IncludeModule("catalog"))
 			{
@@ -372,10 +376,13 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 			$arItem["PRICES"] = array();
 		}
 		else
-		{
-			$arItem["PRICE_MATRIX"] = false;
-			$arItem["PRICES"] = CIBlockPriceTools::GetItemPrices($arParams["IBLOCK_ID"], $arResult["PRICES"], $arItem, $arParams['PRICE_VAT_INCLUDE'], $arConvertParams);
-		}
+		{*/
+
+        $arItem["PRICE_MATRIX"] = false;
+        $arItem["PRICES"] = CIBlockPriceTools::GetItemPrices($arParams["IBLOCK_ID"], $arResult["PRICES"], $arItem, $arParams['PRICE_VAT_INCLUDE'], $arConvertParams);
+
+//		}
+
 		$arItem["CAN_BUY"] = CIBlockPriceTools::CanBuy($arParams["IBLOCK_ID"], $arResult["PRICES"], $arItem);
 
 		$arItem["BUY_URL"] = htmlspecialcharsbx($APPLICATION->GetCurPageParam($arParams["ACTION_VARIABLE"]."=BUY&".$arParams["PRODUCT_ID_VARIABLE"]."=".$arItem["ID"], array($arParams["PRODUCT_ID_VARIABLE"], $arParams["ACTION_VARIABLE"])));
@@ -384,27 +391,27 @@ if($this->StartResultCache(false, array($arrFilter, ($arParams["CACHE_GROUPS"]==
 
 		if ('Y' == $arParams['CONVERT_CURRENCY'])
 		{
-			if ($arParams["USE_PRICE_COUNT"])
-			{
-				if (is_array($arItem["PRICE_MATRIX"]) && !empty($arItem["PRICE_MATRIX"]))
-				{
-					if (isset($arItem["PRICE_MATRIX"]['CURRENCY_LIST']) && is_array($arItem["PRICE_MATRIX"]['CURRENCY_LIST']))
-						$arCurrencyList = array_merge($arCurrencyList, $arItem["PRICE_MATRIX"]['CURRENCY_LIST']);
-				}
-			}
-			else
-			{
-				if (!empty($arItem["PRICES"]))
-				{
-					foreach ($arItem["PRICES"] as &$arOnePrices)
-					{
-						if (isset($arOnePrices['ORIG_CURRENCY']))
-							$arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
+//			if ($arParams["USE_PRICE_COUNT"])
+//			{
+//				if (is_array($arItem["PRICE_MATRIX"]) && !empty($arItem["PRICE_MATRIX"]))
+//				{
+//					if (isset($arItem["PRICE_MATRIX"]['CURRENCY_LIST']) && is_array($arItem["PRICE_MATRIX"]['CURRENCY_LIST']))
+//						$arCurrencyList = array_merge($arCurrencyList, $arItem["PRICE_MATRIX"]['CURRENCY_LIST']);
+//				}
+//			}
+//			else
+//			{
+				if (!empty($arItem["PRICES"])) {
+					foreach ($arItem["PRICES"] as &$arOnePrices) {
+						if (isset($arOnePrices['ORIG_CURRENCY'])) {
+                            $arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
+                        }
 					}
-					if (isset($arOnePrices))
-						unset($arOnePrices);
+					if (isset($arOnePrices)) {
+                        unset($arOnePrices);
+                    }
 				}
-			}
+//			}
 		}
 
 		$arResult["ITEMS"][]=$arItem;

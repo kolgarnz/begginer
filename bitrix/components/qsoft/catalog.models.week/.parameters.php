@@ -239,12 +239,12 @@ $arComponentParameters = array(
 			"MULTIPLE" => "Y",
 			"VALUES" => $arPrice,
 		),
-		"USE_PRICE_COUNT" => array(
+		/*"USE_PRICE_COUNT" => array(
 			"PARENT" => "PRICES",
 			"NAME" => GetMessage("IBLOCK_USE_PRICE_COUNT"),
 			"TYPE" => "CHECKBOX",
 			"DEFAULT" => "N",
-			),
+			),*/
 		"SHOW_PRICE_COUNT" => array(
 			"PARENT" => "PRICES",
 			"NAME" => GetMessage("IBLOCK_SHOW_PRICE_COUNT"),
