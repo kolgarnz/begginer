@@ -1,3 +1,2 @@
-<?
-$sSectionName="Моя Корзина";
-?>
+<?php
+$sSectionName="Корзина";
