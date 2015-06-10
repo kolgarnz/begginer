@@ -1,4 +1,12 @@
 <?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arResult['LIST_PAGE_URL'] = CIBlock::ReplaceDetailUrl($arResult['LIST_PAGE_URL']);
-if(strlen($arParams['LIST_NO_IMAGE']) <= 0) $arParams['LIST_NO_IMAGE'] = NO_IMAGE_LINK;
+foreach($arResult["ITEMS"] as $key => $arItem) {
+    if(is_array($arItem["PREVIEW_PICTURE"]) && !empty($arItem['PREVIEW_PICTURE'])) {
+        $arResult["ITEMS"][$key]['PICTURE'] = $arItem["PREVIEW_PICTURE"]['SRC'];
+    } elseif(strlen($arParams['LIST_NO_IMAGE']) > 0) {
+        $arResult["ITEMS"][$key]['PICTURE'] = $arParams['LIST_NO_IMAGE'];
+    } else {
+        $arResult["ITEMS"][$key]['PICTURE'] = NO_IMAGE_LINK;
+    }
+}

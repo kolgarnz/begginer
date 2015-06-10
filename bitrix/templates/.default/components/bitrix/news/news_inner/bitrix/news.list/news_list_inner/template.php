@@ -11,15 +11,9 @@
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
         ?>
         <figure class="news_item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-            <?if(is_array($arItem["PREVIEW_PICTURE"]) && !empty($arItem['PREVIEW_PICTURE'])):?>
-                <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
-                    <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>"/>
-                </a>
-            <?else:?>
-                <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
-                    <img src="<?=$arParams['LIST_NO_IMAGE']?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>"/>
-                </a>
-            <?endif?>
+            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
+                <img src="<?=$arItem["PICTURE"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>"/>
+            </a>
             <figcaption class="news_item_description">
                 <div class="news_item_anons">
                     <?if($arItem["DETAIL_TEXT"]):?>

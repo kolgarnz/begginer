@@ -26,19 +26,11 @@
                 <figure class="product_item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
             <?endif?>
                 <?=$arElement['ACTION'] ? '<div class="product_item_label '.$arElement['ACTION'].'"></div>' : '' ?>
-                <?if(is_array($arElement["PREVIEW_PICTURE"])):?>
-                    <div class="product_item_pict">
-                        <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
-                            <img src="<?=$arElement["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>"/>
-                        </a>
-                    </div>
-                <?else:?>
-                    <div class="product_item_pict">
-                        <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
-                            <img src="<?=$arParams['CATALOG_NO_IMAGE']?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>"/>
-                        </a>
-                    </div>
-                <?endif?>
+                <div class="product_item_pict">
+                    <a href="<?=$arElement["DETAIL_PAGE_URL"]?>">
+                        <img src="<?=$arElement["PICTURE"]?>" alt="<?=$arElement["NAME"]?>" title="<?=$arElement["NAME"]?>"/>
+                    </a>
+                </div>
                 <figcaption>
                     <h3><a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><?=$arElement["NAME"]?></a></h3>
                         <?if($arElement["PRICES"]["BASE"]["CAN_ACCESS"]):?>
