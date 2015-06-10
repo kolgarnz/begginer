@@ -14,42 +14,33 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 <?
 $arrFilter = array('PROPERTY_MODEL_WEEKS_VALUE' => 'TRUE', '!=CATALOG_PRICE_1' => '0');
 $APPLICATION->IncludeComponent("qsoft:catalog.models.week", "models_main", array(
-    "IBLOCK_TYPE" => "catalog",
-    "IBLOCK_ID" => "25",
-    "ELEMENT_SORT_FIELD" => "RAND",
-    "ELEMENT_SORT_ORDER" => "desc",
-    "ELEMENT_COUNT" => "4",
-    "LINE_ELEMENT_COUNT" => "4",
-    "PROPERTY_CODE" => array(
-        0 => "NEW",
-        1 => "SALE",
-        2 => "",
-    ),
-    "OFFERS_LIMIT" => "4",
-    "SECTION_URL" => "/catalog/#SECTION_CODE#/",
-    "DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
-    "BASKET_URL" => "/personal/cart/",
-    "ACTION_VARIABLE" => "action",
-    "PRODUCT_ID_VARIABLE" => "id",
-    "PRODUCT_QUANTITY_VARIABLE" => "quantity",
-    "PRODUCT_PROPS_VARIABLE" => "prop",
-    "SECTION_ID_VARIABLE" => "SECTION_ID",
-    "CACHE_TYPE" => "A",
-    "CACHE_TIME" => "3600",
-    "CACHE_GROUPS" => "Y",
-    "DISPLAY_COMPARE" => "N",
-    "PRICE_CODE" => array(
-        0 => "BASE",
-    ),
-    "USE_PRICE_COUNT" => "N",
-    "SHOW_PRICE_COUNT" => "1",
-    "PRICE_VAT_INCLUDE" => "Y",
-    "PRODUCT_PROPERTIES" => array(
-    ),
-    "USE_PRODUCT_QUANTITY" => "N",
-    "CONVERT_CURRENCY" => "N"
-),
-    false
+	"IBLOCK_TYPE" => "catalog",
+	"IBLOCK_ID" => "25",
+	"ELEMENT_SORT_FIELD" => "RAND",
+	"ELEMENT_SORT_ORDER" => "desc",
+	"ELEMENT_COUNT" => "4",
+	"PROPERTY_CODE" => array(
+		0 => "NEW",
+		1 => "SALE",
+		2 => "",
+	),
+	"SECTION_URL" => "/catalog/#SECTION_CODE#/",
+	"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
+	"BASKET_URL" => "/personal/cart/",
+	"ACTION_VARIABLE" => "action",
+	"PRODUCT_ID_VARIABLE" => "id",
+	"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+	"PRODUCT_PROPS_VARIABLE" => "prop",
+	"SECTION_ID_VARIABLE" => "SECTION_ID",
+	"CACHE_TYPE" => "A",
+	"CACHE_TIME" => "3600",
+	"CACHE_GROUPS" => "Y",
+	"PRICE_CODE" => array(
+		0 => "BASE",
+	),
+	"PRICE_VAT_INCLUDE" => "Y"
+	),
+	false
 );?>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "news_list_main", array(
 	"IBLOCK_TYPE" => "news",
