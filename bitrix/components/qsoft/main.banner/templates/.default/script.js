@@ -11,7 +11,8 @@ $(document).ready(function(){
 	else
 	{
 		$(".bxslider").bxSlider({
-			auto:false
+			auto:false,
+            pager:false
 		});
 	}
 })

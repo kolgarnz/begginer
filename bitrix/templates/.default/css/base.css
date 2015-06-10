@@ -795,6 +795,9 @@ input[type="checkbox"] + label.filter-type-label {
 			background-position: 0 0;
 			background: rgb(185, 185, 185);
 		}
+a {
+    color: #333333;
+}
 /*x_forms*/
 input:focus, textarea:focus
 {
@@ -854,7 +857,7 @@ nav a
 	font-weight: normal;
 	width: 75%;
 }
-.detail_link{
+.detail_link, .detail_link:visited{
 	color: #ff7519;
 	text-decoration: none;
 	position: relative;

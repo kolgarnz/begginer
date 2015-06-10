@@ -1,4 +1,4 @@
-<?
+<?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arDetParams = array(
 		"PATH_TO_LIST" => $arResult["PATH_TO_LIST"],
@@ -7,10 +7,10 @@ $arDetParams = array(
 		"SET_TITLE" =>$arParams["SET_TITLE"],
 		"ID" => $arResult["VARIABLES"]["ID"],
 	);
-foreach($arParams as $key => $val)
-{
-	if(strpos($key, "PROP_") !== false)
+foreach($arParams as $key => $val) {
+	if(strpos($key, "PROP_") !== false) {
 		$arDetParams[$key] = $val;
+    }
 }
 
 $APPLICATION->IncludeComponent(
@@ -19,4 +19,3 @@ $APPLICATION->IncludeComponent(
 	$arDetParams,
 	$component
 );
-?>

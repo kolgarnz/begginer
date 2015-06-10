@@ -10,7 +10,7 @@ $arUrlRewrite = array(
 		"CONDITION"	=>	"#^/personal/cart/#",
 		"RULE"	=>	"",
 		"ID"	=>	"",
-		"PATH"	=>	"/personal/cart.php",
+		"PATH"	=>	"/personal/cart/index.php",
 	),
 	array(
 		"CONDITION"	=>	"#^/company/news/#",

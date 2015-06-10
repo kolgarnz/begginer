@@ -1,8 +1,8 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<form method="GET" action="<?= $arResult["CURRENT_PAGE"] ?>" name="bfilter">
+<form method="GET" action="<?=$arResult["CURRENT_PAGE"] ?>" name="bfilter">
 <table class="sale-personal-order-list-filter">
 	<tr>
-		<th colspan="2"><?echo GetMessage("SPOL_T_F_FILTER")?></th>
+		<th colspan="2"><?=GetMessage("SPOL_T_F_FILTER")?></th>
 	</tr>
 	<tr>
 		<td><?=GetMessage("SPOL_T_F_ID");?>:</td>
@@ -29,11 +29,9 @@
 		<td><select name="filter_status">
 				<option value=""><?=GetMessage("SPOL_T_F_ALL")?></option>
 				<?
-				foreach($arResult["INFO"]["STATUS"] as $val)
-				{
-					if ($val["ID"]!="F")
-					{
-						?><option value="<?echo $val["ID"]?>"<?if($_REQUEST["filter_status"]==$val["ID"]) echo " selected"?>>[<?=$val["ID"]?>] <?=$val["NAME"]?></option><?
+				foreach($arResult["INFO"]["STATUS"] as $val) {
+					if ($val["ID"]!="F") {
+						?><option value="<?=$val["ID"]?>"<?if($_REQUEST["filter_status"]==$val["ID"]) echo " selected"?>>[<?=$val["ID"]?>] <?=$val["NAME"]?></option><?
 					}
 				}
 				?>
@@ -42,7 +40,7 @@
 	<tr>
 		<td><?=GetMessage("SPOL_T_F_PAYED")?>:</td>
 		<td><select name="filter_payed">
-				<option value=""><?echo GetMessage("SPOL_T_F_ALL")?></option>
+				<option value=""><?=GetMessage("SPOL_T_F_ALL")?></option>
 				<option value="Y"<?if ($_REQUEST["filter_payed"]=="Y") echo " selected"?>><?=GetMessage("SPOL_T_YES")?></option>
 				<option value="N"<?if ($_REQUEST["filter_payed"]=="N") echo " selected"?>><?=GetMessage("SPOL_T_NO")?></option>
 		</select></td>
@@ -87,14 +85,15 @@
 			<td><?=$arResult["INFO"]["STATUS"][$val["ORDER"]["STATUS_ID"]]["NAME"]?><br /><?=$val["ORDER"]["DATE_STATUS"]?></td>
 			<td><?
 				$bNeedComa = False;
-				foreach($val["BASKET_ITEMS"] as $vval)
-				{
+				foreach($val["BASKET_ITEMS"] as $vval) {
 					?><li><?
-					if (strlen($vval["DETAIL_PAGE_URL"])>0) 
-						echo '<a href="'.$vval["DETAIL_PAGE_URL"].'">';
+					if (strlen($vval["DETAIL_PAGE_URL"])>0) {
+                        echo '<a href="' . $vval["DETAIL_PAGE_URL"] . '">';
+                    }
 					echo $vval["NAME"];
-					if (strlen($vval["DETAIL_PAGE_URL"])>0) 
-						echo '</a>';
+					if (strlen($vval["DETAIL_PAGE_URL"])>0) {
+                        echo '</a>';
+                    }
 						echo ' - '.$vval["QUANTITY"].' '.GetMessage("STPOL_SHT");
 					?></li><?
 				}

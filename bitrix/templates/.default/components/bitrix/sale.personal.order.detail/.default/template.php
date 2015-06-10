@@ -5,32 +5,35 @@
 <?if(strlen($arResult["ERROR_MESSAGE"])<=0):?>
 	<table class="sale_personal_order_detail">
 	<tr>
-		<th colspan="2" align="center"><b><?=GetMessage("SPOD_ORDER_NO")?>&nbsp;<?=$arResult["ID"]?>&nbsp;<?=GetMessage("SPOD_FROM")?> <?=$arResult["DATE_INSERT"] ?></b></th>
+		<th colspan="2" align="center">
+            <b>
+                <?=GetMessage("SPOD_ORDER_NO")?>&nbsp;<?=$arResult["ID"]?>&nbsp;<?=GetMessage("SPOD_FROM")?> <?=$arResult["DATE_INSERT"] ?>
+            </b>
+        </th>
 	</tr>
 	<tr>
-		<td colspan="1" align="right"><?echo GetMessage("SPOD_ORDER_STATUS")?></td>
+		<td colspan="1" align="right"><?=GetMessage("SPOD_ORDER_STATUS")?></td>
 		<td colspan="1"><?=$arResult["STATUS"]["NAME"]?><?=GetMessage("SPOD_ORDER_FROM")?><?=$arResult["DATE_STATUS"]?>)</td>
 	</tr>
 	<tr>
 		<td align="right"><?=GetMessage("P_ORDER_PRICE")?>:</td>
 		<td><?
 				echo "<b>".$arResult["PRICE_FORMATED"]."</b>";
-				if (DoubleVal($arResult["SUM_PAID"]) > 0)
-					echo " (".GetMessage("SPOD_ALREADY_PAID")."&nbsp;<b>".$arResult["SUM_PAID_FORMATED"]."</b>)";
+				if (DoubleVal($arResult["SUM_PAID"]) > 0) {
+                    echo " (" . GetMessage("SPOD_ALREADY_PAID") . "&nbsp;<b>" . $arResult["SUM_PAID_FORMATED"] . "</b>)";
+                }
 				?></td>
 	</tr>
 	<tr>
-		<td align="right"><?= GetMessage("P_ORDER_CANCELED") ?>:</td>
+		<td align="right"><?=GetMessage("P_ORDER_CANCELED") ?>:</td>
 		<td><?
 			echo (($arResult["CANCELED"] == "Y") ? GetMessage("SALE_YES") : GetMessage("SALE_NO"));
-			if ($arResult["CANCELED"] == "Y")
-			{
+			if ($arResult["CANCELED"] == "Y") {
 				echo GetMessage("SPOD_ORDER_FROM").$arResult["DATE_CANCELED"].")";
-				if (strlen($arResult["REASON_CANCELED"]) > 0)
-					echo "<br />".$arResult["REASON_CANCELED"];
-			}
-			elseif ($arResult["CAN_CANCEL"]=="Y")
-			{
+				if (strlen($arResult["REASON_CANCELED"]) > 0) {
+                    echo "<br />" . $arResult["REASON_CANCELED"];
+                }
+			} elseif ($arResult["CAN_CANCEL"]=="Y") {
 				?>&nbsp;<a href="<?=$arResult["URL_TO_CANCEL"]?>"><?=GetMessage("SALE_CANCEL_ORDER")?>&gt;&gt;</a><?
 			}
 			?></td>
@@ -38,20 +41,20 @@
 	<tr>
 		<td align="right" colspan="2"><img src="/bitrix/images/1.gif" width="1" height="8"></td>
 	</tr>
-	<?if (IntVal($arResult["USER_ID"])>0):?>
+	<?if(intval($arResult["USER_ID"])>0):?>
 		<tr>
-			<th colspan="2"><b><?echo GetMessage("SPOD_ACCOUNT_DATA")?></b></th>
+			<th colspan="2"><b><?=GetMessage("SPOD_ACCOUNT_DATA")?></b></th>
 		</tr>
 		<tr>
-			<td align="right"><?= GetMessage("SPOD_ACCOUNT") ?>:</td>
+			<td align="right"><?=GetMessage("SPOD_ACCOUNT") ?>:</td>
 			<td><?=$arResult["USER_NAME"]?></td>
 		</tr>
 		<tr>
-			<td align="right"><?= GetMessage("SPOD_LOGIN") ?>:</td>
+			<td align="right"><?=GetMessage("SPOD_LOGIN") ?>:</td>
 			<td><?=$arResult["USER"]["LOGIN"]?></td>
 		</tr>
 		<tr>
-			<td align="right"><?echo GetMessage("SPOD_EMAIL")?></td>
+			<td align="right"><?=GetMessage("SPOD_EMAIL")?></td>
 			<td><a href="mailto:<?=$arResult["USER"]["EMAIL"]?>"><?=$arResult["USER"]["EMAIL"]?></a></td>
 		</tr>
 	<tr>
@@ -66,10 +69,8 @@
 		<td><?=$arResult["PERSON_TYPE"]["NAME"]?></td>
 	</tr>
 	<?
-	if(!empty($arResult["ORDER_PROPS"]))
-	{
-		foreach($arResult["ORDER_PROPS"] as $val)
-		{
+	if(!empty($arResult["ORDER_PROPS"])) {
+		foreach($arResult["ORDER_PROPS"] as $val) {
 			if ($val["SHOW_GROUP_NAME"] == "Y")
 			{
 				?>
@@ -80,24 +81,24 @@
 			}
 			?>
 			<tr>
-				<td align="right"><?echo $val["NAME"] ?>:</td>
+				<td align="right"><?=$val["NAME"] ?>:</td>
 				<td><?
-					if ($val["TYPE"] == "CHECKBOX")
-					{
-						if ($val["VALUE"] == "Y")
+					if ($val["TYPE"] == "CHECKBOX") {
+						if ($val["VALUE"] == "Y") {
 							echo GetMessage("SALE_YES");
-						else
-							echo GetMessage("SALE_NO");
+                    } else {
+                            echo GetMessage("SALE_NO");
+                        }
 					}
-					else
-						echo $val["VALUE"];
+					else {
+                        echo $val["VALUE"];
+                    }
 					?></td>
 			</tr>
 			<?
 		}
 	}
-	if (strlen($arResult["USER_DESCRIPTION"])>0)
-	{
+	if (strlen($arResult["USER_DESCRIPTION"])>0) {
 		?>
 		<tr>
 			<td align="right" colspan="2">
@@ -123,38 +124,36 @@
 	<tr>
 		<td align="right"><?=GetMessage("P_ORDER_PAY_SYSTEM")?>:</td>
 		<td><?
-			if (IntVal($arResult["PAY_SYSTEM_ID"]) > 0)
-				echo $arResult["PAY_SYSTEM"]["NAME"];
-			else
-				echo GetMessage("SPOD_NONE");
+			if (intval($arResult["PAY_SYSTEM_ID"]) > 0) {
+                echo $arResult["PAY_SYSTEM"]["NAME"];
+            } else {
+                echo GetMessage("SPOD_NONE");
+            }
 			?></td>
 	</tr>
 	<tr>
-		<td align="right"><?echo GetMessage("P_ORDER_PAYED") ?>:</td>
+		<td align="right"><?=GetMessage("P_ORDER_PAYED") ?>:</td>
 		<td>
 			<?
 			echo (($arResult["PAYED"] == "Y") ? GetMessage("SALE_YES") : GetMessage("SALE_NO"));
-			if ($arResult["PAYED"] == "Y")
-				echo GetMessage("SPOD_ORDER_FROM").$arResult["DATE_PAYED"].")";
+			if ($arResult["PAYED"] == "Y") {
+                echo GetMessage("SPOD_ORDER_FROM") . $arResult["DATE_PAYED"] . ")";
+            }
 			?>
-			
+
 		</td>
 	</tr>
 	<?
-	if ($arResult["CAN_REPAY"]=="Y")
-	{
+	if ($arResult["CAN_REPAY"]=="Y") {
 		?>
 		<tr>
 			<td colspan="2" align="center">
 				<?
-				if ($arResult["PAY_SYSTEM"]["PSA_NEW_WINDOW"] == "Y")
-				{
+				if ($arResult["PAY_SYSTEM"]["PSA_NEW_WINDOW"] == "Y") {
 					?>
 					<a href="<?=$arResult["PAY_SYSTEM"]["PSA_ACTION_FILE"]?>" target="_blank"><?=GetMessage("SALE_REPEAT_PAY")?></a>
 					<?
-				}
-				else
-				{
+				} else {
 					$ORDER_ID = $ID;
 					include($arResult["PAY_SYSTEM"]["PSA_ACTION_FILE"]);
 				}
@@ -171,17 +170,14 @@
 	</tr>
 
 	<tr>
-		<th colspan="2" align="center"><b><?= GetMessage("P_ORDER_DELIVERY")?></b></th>
+		<th colspan="2" align="center"><b><?=GetMessage("P_ORDER_DELIVERY")?></b></th>
 	</tr>
 	<tr>
 		<td align="right"><?=GetMessage("P_ORDER_DELIVERY")?>:</td>
 		<td><?
-			if (strpos($arResult["DELIVERY_ID"], ":") !== false || IntVal($arResult["DELIVERY_ID"]) > 0)
-			{
+			if (strpos($arResult["DELIVERY_ID"], ":") !== false || IntVal($arResult["DELIVERY_ID"]) > 0) {
 				echo $arResult["DELIVERY"]["NAME"];
-			}
-			else
-			{
+			} else {
 				echo GetMessage("SPOD_NONE");
 			}
 			?></td>
@@ -199,21 +195,22 @@
 
         <table class="sale_personal_order_detail total">
             <tr>
-				<th><?= GetMessage("SPOD_NAME") ?></th>
-				<th><?= GetMessage("SPOD_QUANTITY") ?></th>
-				<th><?= GetMessage("SPOD_PRICE") ?></th>
+				<th><?=GetMessage("SPOD_NAME") ?></th>
+				<th><?=GetMessage("SPOD_QUANTITY") ?></th>
+				<th><?=GetMessage("SPOD_PRICE") ?></th>
             </tr>
 		<?
-		foreach($arResult["BASKET"] as $val)
-		{
+		foreach($arResult["BASKET"] as $val) {
 			?>
 			<tr>
 				<td><?
-					if (strlen($val["DETAIL_PAGE_URL"])>0)
+					if (strlen($val["DETAIL_PAGE_URL"])>0) {
 						echo "<a href=\"".$val["DETAIL_PAGE_URL"]."\">";
+                    }
 					echo htmlspecialcharsEx($val["NAME"]);
-					if (strlen($val["DETAIL_PAGE_URL"])>0)
-						echo "</a>";
+					if (strlen($val["DETAIL_PAGE_URL"])>0) {
+                        echo "</a>";
+                    }
 					?>
                     </td>
 				<td align="right"><?=$val["QUANTITY"]?></td>
@@ -229,8 +226,7 @@
 			</tr>
 			<?endif;?>
 			<?
-			foreach($arResult["TAX_LIST"] as $val)
-			{
+			foreach($arResult["TAX_LIST"] as $val) {
 				?>
 				<tr>
                        <td></td>

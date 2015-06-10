@@ -59,11 +59,11 @@ if(!empty($arResult["DELIVERY"]))
 				?>
 				<tr>
 					<td valign="top" width="0%">
-						<input type="radio" id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>" name="<?=$arDelivery["FIELD_NAME"]?>" value="<?= $arDelivery["ID"] ?>"<?if ($arDelivery["CHECKED"]=="Y") echo " checked";?> onclick="submitForm();" />
+						<input type="radio" id="ID_DELIVERY_ID_<?=$arDelivery["ID"] ?>" name="<?=$arDelivery["FIELD_NAME"]?>" value="<?=$arDelivery["ID"] ?>"<?if ($arDelivery["CHECKED"]=="Y") echo " checked";?> onclick="submitForm();" />
 					</td>
 					<td valign="top" width="100%">
-						<label for="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>">
-						<b><?= $arDelivery["NAME"] ?></b><br />
+						<label for="ID_DELIVERY_ID_<?=$arDelivery["ID"] ?>">
+						<b><?=$arDelivery["NAME"] ?></b><br />
 						<?
 						if (strlen($arDelivery["PERIOD_TEXT"])>0)
 						{

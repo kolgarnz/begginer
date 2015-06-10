@@ -6,8 +6,7 @@ if (!CModule::IncludeModule("advertising"))
 
 $arTypeFields = Array("-" =>GetMessage("ADV_SELECT_DEFAULT"));
 $res = CAdvType::GetList($by, $order, Array("ACTIVE" => "Y"),$is_filtered, "Y");
-while (is_object($res) && $ar = $res->GetNext())
-{
+while (is_object($res) && $ar = $res->GetNext(true,false)){
 	$arTypeFields[$ar["SID"]] = "[".$ar["SID"]."] ".$ar["NAME"];
 }
 

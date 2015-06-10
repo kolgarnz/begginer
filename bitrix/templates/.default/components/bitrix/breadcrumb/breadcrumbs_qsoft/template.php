@@ -1,19 +1,20 @@
-<?
+<?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 //delayed function must return a string
-if(empty($arResult))
-	return "";
+if(empty($arResult)) {
+    return "";
+}
 
 $notShow = array();
 $notShow[] = '/catalog/';
 $notShow[] = '/company/';
+$notShow[] = '/auth/';
 
 
 $strReturn = '<nav class="nav_chain">';
 
-for($index = 0, $itemSize = count($arResult); $index < $itemSize; $index++)
-{
+for($index = 0, $itemSize = count($arResult); $index < $itemSize; $index++) {
     if(in_array($arResult[$index]['LINK'],$notShow)) {
         continue;
     }
@@ -29,7 +30,6 @@ for($index = 0, $itemSize = count($arResult); $index < $itemSize; $index++)
 		$strReturn .= '<span>'.$title.'</span>';
     }
 }
-
 $strReturn .= '</nav>';
 return $strReturn;
-?>
+

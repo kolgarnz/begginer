@@ -6,29 +6,45 @@ CPageOption::SetOptionString("main", "nav_page_in_session", "N");
 /*************************************************************************
 	Processing of received parameters
 *************************************************************************/
-if(!isset($arParams["CACHE_TIME"]))
-	$arParams["CACHE_TIME"] = 3600;
+if(!isset($arParams["CACHE_TIME"])) {
+    $arParams["CACHE_TIME"] = 3600;
+}
 
+if(strlen($arParams["ELEMENT_SORT_FIELD"])<=0) {
+    $arParams["ELEMENT_SORT_FIELD"] = "sort";
+}
 	
-if(strlen($arParams["ELEMENT_SORT_FIELD"])<=0)
-	$arParams["ELEMENT_SORT_FIELD"]="sort";
-	
-if(!preg_match('/^(asc|desc|nulls)(,asc|,desc|,nulls){0,1}$/i', $arParams["ELEMENT_SORT_ORDER"]))
-	$arParams["ELEMENT_SORT_ORDER"]="asc";
-	
-$arParams["PARENT_SECTION"] = intval($arParams["PARENT_SECTION"]);
+if(!preg_match('/^(asc|desc|nulls)(,asc|,desc|,nulls){0,1}$/i', $arParams["ELEMENT_SORT_ORDER"])) {
+    $arParams["ELEMENT_SORT_ORDER"] = "asc";
+}
 
 //custom component fields
 $arParams["IBLOCK_ID"] = intval($arParams["IBLOCK_ID"]);
 
 $arParams["IBLOCK_ELEMENT_COUNT"] = intval($arParams["IBLOCK_ELEMENT_COUNT"]);
-if($arParams["IBLOCK_ELEMENT_COUNT"] <= 0)
-	$arParams["IBLOCK_ELEMENT_COUNT"] = 1;
+if($arParams["IBLOCK_ELEMENT_COUNT"] <= 0) {
+    $arParams["IBLOCK_ELEMENT_COUNT"] = 1;
+}
 	
-if("Y"===$arParams["IBLOCK_SHOW_MAP"])
+if("Y"===$arParams["IBLOCK_SHOW_MAP"]) {
 	$arParams["IBLOCK_SHOW_MAP"] = true;
-else
-	$arParams["IBLOCK_SHOW_MAP"] = false;
+} else {
+    $arParams["IBLOCK_SHOW_MAP"] = false;
+}
+
+$arParams['IBLOCK_NO_IMAGE'] = trim($arParams['IBLOCK_NO_IMAGE']);
+if(strlen($arParams['IBLOCK_NO_IMAGE']) > 0) {
+    $arParams['IBLOCK_NO_IMAGE'] = addslashes($arParams['IBLOCK_NO_IMAGE']);
+} else {
+    $arParams['IBLOCK_NO_IMAGE'] = '';
+}
+
+$arParams['IBLOCK_ALL_URL'] = trim($arParams['IBLOCK_ALL_URL']);
+if(strlen($arParams['IBLOCK_ALL_URL']) > 0) {
+    $arParams['IBLOCK_ALL_URL'] = addslashes($arParams['IBLOCK_ALL_URL']);
+} else {
+    $arParams['IBLOCK_ALL_URL'] = '';
+}
 
 //Постраничная навигация
 $arParams["DISPLAY_TOP_PAGER"] = $arParams["DISPLAY_TOP_PAGER"]=="Y";
@@ -37,37 +53,33 @@ $arParams["PAGER_TITLE"] = trim($arParams["PAGER_TITLE"]);
 
 $arParams["PAGER_SHOW_ALWAYS"] = $arParams["PAGER_SHOW_ALWAYS"]!="N";
 $arParams["PAGER_TEMPLATE"] = trim($arParams["PAGER_TEMPLATE"]);
-$arParams["PAGER_DESC_NUMBERING"] = $arParams["PAGER_DESC_NUMBERING"]=="Y";
-$arParams["PAGER_DESC_NUMBERING_CACHE_TIME"] = intval($arParams["PAGER_DESC_NUMBERING_CACHE_TIME"]);
-$arParams["PAGER_SHOW_ALL"] = $arParams["PAGER_SHOW_ALL"]!=="N";
 
 
-if($arParams["DISPLAY_TOP_PAGER"] || $arParams["DISPLAY_BOTTOM_PAGER"] && $arParams['IBLOCK_ELEMENT_COUNT'] > 0)
-{
+if($arParams["DISPLAY_TOP_PAGER"] || $arParams["DISPLAY_BOTTOM_PAGER"]) {
     $arNavParams = array(
         "nPageSize" => $arParams["IBLOCK_ELEMENT_COUNT"],
-        "bDescPageNumbering" => $arParams["PAGER_DESC_NUMBERING"],
-        "bShowAll" => $arParams["PAGER_SHOW_ALL"],
     );
-
     $arNavigation = CDBResult::GetNavParams($arNavParams);
-    if($arNavigation["PAGEN"]==0 && $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"]>0)
-        $arParams["CACHE_TIME"] = $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"];
-}
-else
-{
+} else {
     $arNavParams = array(
         "nTopCount" => $arParams["IBLOCK_ELEMENT_COUNT"],
-        "bDescPageNumbering" => $arParams["PAGER_DESC_NUMBERING"],
     );
     $arNavigation = false;
 }
 //end of Постраничная навигация
 
-if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false: $USER->GetGroups()),$arNavigation,$arParams["IBLOCK_ELEMENT_COUNT"])))
+if(
+    $arParams["IBLOCK_ID"] > 0
+    && $this->StartResultCache(
+        false,
+        array(
+            ($arParams["CACHE_GROUPS"]==="N"? false: $USER->GetGroups()),
+            $arNavigation,
+            $arParams["IBLOCK_ELEMENT_COUNT"]
+        )
+    )
+)
 {
-
-
 	if(!CModule::IncludeModule("iblock"))
 	{
 		$this->AbortResultCache();
@@ -79,9 +91,7 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
 	//SELECT
 	$arSelect = array(
 		"ID",
-		"IBLOCK_ID",
-		"CODE",
-		"IBLOCK_SECTION_ID",
+        "IBLOCK_ID",
 		"NAME",
 		"PREVIEW_PICTURE",
 		"PROPERTY_WORK_HOURS",
@@ -89,7 +99,9 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
 		"PROPERTY_ADDRESS",
 	);
 
-	if($arParams["IBLOCK_SHOW_MAP"]) $arSelect[] = "PROPERTY_MAP";
+	if($arParams["IBLOCK_SHOW_MAP"]) {
+        $arSelect[] = "PROPERTY_MAP";
+    }
 	
 	//WHERE
 	$arFilter = array(
@@ -99,45 +111,31 @@ if($arParams["IBLOCK_ID"] > 0 && $this->StartResultCache(false, array(($arParams
 		"CHECK_PERMISSIONS"=>"Y",
 	);
 	
-	
-if($arParams["PARENT_SECTION"]>0)
-	{
-		$arFilter["SECTION_ID"] = $arParams["PARENT_SECTION"];
-		$arFilter["INCLUDE_SUBSECTIONS"] = "Y";
-	}
-	
-	
 	//ORDER BY
 	$arSort = array(
 		$arParams["ELEMENT_SORT_FIELD"] => $arParams["ELEMENT_SORT_ORDER"],
-		"ID" => "ASC",
 	);
-	
 	
 	//EXECUTE
 	$rsIBlockElement = CIBlockElement::GetList($arSort, $arFilter, false, $arNavParams, $arSelect);
-	$rsIBlockElement->SetUrlTemplates($arParams["IBLOCK_ALL_URL"]);
 
-	
+    while($temp = $rsIBlockElement->GetNext(true,false)) {
 
-
-    while($temp = $rsIBlockElement->GetNext()) {
-        $temp["PICTURE"] = CFile::GetFileArray($temp["PREVIEW_PICTURE"]);
+        if(strlen($temp["PREVIEW_PICTURE"]) > 0) {
+        $temp["PICTURE"] = CFile::GetPath($temp["PREVIEW_PICTURE"]);
+        } elseif(strlen($arParams['IBLOCK_NO_IMAGE']) > 0) {
+            $temp["PICTURE"] = $arParams['IBLOCK_NO_IMAGE'];
+        } else {
+            $temp["PICTURE"] = '';
+        }
 
         $arResult['ITEMS'][$temp['ID']] = $temp;
-        if ($arParams["IBLOCK_SHOW_MAP"]) {
-            $yaTmp = explode(',', $temp['PROPERTY_MAP_VALUE']);
-            $arResult['POSITION']['yandex_lat'] = $yaTmp[0];
-            $arResult['POSITION']['yandex_lon'] = $yaTmp[1];
+        if ($arParams["IBLOCK_SHOW_MAP"] && strlen($temp['PROPERTY_MAP_VALUE'] > 0)) {
+            list($arResult['POSITION']['yandex_lat'], $arResult['POSITION']['yandex_lon']) = explode(',', $temp['PROPERTY_MAP_VALUE']);
             $arResult['POSITION']['PLACEMARKS'][] = array(
-                'LAT' => $yaTmp[0],
-                'LON' => $yaTmp[1],
-                'TEXT' => '<address>' .
-                    '<strong>' . $temp['NAME'] . '</strong>' .
-                    '<br/><hr>' .
-                    'Адрес: ' . $temp['PROPERTY_ADDRESS_VALUE'] .
-                    '<br/>' .
-                    '</address>'
+                'LAT' => $arResult['POSITION']['yandex_lat'],
+                'LON' => $arResult['POSITION']['yandex_lon'],
+                'TEXT' => $temp['PROPERTY_ADDRESS_VALUE']
             );
         }
         $arButtons = CIBlock::GetPanelButtons(
@@ -152,47 +150,39 @@ if($arParams["PARENT_SECTION"]>0)
         unset($temp);
     }
 
-    $arResult["NAV_STRING"] = $rsIBlockElement->GetPageNavStringEx($navComponentObject, $arParams["PAGER_TITLE"], $arParams["PAGER_TEMPLATE"], $arParams["PAGER_SHOW_ALWAYS"]);
-    $arResult["NAV_CACHED_DATA"] = $navComponentObject->GetTemplateCachedData();
-    $arResult["NAV_RESULT"] = $rsIBlockElement;
-
+    if($arNavigation && (count($arResult['ITEMS']) >= $arParams['IBLOCK_ELEMENT_COUNT'] || $arNavigation["PAGEN"] > 0)) {
+        $arResult["NAV_STRING"] = $rsIBlockElement->GetPageNavStringEx($navComponentObject, $arParams["PAGER_TITLE"], $arParams["PAGER_TEMPLATE"]);
+        $arResult["NAV_CACHED_DATA"] = $navComponentObject->GetTemplateCachedData();
+        $arResult["NAV_RESULT"] = $rsIBlockElement;
+        $this->SetResultCacheKeys(array("NAV_CACHED_DATA"));
+    };
 
 
     $this->SetResultCacheKeys(array(
         "ITEMS",
         "POSITION",
-        "NAV_CACHED_DATA"
     ));
 	$this->IncludeComponentTemplate();
-
 }
 
-
-if(isset($arResult["ITEMS"])) {
+if(isset($arResult["ITEMS"]) && $arResult["NAV_CACHED_DATA"]) {
     $this->SetTemplateCachedData($arResult["NAV_CACHED_DATA"]);
 }
 
 if($USER->IsAuthorized() && $arParams["IBLOCK_ID"] > 0)	{
-	if(
-	$APPLICATION->GetShowIncludeAreas()
-	|| (is_object($GLOBALS["INTRANET_TOOLBAR"]) && $arParams["INTRANET_TOOLBAR"]!=="N")
-	|| $arParams["SET_TITLE"]
-	|| isset($arResult[$arParams["BROWSER_TITLE"]])
-	) {
-        if(CModule::IncludeModule("iblock")) {
-            $arButtons = CIBlock::GetPanelButtons(
-                $arParams["IBLOCK_ID"],
-                0,
-                $arResult["ID"],
-                array("ELEMENT_ADD"=>true)
-            );
-            unset($arButtons['submenu']['add_section']);
-            unset($arButtons['configure']['add_section']);
-            unset($arButtons['edit']['add_section']);
-            if($APPLICATION->GetShowIncludeAreas()) {
-                $this->AddIncludeAreaIcons(CIBlock::GetComponentMenu($APPLICATION->GetPublicShowMode(), $arButtons));
-            }
+	if(	$APPLICATION->GetShowIncludeAreas()	&& CModule::IncludeModule("iblock")) {
+        $arButtons = CIBlock::GetPanelButtons(
+            $arParams["IBLOCK_ID"],
+            0,
+            $arResult["ID"],
+            array("ELEMENT_ADD"=>true)
+        );
+        unset($arButtons['submenu']['add_section']);
+        unset($arButtons['configure']['add_section']);
+        unset($arButtons['edit']['add_section']);
+        if($APPLICATION->GetShowIncludeAreas()) {
+            $this->AddIncludeAreaIcons(CIBlock::GetComponentMenu($APPLICATION->GetPublicShowMode(), $arButtons));
         }
     }
 }
-?>
+

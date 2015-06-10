@@ -1,5 +1,4 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?IncludeTemplateLangFile(__FILE__);?>
 <!DOCTYPE>
 <!--[if IE 7]>    <html class="ie7"> <![endif]-->
 <!--[if IE 8]>    <html class="ie8> <![endif]-->
@@ -9,8 +8,9 @@
 
         <title><?$APPLICATION->ShowTitle()?></title>
         <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js"></script>
+
+        <?$APPLICATION->AddHeadScript("//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")?>
+        <?$APPLICATION->AddHeadScript("//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js")?>
 
         <?$APPLICATION->SetAdditionalCSS('/bitrix/templates/.default/css/base.css')?>
         <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/default_script.js")?>
@@ -29,7 +29,7 @@
         <?$APPLICATION->AddHeadScript("/bitrix/templates/.default/js/jquery-ui-1.10.3.custom.min.js")?>
 
         <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
         <![endif]-->
         <?$APPLICATION->ShowHead()?>
     </head>

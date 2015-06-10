@@ -41,13 +41,7 @@ $arComponentParameters = array(
 			"VALUES" => $arIBlock,
 			"REFRESH" => "Y",
 		),
-		"PARENT_SECTION" => array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("IBLOCK_SECTION_ID"),
-			"TYPE" => "STRING",
-			"DEFAULT" => '',
-		),
-		
+
 		"CACHE_TIME"  =>  Array("DEFAULT"=>3600),
 		"CACHE_GROUPS" => array(
 			"PARENT" => "CACHE_SETTINGS",
@@ -72,7 +66,7 @@ $arComponentParameters = array(
 			"TYPE" => "LIST",
 			"VALUES" => $arAscDesc,
 			"DEFAULT" => "asc",
-			"ADDITIONAL_VALUES" => "Y",
+			"ADDITIONAL_VALUES" => "N",
 		),	
 		//custom component fields
 		"IBLOCK_ELEMENT_COUNT" => array(
@@ -89,6 +83,12 @@ $arComponentParameters = array(
 			"DEFAULT" => false,
 		
 		),
+        "IBLOCK_NO_IMAGE" => array(
+            "PARENT" => "VISUAL",
+            "NAME" => GetMessage("IBLOCK_NO_IMAGE"),
+            "TYPE" => "STRING",
+            "DEFAULT" => '/bitrix/templates/.default/images/no-image.jpg',
+        ),
 		"IBLOCK_ALL_URL" => CIBlockParameters::GetPathTemplateParam(
 				"DETAIL",
 				"DETAIL_URL",
@@ -98,5 +98,5 @@ $arComponentParameters = array(
 			),
 		),
 );
-CIBlockParameters::AddPagerSettings($arComponentParameters, GetMessage("T_IBLOCK_DESC_PAGER_NEWS"), true, true);
-?>
+CIBlockParameters::AddPagerSettings($arComponentParameters, GetMessage("IBLOCK_DESK_PAGGER_SALON"), false, false);
+

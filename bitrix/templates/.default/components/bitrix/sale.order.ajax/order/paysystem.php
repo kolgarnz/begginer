@@ -44,11 +44,11 @@
 			?>
 			<tr>
 				<td width="0%" class="radio">
-					<input type="radio" id="ID_PAY_SYSTEM_ID_<?= $arPaySystem["ID"] ?>" name="PAY_SYSTEM_ID" value="<?= $arPaySystem["ID"] ?>"<?if ($arPaySystem["CHECKED"]=="Y") echo " checked=\"checked\"";?> onclick="submitForm();" />
+					<input type="radio" id="ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"] ?>" name="PAY_SYSTEM_ID" value="<?=$arPaySystem["ID"] ?>"<?if ($arPaySystem["CHECKED"]=="Y") echo " checked=\"checked\"";?> onclick="submitForm();" />
 				</td>
 				<td width="100%">
-					<label for="ID_PAY_SYSTEM_ID_<?= $arPaySystem["ID"] ?>">
-							<b><?= $arPaySystem["PSA_NAME"] ?></b><br />
+					<label for="ID_PAY_SYSTEM_ID_<?=$arPaySystem["ID"] ?>">
+							<b><?=$arPaySystem["PSA_NAME"] ?></b><br />
 							<?
 							if (strlen($arPaySystem["DESCRIPTION"])>0)
 							{
